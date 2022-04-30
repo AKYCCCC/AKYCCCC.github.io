@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>初识c语言练习作业 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="&#x2F;&#x2F;作业1：动态组名&#x2F;&#x2F;作业2：模拟用户情景，输入密码，输入错误3次则退出程序&#x2F;&#x2F;作业3：写一个输入密码，并且确认密码&#x2F;&#x2F;作业4：计算n的阶乘&#x2F;&#x2F;作业5：计算n的阶乘相加&#x2F;&#x2F;作业6：在1-10中查找一个数.（有序数组）&#x2F;&#x2F;作业7：猜数字游戏 （一般般）&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识c语言练习作业">
+<meta property="og:url" content="http://example.com/2022/04/30/%E5%88%9D%E8%AF%86c%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&#x2F;&#x2F;作业1：动态组名&#x2F;&#x2F;作业2：模拟用户情景，输入密码，输入错误3次则退出程序&#x2F;&#x2F;作业3：写一个输入密码，并且确认密码&#x2F;&#x2F;作业4：计算n的阶乘&#x2F;&#x2F;作业5：计算n的阶乘相加&#x2F;&#x2F;作业6：在1-10中查找一个数.（有序数组）&#x2F;&#x2F;作业7：猜数字游戏 （一般般）&amp;#x2">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-04-30T05:12:36.000Z">
+<meta property="article:modified_time" content="2022-04-30T05:16:25.376Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-初识c语言练习作业" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/30/%E5%88%9D%E8%AF%86c%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A/" class="article-date">
+  <time class="dt-published" datetime="2022-04-30T05:12:36.000Z" itemprop="datePublished">2022-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      初识c语言练习作业
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="x2F-x2F-作业1：动态组名"><a href="#x2F-x2F-作业1：动态组名" class="headerlink" title="&#x2F;&#x2F;作业1：动态组名"></a>&#x2F;&#x2F;作业1：动态组名</h1><h1 id="x2F-x2F-作业2：模拟用户情景，输入密码，输入错误3次则退出程序"><a href="#x2F-x2F-作业2：模拟用户情景，输入密码，输入错误3次则退出程序" class="headerlink" title="&#x2F;&#x2F;作业2：模拟用户情景，输入密码，输入错误3次则退出程序"></a>&#x2F;&#x2F;作业2：模拟用户情景，输入密码，输入错误3次则退出程序</h1><h1 id="x2F-x2F-作业3：写一个输入密码，并且确认密码"><a href="#x2F-x2F-作业3：写一个输入密码，并且确认密码" class="headerlink" title="&#x2F;&#x2F;作业3：写一个输入密码，并且确认密码"></a>&#x2F;&#x2F;作业3：写一个输入密码，并且确认密码</h1><h1 id="x2F-x2F-作业4：计算n的阶乘"><a href="#x2F-x2F-作业4：计算n的阶乘" class="headerlink" title="&#x2F;&#x2F;作业4：计算n的阶乘"></a>&#x2F;&#x2F;作业4：计算n的阶乘</h1><h1 id="x2F-x2F-作业5：计算n的阶乘相加"><a href="#x2F-x2F-作业5：计算n的阶乘相加" class="headerlink" title="&#x2F;&#x2F;作业5：计算n的阶乘相加"></a>&#x2F;&#x2F;作业5：计算n的阶乘相加</h1><h1 id="x2F-x2F-作业6：在1-10中查找一个数-（有序数组）"><a href="#x2F-x2F-作业6：在1-10中查找一个数-（有序数组）" class="headerlink" title="&#x2F;&#x2F;作业6：在1-10中查找一个数.（有序数组）"></a>&#x2F;&#x2F;作业6：在1-10中查找一个数.（有序数组）</h1><h1 id="x2F-x2F-作业7：猜数字游戏-（一般般）"><a href="#x2F-x2F-作业7：猜数字游戏-（一般般）" class="headerlink" title="&#x2F;&#x2F;作业7：猜数字游戏 （一般般）"></a>&#x2F;&#x2F;作业7：猜数字游戏 （一般般）</h1><h1 id="x2F-x2F-作业8：输入3个数a-b-c-让三个数从大到小排列"><a href="#x2F-x2F-作业8：输入3个数a-b-c-让三个数从大到小排列" class="headerlink" title="&#x2F;&#x2F;作业8：输入3个数a,b,c, 让三个数从大到小排列"></a>&#x2F;&#x2F;作业8：输入3个数a,b,c, 让三个数从大到小排列</h1><h1 id="x2F-x2F-作业9：打印1-100中3的倍数（优化）"><a href="#x2F-x2F-作业9：打印1-100中3的倍数（优化）" class="headerlink" title="&#x2F;&#x2F;作业9：打印1-100中3的倍数（优化）"></a>&#x2F;&#x2F;作业9：打印1-100中3的倍数（优化）</h1><h1 id="x2F-x2F-作业10：给2个数，求最大公约数（优化）"><a href="#x2F-x2F-作业10：给2个数，求最大公约数（优化）" class="headerlink" title="&#x2F;&#x2F;作业10：给2个数，求最大公约数（优化）"></a>&#x2F;&#x2F;作业10：给2个数，求最大公约数（优化）</h1><h1 id="x2F-x2F-作业11：打印1000-2000之间的闰年（优化）"><a href="#x2F-x2F-作业11：打印1000-2000之间的闰年（优化）" class="headerlink" title="&#x2F;&#x2F;作业11：打印1000-2000之间的闰年（优化）"></a>&#x2F;&#x2F;作业11：打印1000-2000之间的闰年（优化）</h1><h1 id="x2F-x2F-作业12：队友100-200之间的素数（优化）"><a href="#x2F-x2F-作业12：队友100-200之间的素数（优化）" class="headerlink" title="&#x2F;&#x2F;作业12：队友100-200之间的素数（优化）"></a>&#x2F;&#x2F;作业12：队友100-200之间的素数（优化）</h1><h1 id="x2F-x2F-作业13：打印100-200之间素数（函数）"><a href="#x2F-x2F-作业13：打印100-200之间素数（函数）" class="headerlink" title="&#x2F;&#x2F;作业13：打印100-200之间素数（函数）"></a>&#x2F;&#x2F;作业13：打印100-200之间素数（函数）</h1><h1 id="x2F-x2F-作业14：打印1000-2000之间的闰年（函数）"><a href="#x2F-x2F-作业14：打印1000-2000之间的闰年（函数）" class="headerlink" title="&#x2F;&#x2F;作业14：打印1000-2000之间的闰年（函数）"></a>&#x2F;&#x2F;作业14：打印1000-2000之间的闰年（函数）</h1><h1 id="x2F-x2F-作业15：在1-10之间查找一个数（函数）（有序数组）"><a href="#x2F-x2F-作业15：在1-10之间查找一个数（函数）（有序数组）" class="headerlink" title="&#x2F;&#x2F;作业15：在1-10之间查找一个数（函数）（有序数组）"></a>&#x2F;&#x2F;作业15：在1-10之间查找一个数（函数）（有序数组）</h1><h1 id="x2F-x2F-作业16：写一个函数，每调用一次函数，num就加1（函数）"><a href="#x2F-x2F-作业16：写一个函数，每调用一次函数，num就加1（函数）" class="headerlink" title="&#x2F;&#x2F;作业16：写一个函数，每调用一次函数，num就加1（函数）"></a>&#x2F;&#x2F;作业16：写一个函数，每调用一次函数，num就加1（函数）</h1><h1 id="x2F-x2F-作业17：接受一个整形值（无符号），按照顺序打印他的每一位-例如：输入：1234，打印1-2-3-4-（递归）"><a href="#x2F-x2F-作业17：接受一个整形值（无符号），按照顺序打印他的每一位-例如：输入：1234，打印1-2-3-4-（递归）" class="headerlink" title="&#x2F;&#x2F;作业17：接受一个整形值（无符号），按照顺序打印他的每一位.例如：输入：1234，打印1 2 3 4.（递归）"></a>&#x2F;&#x2F;作业17：接受一个整形值（无符号），按照顺序打印他的每一位.例如：输入：1234，打印1 2 3 4.（递归）</h1><h1 id="x2F-x2F-作业18：编写函数不允许创建临时变量，求字符串长度-（递归）"><a href="#x2F-x2F-作业18：编写函数不允许创建临时变量，求字符串长度-（递归）" class="headerlink" title="&#x2F;&#x2F;作业18：编写函数不允许创建临时变量，求字符串长度.（递归）"></a>&#x2F;&#x2F;作业18：编写函数不允许创建临时变量，求字符串长度.（递归）</h1><h1 id="x2F-x2F-作业19：求n的阶乘（递归）"><a href="#x2F-x2F-作业19：求n的阶乘（递归）" class="headerlink" title="&#x2F;&#x2F;作业19：求n的阶乘（递归）"></a>&#x2F;&#x2F;作业19：求n的阶乘（递归）</h1><h1 id="x2F-x2F-作业20：求第n个斐波那契数（不考虑溢出）（递归）（不同方法）"><a href="#x2F-x2F-作业20：求第n个斐波那契数（不考虑溢出）（递归）（不同方法）" class="headerlink" title="&#x2F;&#x2F;作业20：求第n个斐波那契数（不考虑溢出）（递归）（不同方法）"></a>&#x2F;&#x2F;作业20：求第n个斐波那契数（不考虑溢出）（递归）（不同方法）</h1><h1 id="x2F-x2F-作业21：编写程序数一下1-100的所有整数中出现多少个9"><a href="#x2F-x2F-作业21：编写程序数一下1-100的所有整数中出现多少个9" class="headerlink" title="&#x2F;&#x2F;作业21：编写程序数一下1-100的所有整数中出现多少个9"></a>&#x2F;&#x2F;作业21：编写程序数一下1-100的所有整数中出现多少个9</h1><h1 id="x2F-x2F-作业22：计算1-x2F-1-1-x2F-2-1-x2F-3-1-x2F-4………-1-x2F-99-1-x2F-100-的值"><a href="#x2F-x2F-作业22：计算1-x2F-1-1-x2F-2-1-x2F-3-1-x2F-4………-1-x2F-99-1-x2F-100-的值" class="headerlink" title="&#x2F;&#x2F;作业22：计算1&#x2F;1-1&#x2F;2+1&#x2F;3-1&#x2F;4………+1&#x2F;99-1&#x2F;100.的值"></a>&#x2F;&#x2F;作业22：计算1&#x2F;1-1&#x2F;2+1&#x2F;3-1&#x2F;4………+1&#x2F;99-1&#x2F;100.的值</h1><h1 id="x2F-x2F-作业23：求10个数中的最大值"><a href="#x2F-x2F-作业23：求10个数中的最大值" class="headerlink" title="&#x2F;&#x2F;作业23：求10个数中的最大值"></a>&#x2F;&#x2F;作业23：求10个数中的最大值</h1><h1 id="x2F-x2F-作业24：打印乘法口诀表"><a href="#x2F-x2F-作业24：打印乘法口诀表" class="headerlink" title="&#x2F;&#x2F;作业24：打印乘法口诀表"></a>&#x2F;&#x2F;作业24：打印乘法口诀表</h1><h1 id="x2F-x2F-作业拓展25：汉诺塔"><a href="#x2F-x2F-作业拓展25：汉诺塔" class="headerlink" title="&#x2F;&#x2F;作业拓展25：汉诺塔"></a>&#x2F;&#x2F;作业拓展25：汉诺塔</h1><h1 id="x2F-x2F-作业拓展26：跳台阶"><a href="#x2F-x2F-作业拓展26：跳台阶" class="headerlink" title="&#x2F;&#x2F;作业拓展26：跳台阶"></a>&#x2F;&#x2F;作业拓展26：跳台阶</h1><h1 id="x2F-x2F-作业27：字符串逆序-reverse-string-，不允许用库函数（可以自己创建一个和库函数功能相同的函数）（递归）（普通方法（指针））"><a href="#x2F-x2F-作业27：字符串逆序-reverse-string-，不允许用库函数（可以自己创建一个和库函数功能相同的函数）（递归）（普通方法（指针））" class="headerlink" title="&#x2F;&#x2F;作业27：字符串逆序(reverse_string())，不允许用库函数（可以自己创建一个和库函数功能相同的函数）（递归）（普通方法（指针））"></a>&#x2F;&#x2F;作业27：字符串逆序(reverse_string())，不允许用库函数（可以自己创建一个和库函数功能相同的函数）（递归）（普通方法（指针））</h1><h1 id="x2F-x2F-作业28；写一个递归函数Digitsum-n-输入一个非负整数，返回组成他的数字之和"><a href="#x2F-x2F-作业28；写一个递归函数Digitsum-n-输入一个非负整数，返回组成他的数字之和" class="headerlink" title="&#x2F;&#x2F;作业28；写一个递归函数Digitsum(n),输入一个非负整数，返回组成他的数字之和."></a>&#x2F;&#x2F;作业28；写一个递归函数Digitsum(n),输入一个非负整数，返回组成他的数字之和.</h1><h1 id="x2F-x2F-作业29：编写一个函数计算n的k次方-（递归）"><a href="#x2F-x2F-作业29：编写一个函数计算n的k次方-（递归）" class="headerlink" title="&#x2F;&#x2F;作业29：编写一个函数计算n的k次方.（递归）"></a>&#x2F;&#x2F;作业29：编写一个函数计算n的k次方.（递归）</h1><h1 id="x2F-x2F-作业30：冒泡排序-bubble-sort"><a href="#x2F-x2F-作业30：冒泡排序-bubble-sort" class="headerlink" title="&#x2F;&#x2F;作业30：冒泡排序 bubble_sort()"></a>&#x2F;&#x2F;作业30：冒泡排序 bubble_sort()</h1><h1 id="x2F-x2F-三字棋31（高级）"><a href="#x2F-x2F-三字棋31（高级）" class="headerlink" title="&#x2F;&#x2F;三字棋31（高级）"></a>&#x2F;&#x2F;三字棋31（高级）</h1><h1 id="x2F-x2F-扫雷32（高级）"><a href="#x2F-x2F-扫雷32（高级）" class="headerlink" title="&#x2F;&#x2F;扫雷32（高级）"></a>&#x2F;&#x2F;扫雷32（高级）</h1><h1 id="x2F-x2F-作业33：求一个整数存储在内存中的二进制中的1的个数"><a href="#x2F-x2F-作业33：求一个整数存储在内存中的二进制中的1的个数" class="headerlink" title="&#x2F;&#x2F;作业33：求一个整数存储在内存中的二进制中的1的个数"></a>&#x2F;&#x2F;作业33：求一个整数存储在内存中的二进制中的1的个数</h1><h1 id="x2F-x2F-小练习34"><a href="#x2F-x2F-小练习34" class="headerlink" title="&#x2F;&#x2F;小练习34"></a>&#x2F;&#x2F;小练习34</h1><p>&#x2F;&#x2F;int i &#x3D; 0, a &#x3D; 0, b &#x3D; 2, c &#x3D; 3, d &#x3D; 4;               &amp;&amp;思路：先从a++开始算，a&#x3D;0且后面用的&amp;&amp;，那么，0 &amp;&amp; ++b &amp;&amp; d++,在&amp;&amp;中只要有一个0那么后面的就都不用去算了.b，d不变<br>&#x2F;&#x2F;i &#x3D; a++ &amp;&amp; ++b &amp;&amp; d++;                                      但是a++用过了，所以加上1，那么a&#x3D;1，所以最后结果是 1 2 3 4   &amp;&amp;遇到假就直接停下来不继续算下去<br>&#x2F;&#x2F;&#x2F;&#x2F; i &#x3D; a++ || ++b || d++;                             ||思路，遇到真就直接停下来不继续算下去<br>&#x2F;&#x2F;printf(“ a &#x3D; %d\n b &#x3D; %d\n c &#x3D; %d\n d &#x3D; %d\n”, a, b, c, d);</p>
+<h1 id="x2F-x2F-作业35：1-实现函数init（）初始化数组为0"><a href="#x2F-x2F-作业35：1-实现函数init（）初始化数组为0" class="headerlink" title="&#x2F;&#x2F;作业35：1.实现函数init（）初始化数组为0"></a>&#x2F;&#x2F;作业35：1.实现函数init（）初始化数组为0</h1><p>2.实现print（）打印数组的每个元素<br>3.实现对reverse（）函数完成数组元素的逆置</p>
+<h1 id="x2F-x2F-作业36：将数组a中的内容和数组b中的内容交换"><a href="#x2F-x2F-作业36：将数组a中的内容和数组b中的内容交换" class="headerlink" title="&#x2F;&#x2F;作业36：将数组a中的内容和数组b中的内容交换"></a>&#x2F;&#x2F;作业36：将数组a中的内容和数组b中的内容交换</h1><h1 id="x2F-x2F-作业37：模拟实现库函数-strcpy"><a href="#x2F-x2F-作业37：模拟实现库函数-strcpy" class="headerlink" title="&#x2F;&#x2F;作业37：模拟实现库函数 strcpy"></a>&#x2F;&#x2F;作业37：模拟实现库函数 strcpy</h1><h1 id="x2F-x2F-作业38：模拟实现库函数-strlen"><a href="#x2F-x2F-作业38：模拟实现库函数-strlen" class="headerlink" title="&#x2F;&#x2F;作业38：模拟实现库函数 strlen"></a>&#x2F;&#x2F;作业38：模拟实现库函数 strlen</h1><h1 id="x2F-x2F-作业39：计算参数n的二进制补码中有几个一-Numberof1"><a href="#x2F-x2F-作业39：计算参数n的二进制补码中有几个一-Numberof1" class="headerlink" title="&#x2F;&#x2F;作业39：计算参数n的二进制补码中有几个一 Numberof1"></a>&#x2F;&#x2F;作业39：计算参数n的二进制补码中有几个一 Numberof1</h1><h1 id="x2F-x2F-作业40：写一个代码判断一个数字是不是2的n次方"><a href="#x2F-x2F-作业40：写一个代码判断一个数字是不是2的n次方" class="headerlink" title="&#x2F;&#x2F;作业40：写一个代码判断一个数字是不是2的n次方"></a>&#x2F;&#x2F;作业40：写一个代码判断一个数字是不是2的n次方</h1><h1 id="x2F-x2F-作业41：打印一个数（n）二进制的奇数位和偶数位（获取一个整数二进制中所有的偶数位和奇数位，分别打印出二进制序列）"><a href="#x2F-x2F-作业41：打印一个数（n）二进制的奇数位和偶数位（获取一个整数二进制中所有的偶数位和奇数位，分别打印出二进制序列）" class="headerlink" title="&#x2F;&#x2F;作业41：打印一个数（n）二进制的奇数位和偶数位（获取一个整数二进制中所有的偶数位和奇数位，分别打印出二进制序列）"></a>&#x2F;&#x2F;作业41：打印一个数（n）二进制的奇数位和偶数位（获取一个整数二进制中所有的偶数位和奇数位，分别打印出二进制序列）</h1><h1 id="x2F-x2F-作业42：交换两个变量（不创建临时变量）"><a href="#x2F-x2F-作业42：交换两个变量（不创建临时变量）" class="headerlink" title="&#x2F;&#x2F;作业42：交换两个变量（不创建临时变量）"></a>&#x2F;&#x2F;作业42：交换两个变量（不创建临时变量）</h1><h1 id="x2F-x2F-作业43：找出2个数的最小公倍数"><a href="#x2F-x2F-作业43：找出2个数的最小公倍数" class="headerlink" title="&#x2F;&#x2F;作业43：找出2个数的最小公倍数"></a>&#x2F;&#x2F;作业43：找出2个数的最小公倍数</h1><h1 id="x2F-x2F-作业44：将一句话的单词进行倒置，标点不倒置，比如-i-like-beijing-经过倒置后变成-beijing-like-i"><a href="#x2F-x2F-作业44：将一句话的单词进行倒置，标点不倒置，比如-i-like-beijing-经过倒置后变成-beijing-like-i" class="headerlink" title="&#x2F;&#x2F;作业44：将一句话的单词进行倒置，标点不倒置，比如 i like beijing. 经过倒置后变成 beijing.like i"></a>&#x2F;&#x2F;作业44：将一句话的单词进行倒置，标点不倒置，比如 i like beijing. 经过倒置后变成 beijing.like i</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/30/%E5%88%9D%E8%AF%86c%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A/" data-id="cl2lg269b0001h4j780m83och" data-title="初识c语言练习作业" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/30/c%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          c语言进阶
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/28/%E7%A0%B4%E8%A7%A3%E7%89%88%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E8%81%94%E6%9C%BA-PCL2%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">破解版我的世界联机+PCL2使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/30/c%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/">c语言进阶</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/30/%E5%88%9D%E8%AF%86c%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A0%E4%BD%9C%E4%B8%9A/">初识c语言练习作业</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/28/%E7%A0%B4%E8%A7%A3%E7%89%88%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E8%81%94%E6%9C%BA-PCL2%E4%BD%BF%E7%94%A8/">破解版我的世界联机+PCL2使用</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/28/%E4%BD%BF%E7%94%A8Hexo-github%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/">使用Hexo+github博客的搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/28/c%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%98%B6/">c语言中阶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

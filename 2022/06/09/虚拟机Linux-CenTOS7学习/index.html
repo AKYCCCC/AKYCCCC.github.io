@@ -484,7 +484,7 @@
 <p>打开对话框<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-14-48-42.png"></p>
 <p>修改对话框字体大小<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-14-49-43.png"></p>
 <blockquote>
-<p>一些指令<br>clear：清空屏幕<br>ls:查找当前目录下的文件<br>su - :把自己设为超级管理员<br>whoami:查看当前自己的身份<br>nano &#x2F;etc&#x2F;soudoers :用记事本的方式打开文件<br>set nu:显示行数<br>EXIT：退出</p>
+<p>一些指令<br>clear：清空屏幕<br>ls:查找当前目录下的文件<br>su - :把自己设为超级管理员<br>whoami:查看当前自己的身份<br>nano &#x2F;etc&#x2F;soudoers :用记事本的方式打开文件<br>set nu:显示行数<br>EXIT：退出<br>passwd:修改当前用户密码<br>passwd *** ：修改指定用户密码</p>
 </blockquote>
 <h3 id="修改自己的权限"><a href="#修改自己的权限" class="headerlink" title="修改自己的权限"></a>修改自己的权限</h3><p>1.把自己设为超级管理员（su -）输入root密码<br>2.用记事本的方法打开进入配置文件修改权限 （nano &#x2F;etc&#x2F;soudoers）<br>3.修改权限<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-15-02-06.png"><br>4.ctrl+x（^x），然后输入y确认保存修改，回车退出<br>5.exit退出超级管理员模式</p>
 <h3 id="修改root密码"><a href="#修改root密码" class="headerlink" title="修改root密码"></a>修改root密码</h3><p>1.进入超级管理员模式（su -）输入root密码<br>2.输入passwd,输入新密码（root密码），确认新密码<br>3.提示swd: all authentication tokens updated successfully.修改成功<br>4.exit退出超级用户<br>root一定不要和用户密码一样，而且root密码安全级别一定要比普通密码高<br>直接输入passwd默认修改的是当前用户的密码<br>想修改其他人的密码要在passwd后加上其他人的名字（passwd和名字之间要空格）</p>

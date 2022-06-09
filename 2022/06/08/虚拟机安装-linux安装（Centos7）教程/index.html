@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="虚拟机安装+linux安装（Centos7）教程, AKYCCCC">
-    <meta name="description" content="">
+    <meta name="description" content="前言提前说明linux是一个操作系统是基于汇编和b语言的开发的。之后作者将linux开源了。所以后来衍生出了各种版本的.最常见的ubuntu、CenTOS、kali、fedora等linux官网这边我使用的是Centos7这样的版本linu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -428,12 +428,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                <span class="chip bg-color">教程</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="post-category">
+                                教程相关
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -463,7 +476,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>提前说明<br>linux是一个操作系统是基于汇编和b语言的开发的。之后作者将linux开源了。所以后来衍生出了各种版本的.最常见的ubuntu、CenTOS、kali、fedora等<br><a target="_blank" rel="noopener" href="https://www.linux.org/pages/download/">linux官网</a><br>这边我使用的是Centos7这样的版本<br>linux系统可以直接在自己的实物机上安装，但是linux系统对于刚接触的人绝对不如win系统好用。这边就不建议装在自己的电脑上，就算说用什么双系统啊，什么的乱七八糟的，绝对会很烦.<br>linux最好的肯定是去购买云服务器.云服务器上你选一下，他就自动帮你装好了.直接使用就可以了.而且云服务器有自己的公网ip，后期搞什么东西的话直接可以实施.最重要的一点，云服务器上你搞坏了，重头在来一遍就可以了.但是云服务器要花钱.<br>所以我选择使用虚拟机来创建linux系统，注：实物机配置太低，会很卡的。而且用虚拟机以后会出现很多问题.如果喜欢倒腾而且有环境的选择虚拟机，只是学linux的最好还是花钱买云服务器.<br>下面开始虚拟机安装教程</p>
+<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><h4 id="虚拟机的安装"><a href="#虚拟机的安装" class="headerlink" title="虚拟机的安装"></a>虚拟机的安装</h4><p>不花钱还方便的使用linux系统.<br>最方便的肯定是直接用别人的整合包，但是用别人的总感觉别人会在文件里放点东西，不放心，所以走最安全的官方路线<br>先去虚拟机官网下载安装程序<a target="_blank" rel="noopener" href="https://www.vmware.com/">VMware虚拟机官网</a><br>我浏览器自带的翻译过了，界面会有点不一样.没翻译过的网站也大同小异.界面没多大变化</p>
+<blockquote>
+<p>点击资源<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-03-19.png"><br>产品试用<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-13-47.png"><br>到达界面后滚轮往下滚，找到桌面虚拟机管理程序.（点击加号是有内容出现和收起的）<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-17-17.png"><br>找到VMware Workstation Player（以前称为 Player Pro，点击旁边的下载免费试用版<br> <img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-18-17.png"><br> 找到图中所示下载（这里后面跟的for windows和for linux是安装在哪个系统上，不是指安装的虚拟机里是什么系统）<br> <img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-19-11.png"></p>
+</blockquote>
+<p>虚拟机的安装程序就下好了.什么？文件保存在哪里好？肯定不是默认的c盘拉~虚拟机的文件可以自定义文件夹，文件夹名字可以有中文.放自己喜欢的地方吧</p>
+<p>然后就是启动安装程序<br>经典下一步下一步下一步下一步完成.虚拟机安装完成<br>下一步的时候，也会有些选项，什么都不懂的直接下一步就完事了.懂得就自己勾勾叉叉吧<br>然后先不急这使用虚拟机<br>去下载下linux系统</p>
+<h4 id="linux系统下载"><a href="#linux系统下载" class="headerlink" title="linux系统下载"></a>linux系统下载</h4><p>你想要什么版本的linux系统就搜什么，直接进入对应版本的官网.<br>我还是从linux官网开始<br><a target="_blank" rel="noopener" href="https://www.linux.org/pages/download/">linux官网</a><br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-30-30.png"><br>要什么版本就点击对应版本的名字，这也就是直接从linux的官网点击对应版本的官网链接，你直接在搜索的官网一样的.<br>我用的是Centos<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-32-19.png"><br>从linux官网进的直接就是下载界面<br>从Centos进的看图<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-36-30.png"><br>进去后选择自己要的版本，我要的就是Centos7,然后点击mirror,mirror就是镜像的意思<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-38-03.png"><br>接着随便点个能下载的链接下载就好了.链接下载下来的内容都是一样的，只是快慢不同和提供的网站不同而已，文件都是一样的.<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-40-58.png"></p>
+<blockquote>
+<p>看好内容和大小.虚拟机就是模拟从光盘下载linux系统，所以要选DVD，后缀要.iso.然后大小linux也是一个系统，总不可能一点点大或者非常大对吧.大概4.4g，就4g-5g吧，可能别的版本会不同，但是差不了多少，我也没研究过.</p>
+</blockquote>
+<p>下载的内容放到自己喜欢和能找得到的地方，后面要用.文件夹可以有中文</p>
+<h4 id="在虚拟机上安装linux系统"><a href="#在虚拟机上安装linux系统" class="headerlink" title="在虚拟机上安装linux系统"></a>在虚拟机上安装linux系统</h4><p>打开虚拟机<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-47-12.png"><br>创建新虚拟机<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-48-31.png"><br>红色框里就是之前下载的linux的镜像文件的地址.有的刚打开是空白的，那就自己找.有的可能他自己就找到了，那最好.下一步<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-50-31.png"><br>全名：自己看着取，不重要。学到后面莫名其妙就知道了<br>用户名：建议别太长，会用到，起自己名字拼音缩写啊差不多<br>密码：后面要用的，要记住。忘了也没办法，重建一个新的虚拟机就好了<br>确认：确认刚才的密码<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-53-19.png"><br>虚拟机名称：自己看着取<br>位置：放到一个足够大空间的位置，后面会越用越大，大概有50-100感觉差不多了.<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-55-07.png"><br>磁盘大小给50差不多了，上不封顶，小一点30gb勉强凑合<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-56-08.png"><br>点击自定义硬件<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-13-56-44.png"><br>内存：你内存大就多给点，少就给个1g够了<br>处理器：你处理器核心多就多给点，少就给1个也能用<br>新CD&#x2F;DVD(IDE):不管他默认<br>网络适配器：以后学习会用到，现在默认就好<br>usb控制器：默认<br>声卡：默认<br>打印机：这东西用不到，用不到可以点击移除<br><img src="/2022/06/08/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-linux%E5%AE%89%E8%A3%85%EF%BC%88Centos7%EF%BC%89%E6%95%99%E7%A8%8B/2022-06-09-14-00-03.png"><br>手搓点错了删错了也没关系，可以添加回来，反正是虚拟机，坏了重新开就ok了<br>显示器：默认<br>配置完后，关闭<br>他是自动保存的，不用你手动保存<br>点击完成，等待虚拟机加载完成就可以使用了</p>
+<blockquote>
+<p>在虚拟机使用过程中，我遇到的错误问题会在我博客的疑难解答中有写，可以去看看有没有相同的问题，我暂时没遇到的问题那我也没办法</p>
+</blockquote>
+<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><p>直接去找别人的整合包<br>整合包&#x3D;（虚拟机安装程序包）+（linux系统镜像）+（有的可能还带许可（可有可无））+（一些无关紧要的，可能是教程文本之类的）<br>有整合包就简单了<br>首先把整合包下载下来<br>第一步，解压缩，随便放到你喜欢的位置，不会就用他默认的.默认是放到c盘的某处。我是不建议把文件都放到c盘的.不过你既然连安装软件都不会，那最好别乱动，都使用默认设置最好，以便出错方便找错误.<br>第二步，启动压缩包里的虚拟机的安装文件，哪个是虚拟机安装文件？一般是VMware workstation 16 player.exe，这里的16可能随着版本的更新会变化.但是版本不同不影响你之后装linux系统<br>第三步，和方案一同样的安装方式安装完成就ok啦.</p>
+
                 
             </div>
             <hr/>
@@ -526,7 +556,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
                         </div>
                     
                 </div>

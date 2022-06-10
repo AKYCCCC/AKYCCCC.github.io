@@ -484,8 +484,9 @@
 <p>打开对话框<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-14-48-42.png"></p>
 <p>修改对话框字体大小<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-14-49-43.png"></p>
 <blockquote>
-<p>一些指令<br><code>clear</code>：清空屏幕<br><code>ls</code>:查找当前目录下的文件<br><code>su </code>- :把自己设为超级管理员<br><code>whoami</code>:查看当前自己的身份<br><code>nano /etc/soudoers </code>:用记事本的方式打开文件<br><code>set nu</code>:显示行数<br><code>EXIT</code>：退出<br><code>passwd</code>:修改当前用户密码<br><code>passwd *** </code>：修改指定用户密码<br><code>pwd</code>:显示当前所在文件路径<br><code>ls</code>：显示当前目录下的所有文件<br><code>ls -l</code>：显示当前目录下所有文件的详细信息<br><code>cd</code>：进入一个指定的目录</p>
+<p>一些指令<br><code>clear</code>：清空屏幕<br><code>ls</code>:查找当前目录下的文件<br><code>su </code>- :把自己设为超级管理员<br><code>whoami</code>:查看当前自己的身份<br><code>nano /etc/soudoers </code>:用记事本的方式打开文件<br><code>set nu</code>:显示行数<br><code>EXIT</code>：退出<br><code>passwd</code>:修改当前用户密码<br><code>passwd *** </code>：修改指定用户密码<br><code>pwd</code>:显示当前所在文件路径<br><code>ls</code>：显示当前目录下的所有文件<br><code>ls -l</code>：显示当前目录下所有文件的详细信息<br><code>cd</code>：进入一个指定的目录<br><code>ls -la</code>:a表示显示当前目录的所有文件.包括隐藏文件</p>
 </blockquote>
+<h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><p><code>d</code>:d开头，文件详细中的前缀,d开头表示他就是一个目录，目录就可以进入（使用cd）<br><code>-</code>：-开头，文件详细中的前缀，-开头表示他是一个</p>
 <h3 id="修改自己的权限"><a href="#修改自己的权限" class="headerlink" title="修改自己的权限"></a>修改自己的权限</h3><p>1.把自己设为超级管理员<code>su -</code>输入root密码<br>2.用记事本的方法打开进入配置文件修改权限 <code>nano /etc/soudoers</code><br>3.修改权限<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-15-02-06.png"><br>4.ctrl+x（^x），然后输入y确认保存修改，回车退出<br>5.exit退出超级管理员模式</p>
 <h3 id="修改root密码"><a href="#修改root密码" class="headerlink" title="修改root密码"></a>修改root密码</h3><p>1.进入超级管理员模式<code>su -</code>输入root密码<br>2.输入<code>passwd</code>,输入新密码（root密码），确认新密码<br>3.提示<code>swd: all authentication tokens updated successfully.</code>修改成功<br>4.exit退出超级用户<br>root一定不要和用户密码一样，而且root密码安全级别一定要比普通密码高<br>直接输入passwd默认修改的是当前用户的密码<br>想修改其他人的密码要在passwd后加上其他人的名字（passwd和名字之间要空格）</p>
 <h3 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h3><p>暂时不用改</p>
@@ -497,7 +498,12 @@
 <h4 id="查看网络是否连接（第二种方法）"><a href="#查看网络是否连接（第二种方法）" class="headerlink" title="查看网络是否连接（第二种方法）"></a>查看网络是否连接（第二种方法）</h4><p>看系统右上角，网络连接上了就有图标没连接上就没有<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-18-06-57.png"><br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-18-07-36.png"></p>
 <h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><h4 id="官方下载软件"><a href="#官方下载软件" class="headerlink" title="官方下载软件"></a>官方下载软件</h4><p><code>sudo yum -y install  ****** </code><br><code>sudo</code>:允许执行命令<br><code>yum</code>:从指定的服务器下载安装包（官方）<br><code>-y</code>:在软件下载过程中，会问你是否需要下载，加上-y就是默认全部同意，不然需要手动选择yse或者no<br><code>intstall</code> :安装文件<br><code>*****</code> ：要下载的软件名字<br>注：为了保证软件运行的稳定和安全，有些新的软件使用yum从官方下载事可能会下载不到.明明看到别人在用，但是自己下载不到</p>
 <h4 id="非官方下载软件"><a href="#非官方下载软件" class="headerlink" title="非官方下载软件"></a>非官方下载软件</h4><p><code>sudo yum -y install epel-****</code><br>多了个<code>epel</code>,加上<code>epel</code>就是从非官方下载</p>
-<h3 id="配置编写C语言代码的环境和一些软件下载"><a href="#配置编写C语言代码的环境和一些软件下载" class="headerlink" title="配置编写C语言代码的环境和一些软件下载"></a>配置编写C语言代码的环境和一些软件下载</h3>
+<h3 id="配置编写C语言代码的环境和一些软件下载"><a href="#配置编写C语言代码的环境和一些软件下载" class="headerlink" title="配置编写C语言代码的环境和一些软件下载"></a>配置编写C语言代码的环境和一些软件下载</h3><p><code>sudo yum install -y vim</code>:下载vim<br><code>sudo yum install -y gcc</code>:下载gcc</p>
+<h2 id="腾讯云服务器（linux-Centos7-6）"><a href="#腾讯云服务器（linux-Centos7-6）" class="headerlink" title="腾讯云服务器（linux_Centos7.6）"></a>腾讯云服务器（linux_Centos7.6）</h2><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>第一次进入服务器你的身份是lighthouse<br>需要创建新用户</p>
+<blockquote>
+<p>1.<code>su -</code>,把自己设置为超级用户<br> 切换超级用户会让你输入密码，那第一次密码是多少？（不管是输入密码，还是创建密码，修改密码，密码都是不会让你看见的，直接输入然后回车就行）<br> 腾讯云服务器没有默认密码，如果购买云服务器时没有手动设置，那么腾讯云系统会自动生成密码，并将默认密码发送到腾讯云账号的站内信中。云服务器创建后，自动生成的密码将通过站内信发送给您。也可登录云服务器CVM控制台重置密码。<br> 2.<code>su user ***</code>:创建自己的用户名<br> 3.<code>sudo passwd ***</code>:设置用户名密码<br> 4.重复输入密码<br> 5.<code>exit</code>退出超级用户模式<br> 6.<code>su - ***</code>:登录用户<br> 7.输入密码<br> 8.<code>whoami</code>:查看自己是谁.</p>
+</blockquote>
+
                 
             </div>
             <hr/>

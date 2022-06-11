@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 游戏娱乐, AKYCCCC">
-    <meta name="description" content="AKYCCCC">
+    <meta name="keywords" content="linux(Centos7)我的世界开服教程, AKYCCCC">
+    <meta name="description" content="基本软件、环境、需要一台云服务器，配置越高越好，最低2h4g吧，轻量云也可以，1h2g的实在太拉了基本工具，Xshell、Xftp。你有别的功能类似的软解也可以.我用这个是因为免费好找，学习时用的也是这个
+Xshell、Xftp的下载使用N">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@
 
     
 
-    <title>标签: 游戏娱乐 | AKYCCCC</title>
+    <title>linux(Centos7)我的世界开服教程 | AKYCCCC</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -305,174 +306,505 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    subtitle
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "从现在开始，做一个合格的程序员",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">linux(Centos7)我的世界开服教程</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
-
-<main class="content">
+<main class="post-container content">
 
     
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
-<div id="tags" class="container chip-container">
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/">
+                                <span class="chip bg-color">游戏娱乐</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="post-category">
+                                教程相关
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            <div class="tag-chips">
+
+            <div class="post-info">
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-11
+                </div>
                 
-                <a href="/tags/%E6%95%99%E7%A8%8B/" title="教程: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="教程" style="background-color: #F9EBEA;">教程
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
+
                 
+
                 
-                <a href="/tags/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/" title="游戏娱乐: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="游戏娱乐" style="background-color: #F5EEF8;">游戏娱乐
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
+
                 
-                
-                <a href="/tags/linux/" title="linux: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="linux" style="background-color: #D5F5E3;">linux
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/c%E8%AF%AD%E8%A8%80/" title="c语言: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="c语言" style="background-color: #E8F8F5;">c语言
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
+
                 
             </div>
         </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="基本软件、环境、需要"><a href="#基本软件、环境、需要" class="headerlink" title="基本软件、环境、需要"></a>基本软件、环境、需要</h2><p>一台云服务器，配置越高越好，最低2h4g吧，轻量云也可以，1h2g的实在太拉了<br>基本工具，Xshell、Xftp。你有别的功能类似的软解也可以.我用这个是因为免费好找，学习时用的也是这个</p>
+<h3 id="Xshell、Xftp的下载使用"><a href="#Xshell、Xftp的下载使用" class="headerlink" title="Xshell、Xftp的下载使用"></a>Xshell、Xftp的下载使用</h3><p><a target="_blank" rel="noopener" href="https://www.xshell.com/zh">NETSARNG中国官网</a>，这官网就是下Xshell、Xftp的<br>进入官网，往下翻到底，找到家庭&#x2F;学校免费<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-45-00.png"><br>点进去填姓名和邮箱<br>姓名无所谓随便填<br>邮箱一定要你能收的到的<br>框框选择两者<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-46-09.png"><br>填好选好点击下载，他会给你填的邮箱里发邮件，邮件里有下载链接，点进去下载，安装到自己喜欢的位置就完成了</p>
+<h3 id="配置Xshell、Xftp"><a href="#配置Xshell、Xftp" class="headerlink" title="配置Xshell、Xftp"></a>配置Xshell、Xftp</h3><p>第一次打开Xshell会有一个对话框<br>我因为设置过所以有东西，正常是什么都没有<br>然后点击对话框里的新建<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-51-39.png"><br>不小心关掉了也没事，或者没弹出这个也没事，单机这个就可以打开<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-53-10.png"><br>点击新建后弹出对话框<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-54-07.png"><br>这个对话框好多地方都可以打开，功能都一样的<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-56-21.png"><br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-11-57-42.png"><br>协议：别动，默认就好<br>主机：你服务器的公网ip(在购买的云服务的控制台里有)<br>端口：默认就好<br>其他：你会设置就自己调调，不会默认就好</p>
+<blockquote>
+<p>Xftp大同小异</p>
+</blockquote>
+<p><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-12-00-30.png"><br>用户名：linux创建的用户名，没创建就是root<br>密码：创建过用户名的应该知道密码，没创建的过得，去服务器控制台重置下密码在设置一下新密码就知道了（最好是使用在linux里新建用户的账户，别用root）<br>不会的建议先去把linux最最基本的东西学一下，类似windows的开机输入密码进入系统</p>
+<p>（linux的root的密码在第一次用服务器是系统给的，服务器商家可能会发邮件告诉你root的密码，有的你自己去问他会发你。最好是自己重置下密码（在服务器控制台））</p>
+<h2 id="开始开服"><a href="#开始开服" class="headerlink" title="开始开服"></a>开始开服</h2><h3 id="在linux安装java"><a href="#在linux安装java" class="headerlink" title="在linux安装java"></a>在linux安装java</h3><p>输入<br><code>yum list java-1.8*</code>:这个代码查看所有可以下载的java的版本<br>那我要下载的就是这个版本<br><img src="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/2022-06-11-12-18-57.png"><br>输入<br><code>yum install -y java-1.8.0-openjdk.x86_64</code>:下载这个版本的java,如果害怕java名字打错，直接去上面复制下来就行</p>
+<p>有的人执行这两句代码前面可能要加上<code>sudo</code><br><code>sudo yum list java-1.8*</code></p>
+<p><code>sudo yum install -y java-1.8.0-openjdk.x86_64</code></p>
+<p><code>java -version</code>：检测java是安装完成，成功安装会显示安装的版本等一堆信息.</p>
+<p>输入完没错误，等待安装完毕</p>
+<h3 id="开服工具"><a href="#开服工具" class="headerlink" title="开服工具"></a>开服工具</h3><p>linux也一样，需要使用开服工具.开服工具也有好多种不同的.<br>我先抱怨一下，我看教程的时候，不是直接说什么“哎，我这边有一个下好的开服工具，直接使用Xftpp拖过去”，然后在给你一段代码，然后服务器就开起来了.<br>要么就是，短短几分钟的视频，购买服务器的内容占了一半，回头回到服务器，下完java,反手多了一个server双击运行起来就结束了.<br>哥们，开服工具的选择下载教程呢？开服工具也不是直接下完就运行的吧，中间一段内容的缺失导致根本开不起服务器.<br>服务器最基本的，服务器-开服工具-管理界面-运行起来开服，谁不会啊，细节都没有这么搞.<br>我真的谢谢各位大佬.<br>还有一种操作就是，教程蛮详细的，可是，他在开服工具的配置，和修改服务器的配置是直接在自己的win10的系统上完成的，最后只是把文件传到linux里，涉及到的linux操作就是复制粘贴几个下载软件的代码而已，最后启动服务器.这有什么意思？<br>可能冒犯到各位大佬了<br>下面开始开服</p>
+<blockquote>
+<p>技术有限，暂时隔着了，不是说开不起来，而是没弄明白，（跟着视频教程复制粘贴回车并没有意思，要弄懂每一步的意义和每一个东西的作用和理解就难了）.</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AKYCCCC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://akycccc.github.io/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/">https://akycccc.github.io/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AKYCCCC</a>
+                    !
+                </span>
+            </div>
+        
     </div>
-</div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/">
+                                    <span class="chip bg-color">游戏娱乐</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
+</div>
+
+                </div>
+            </div>
             
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="游戏娱乐" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/">
-                        <div class="card-image tag-image">
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/06/11/linux-Centos7-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%BC%80%E6%9C%8D%E6%95%99%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="linux(Centos7)我的世界开服教程">
+                        
+                        <span class="card-title">linux(Centos7)我的世界开服教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
                             
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="linux(Centos7)我的世界开服教程">
-                            
-                            <span class="card-title">linux(Centos7)我的世界开服教程</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2022-06-11
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="post-category">
-                                教程相关
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="post-category">
+                                    教程相关
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
                 </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="游戏娱乐" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/04/28/%E7%A0%B4%E8%A7%A3%E7%89%88%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E8%81%94%E6%9C%BA-PCL2%E4%BD%BF%E7%94%A8/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="破解版我的世界联机+PCL2使用">
-                            
-                            <span class="card-title">破解版我的世界联机+PCL2使用</span>
-                        </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/">
+                        <span class="chip bg-color">游戏娱乐</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/10/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0Github%EF%BC%8Ctags%E9%A1%B5%E9%9D%A2404%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%B2%A1%E9%97%AE%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="（Matery主题）hexo博客部署到Github，tags页面404，本地没问题.">
+                        
+                        <span class="card-title">（Matery主题）hexo博客部署到Github，tags页面404，本地没问题.</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-10
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                AKYCCCC
-                                
-                            </span>
-                        </div>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
+                                    疑难解答
+                                </a>
+                            
+                            
+                        </span>
                     </div>
                 </div>
+                
             </div>
-            
         </div>
-    </article>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 

@@ -496,10 +496,136 @@
 <p>那现在要关闭网络输入<code>ifdown ens33</code> ,就好了,可能有人输入后提示错误，执行不了<br>那可能需要输入sudo<br><code>sudo ifdown ens33</code><br>关闭后在输入<code>ifconfig</code><br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-18-01-39.png"><br>发现ens33里的ip地址没了，网络就关闭了</p>
 <p><code>ifup</code>:打开网络<br>现在要打开网络<br>输入<code>sudo ifup ens33</code><br>提示没报错<br>在输入<code>ifconfig</code>查看网络信息<br>看到ens33里的ip地址有了，就说明连上网络了</p>
 <h4 id="查看网络是否连接（第二种方法）"><a href="#查看网络是否连接（第二种方法）" class="headerlink" title="查看网络是否连接（第二种方法）"></a>查看网络是否连接（第二种方法）</h4><p>看系统右上角，网络连接上了就有图标没连接上就没有<br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-18-06-57.png"><br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-09-18-07-36.png"></p>
-<h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><h4 id="官方下载软件"><a href="#官方下载软件" class="headerlink" title="官方下载软件"></a>官方下载软件</h4><p><code>sudo yum -y install  ****** </code><br><code>sudo</code>:允许执行命令<br><code>yum</code>:从指定的服务器下载安装包（官方）<br><code>-y</code>:在软件下载过程中，会问你是否需要下载，加上-y就是默认全部同意，不然需要手动选择yse或者no<br><code>intstall</code> :安装文件<br><code>*****</code> ：要下载的软件名字<br>注：为了保证软件运行的稳定和安全，有些新的软件使用yum从官方下载事可能会下载不到.明明看到别人在用，但是自己下载不到</p>
+<h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><h4 id="官方下载软件"><a href="#官方下载软件" class="headerlink" title="官方下载软件"></a>官方下载软件</h4><p><code>sudo yum -y install  ****** </code><br><code>sudo</code>:提升权限<br><code>yum</code>:从指定的服务器下载安装包（官方）<br><code>-y</code>:在软件下载过程中，会问你是否需要下载，加上-y就是默认全部同意，不然需要手动选择yse或者no<br><code>intstall</code> :安装文件<br><code>*****</code> ：要下载的软件名字<br>注：为了保证软件运行的稳定和安全，有些新的软件使用yum从官方下载事可能会下载不到.明明看到别人在用，但是自己下载不到</p>
 <h4 id="非官方下载软件"><a href="#非官方下载软件" class="headerlink" title="非官方下载软件"></a>非官方下载软件</h4><p><code>sudo yum -y install epel-****</code><br>多了个<code>epel</code>,加上<code>epel</code>就是从非官方下载</p>
 <h3 id="配置编写C语言代码的环境和一些软件下载"><a href="#配置编写C语言代码的环境和一些软件下载" class="headerlink" title="配置编写C语言代码的环境和一些软件下载"></a>配置编写C语言代码的环境和一些软件下载</h3><p><code>sudo yum install -y vim</code>:下载vim<br><code>sudo yum install -y gcc</code>:下载gcc</p>
-<h2 id="linux基本指令"><a href="#linux基本指令" class="headerlink" title="linux基本指令"></a>linux基本指令</h2><h2 id="腾讯云服务器（linux-Centos7-6）"><a href="#腾讯云服务器（linux-Centos7-6）" class="headerlink" title="腾讯云服务器（linux_Centos7.6）"></a>腾讯云服务器（linux_Centos7.6）</h2><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>第一次进入服务器你的身份是lighthouse<br>需要创建新用户</p>
+<h2 id="linux基本指令"><a href="#linux基本指令" class="headerlink" title="linux基本指令"></a>linux基本指令</h2><blockquote>
+<p>clear：清屏</p>
+</blockquote>
+<blockquote>
+<p>date：查看系统时间<br>data 参数：按照参数给的显示<br>%Y：年<br>%m：月<br>%d：日<br>%H：时<br>%M：分<br>%S:秒</p>
+</blockquote>
+<blockquote>
+<p>reboot：重启</p>
+</blockquote>
+<blockquote>
+<p>shutdown：关机<br>-h：把系统的服务停掉后立即关机<br>-r:把系统的服务停掉后重新启动<br>-t 描述：定时关机</p>
+</blockquote>
+<blockquote>
+<p><code>su </code>- :把自己设为超级管理员</p>
+</blockquote>
+<blockquote>
+<p><code>whoami</code>:查看当前自己的身份</p>
+</blockquote>
+<blockquote>
+<p><code>nano /文件名/文件名 </code>:用记事本的方式打开文件</p>
+</blockquote>
+<blockquote>
+<p><code>set nu</code>:显示行数</p>
+</blockquote>
+<blockquote>
+<p><code>EXIT</code>：退出</p>
+</blockquote>
+<blockquote>
+<p><code>passwd</code>:修改当前用户密码</p>
+</blockquote>
+<blockquote>
+<p><code>passwd 用户名 </code>：修改指定用户密码</p>
+</blockquote>
+<blockquote>
+<p><code>pwd</code>:显示当前所在文件路径</p>
+</blockquote>
+<blockquote>
+<p>cd：切换目录<br>cd ..：切换到上一级目录<br>cd &#x2F;文件名&#x2F;文件名&#x2F;….:切换到指定文件目录（相对路径&#x2F;绝对路径）<br>cd ~：切换到当前用户的文件目录里</p>
+</blockquote>
+<blockquote>
+<p>mkdir：文件名：创建一个目录<br>mddir：-p &#x2F;文件名&#x2F;文件名&#x2F;….：连续创建文件目录</p>
+</blockquote>
+<blockquote>
+<p>touch 文件名：创建一个文件</p>
+</blockquote>
+<blockquote>
+<p>rmdir：删除空目录<br>rmdir -p：当子目录被删除后，如果父目录变成空目录的话，就连父目录一起删除</p>
+</blockquote>
+<blockquote>
+<p>rm 文件名：删除文件(单个空文件或目录)<br>rm -r 文件名：删除文件（该文件下的所有内容）（递归式删除）<br>rm -f 文件名：不询问是否删除该文件，直接删除文件<br>rm -i：删除前逐一询问是否删除</p>
+</blockquote>
+<blockquote>
+<p>ls：查看当前目录下的文件列表<br>ls &#x2F;文件名&#x2F;文件名 ：查找指定目录下的文件列表<br>ls -l：查看当前目录下的文件的详细信息<br>ls -a：查看当前目录下的隐藏文件</p>
+</blockquote>
+<blockquote>
+<p><code>sudo</code>:提升权限</p>
+</blockquote>
+<blockquote>
+<p><code>yum</code>:从指定的服务器下载安装包（官方）</p>
+</blockquote>
+<blockquote>
+<p><code>-y</code>:在软件下载过程中，会问你是否需要下载，加上-y就是默认全部同意，不然需要手动选择yse或者no</p>
+</blockquote>
+<blockquote>
+<p><code>intstall</code> :安装文件</p>
+</blockquote>
+<blockquote>
+<p><code>sudo yum -y install  软件名 </code>:下载软件</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>：通配符</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>man 指令名：可以理解为使用手册，查找命令怎么使用<br>man man :查看自己的使用方法</p>
+</blockquote>
+<blockquote>
+<p>stat 文件名：查看文件详细信息</p>
+</blockquote>
+<blockquote>
+<p>cp 拷贝的文件名 拷贝后的文件名：拷贝文件（如果输入的是路径就会在对应的路径发拷贝后的文件）（只输入文件名就会在当前目录放置拷贝后的文件）<br>cp 拷贝的文件名 .. ：拷贝文件到上级目录<br>cp -r 拷贝的文件名 拷贝后的文件名:递归式的拷贝一个目录<br>cp -f 拷贝的文件名 拷贝后的文件名：强制拷贝</p>
+</blockquote>
+<blockquote>
+<p>&gt;：输出重定向（会覆盖原来的内容）（从键盘获取内容输出到文件里）<br>&gt;&gt;：追加输出重定向（在原来的内容上追加内容）（从键盘获取内容输出到文件里）<br>&lt;：输入重定向（从文件中获取内容输入到屏幕上）</p>
+</blockquote>
+<blockquote>
+<p>cat:从键盘获取内容输出到屏幕上<br>cat 文件名：查看目标文件的内容（全部）,不可修改<br>cat -n 文件名：显示行号</p>
+</blockquote>
+<blockquote>
+<p>mv 要剪切的文件名 剪切后文件放在哪个目录或者文件名：剪切目录、修改文件名<br>-f:强制<br>-f：如果有重名文件就询问是否覆盖</p>
+</blockquote>
+<blockquote>
+<p>alias ‘自定义名字&#x3D;某条指令’：对一段指令进行重命名</p>
+</blockquote>
+<blockquote>
+<p>top：性能分析工具<br>-u &lt;用户名&gt;：指定用户名<br>-p &lt;进程号&gt;：指定进程<br>-n &lt;次数&gt;:循环显示的次数</p>
+</blockquote>
+<blockquote>
+<p>ping 网站：测试网络连接<br>-c数字：限制次数</p>
+</blockquote>
+<blockquote>
+<p>ifconfig：显示网络信息</p>
+</blockquote>
+<blockquote>
+<p>ifdown 网络名字：关闭网络</p>
+</blockquote>
+<blockquote>
+<p>ifup 网络名字：打开网络</p>
+</blockquote>
+<blockquote>
+<p>输入不完整命令+键盘上的TAB：命令自动补全<br>输入不完整的命令+双击TAB：显示出不完整命令的可能命令</p>
+</blockquote>
+<blockquote>
+<p>ctrl+c：停止当前程序</p>
+</blockquote>
+<blockquote>
+<p>ctrl+d：可以代替exid命令</p>
+</blockquote>
+<blockquote>
+<p>echo 参数 内容：主要用于字符串的输出</p>
+</blockquote>
+<blockquote>
+<p>find：查找<br>find ~&#x2F;你要在哪找（路径） -name test.c：这句话表示，你要在某个路径里用名字查找，查找一个叫test.c的文件</p>
+</blockquote>
+<p><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-13-11-11-06.png"></p>
+<h2 id="腾讯云服务器（linux-Centos7-6）"><a href="#腾讯云服务器（linux-Centos7-6）" class="headerlink" title="腾讯云服务器（linux_Centos7.6）"></a>腾讯云服务器（linux_Centos7.6）</h2><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>第一次进入服务器你的身份是lighthouse<br>需要创建新用户</p>
 <blockquote>
 <p>1.<code>su -</code>,把自己设置为超级用户<br> 切换超级用户会让你输入密码，那第一次密码是多少？（不管是输入密码，还是创建密码，修改密码，密码都是不会让你看见的，直接输入然后回车就行）<br> 腾讯云服务器没有默认密码，如果购买云服务器时没有手动设置，那么腾讯云系统会自动生成密码，并将默认密码发送到腾讯云账号的站内信中。云服务器创建后，自动生成的密码将通过站内信发送给您。也可登录云服务器CVM控制台重置密码。<br> 2.<code>su user ***</code>:创建自己的用户名<br> 3.<code>sudo passwd ***</code>:设置用户名密码<br> 4.重复输入密码<br> 5.<code>exit</code>退出超级用户模式<br> 6.<code>su - ***</code>:登录用户<br> 7.输入密码<br> 8.<code>whoami</code>:查看自己是谁.</p>
 </blockquote>

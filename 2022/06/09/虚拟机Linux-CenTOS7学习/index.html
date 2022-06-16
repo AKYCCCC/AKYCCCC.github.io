@@ -624,7 +624,43 @@
 <blockquote>
 <p>find：查找<br>find ~&#x2F;你要在哪找（路径） -name test.c：这句话表示，你要在某个路径里用名字查找，查找一个叫test.c的文件</p>
 </blockquote>
+<blockquote>
+<p>last：显示历史登录服务器的用户的信息<br>last | head -5：表示只输出last显示的前5行</p>
+</blockquote>
+<blockquote>
+<p>export PATH&#x3D;$PATH:程序路径地址：添加环境变量</p>
+</blockquote>
+<blockquote>
+<p>env：查看环境变量</p>
+</blockquote>
+<blockquote>
+<p>which：查看可执行文件的位置</p>
+</blockquote>
+<blockquote>
+<p>chmod：修改文件权限<br>chmod (u&#x2F;x&#x2F;o)(+&#x2F;-)(d&#x2F;b&#x2F;c&#x2F;p&#x2F;s&#x2F;l&#x2F;-) 要修改权限的文件名<br>u：拥有者<br>g：所属组<br>o：其他</p>
+</blockquote>
+<blockquote>
+<p>sudo chown 要给谁（要给的用户的名字） 文件名：修改文件的拥有者<br>sudo chgrp：用户名:所属组 文件名：修改文件的拥有者和所属组<br>chgrp：修改所属组</p>
+</blockquote>
+<blockquote>
+<p>useradd 用户名：创建用户<br>userdel -r 用户名：删除用户<br>-r：删除用户的时候同时也把用户的家（home）目录删除</p>
+</blockquote>
 <p><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-13-11-11-06.png"></p>
+<h2 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h2><p>进入一个目录需要的是x权限，不是r和w权限</p>
+<h3 id="文件信息的解读"><a href="#文件信息的解读" class="headerlink" title="文件信息的解读"></a>文件信息的解读</h3><blockquote>
+<p>u：拥有者<br>g：所属组<br>o：其他</p>
+</blockquote>
+<p><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-14-11-32-27.png"><br><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-14-11-49-34.png"></p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="/2022/06/09/%E8%99%9A%E6%8B%9F%E6%9C%BALinux-CenTOS7%E5%AD%A6%E4%B9%A0/2022-06-14-11-58-47.png"></p>
+<h3 id="修改权限方法一"><a href="#修改权限方法一" class="headerlink" title="修改权限方法一"></a>修改权限方法一</h3><blockquote>
+<p>根据需要修改的内容自行决定<br>chmod (u&#x2F;x&#x2F;o)(+&#x2F;-)(d&#x2F;b&#x2F;c&#x2F;p&#x2F;s&#x2F;l&#x2F;-) 要修改权限的文件名</p>
+</blockquote>
+<h3 id="修改权限方法二"><a href="#修改权限方法二" class="headerlink" title="修改权限方法二"></a>修改权限方法二</h3><p>方法一是用权限的缩写名改<br>方法二用8进制改</p>
+<p>例如：拥有者的读写执行权限，允许是1不允许是0那么rwx就表示是111，换成八进制数就是7<br>举一反三：那rw-j就是110换成8进制数就是6，r–就是4.</p>
+<p>有了上面的例子就可以直接<br><code>chmod 八进制数 文件名</code>：这种方式修改</p>
+<p>举例，我要修改一个文件的权限为不管什么用户都可以读写执行<br><code>chmod 777 文件名</code></p>
+<p>我要修改一个文件的权限为谁都不可以执行<br><code>chmod 000 文件名</code></p>
+<h2 id="修改文件的拥有者"><a href="#修改文件的拥有者" class="headerlink" title="修改文件的拥有者"></a>修改文件的拥有者</h2><p>修改拥有者<br><code>sudo chown 要给谁（要给的用户的名字） 文件名</code><br>修改拥有者和所属组<br><code>sudo chgrp 用户名:所属组 文件名</code></p>
 <h2 id="腾讯云服务器（linux-Centos7-6）"><a href="#腾讯云服务器（linux-Centos7-6）" class="headerlink" title="腾讯云服务器（linux_Centos7.6）"></a>腾讯云服务器（linux_Centos7.6）</h2><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>第一次进入服务器你的身份是lighthouse<br>需要创建新用户</p>
 <blockquote>
 <p>1.<code>su -</code>,把自己设置为超级用户<br> 切换超级用户会让你输入密码，那第一次密码是多少？（不管是输入密码，还是创建密码，修改密码，密码都是不会让你看见的，直接输入然后回车就行）<br> 腾讯云服务器没有默认密码，如果购买云服务器时没有手动设置，那么腾讯云系统会自动生成密码，并将默认密码发送到腾讯云账号的站内信中。云服务器创建后，自动生成的密码将通过站内信发送给您。也可登录云服务器CVM控制台重置密码。<br> 2.<code>su user ***</code>:创建自己的用户名<br> 3.<code>sudo passwd ***</code>:设置用户名密码<br> 4.重复输入密码<br> 5.<code>exit</code>退出超级用户模式<br> 6.<code>su - ***</code>:登录用户<br> 7.输入密码<br> 8.<code>whoami</code>:查看自己是谁.</p>

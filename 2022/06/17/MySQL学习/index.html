@@ -1,0 +1,1281 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL学习, AKYCCCC">
+    <meta name="description" content="简介MySQL的重要性MySQL好多公司都要求会用.学习视频使用MySQL8.0.26版本进行讲解，搭配使用MySQL5.7版本讲解刚开始使用windows讲解操作，之后使用linux进行操作
+
+学习过程分为上篇和篇上篇使用windows操">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>MySQL学习 | AKYCCCC</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">AKYCCCC</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">AKYCCCC</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-17
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>MySQL的重要性<br>MySQL好多公司都要求会用.<br>学习视频使用MySQL8.0.26版本进行讲解，搭配使用MySQL5.7版本讲解<br>刚开始使用windows讲解操作，之后使用linux进行操作</p>
+<blockquote>
+<p>学习过程分为上篇和篇<br>上篇使用windows操作系统进行讲解. （1~95节）<br>上篇的重点是学会sql这门语言，重中之重就是关于查询的使用.<br>还要学习DDL、DML、DCL、语句的学习<br>还会讲MySQL8.0的新特征<br>1.数据库概述与MySQL安装篇<br>2.sql之select使用篇（主要是查询的使用：子查询、多表查询）<br>3.DLL、DML、DCL、使用篇（如何创建表、如何创建数据库、修改表、删除表、删除库 ），下篇会讲数据的恢复、备份、迁移<br>4其他数据库对象篇（不是很重要，根据公司的需要进行学习）<br>5.MySQL8.0的新特性</p>
+</blockquote>
+<blockquote>
+<p>下篇会使用linux进行操作讲解（96-199节）<br>1.MySQL架构篇，谈谈MySQL的底层架构这方面<br>2.索引及调优篇，是面试中的重点，也是实际开发的重点.<br>3.事务篇<br>4.日志与备份篇</p>
+</blockquote>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>企业里用MySQL5.7最多，学8.0没关系吗？<br>在学习的时候会使用MySQL8.0和MySQL5.7进行对比讲解.</p>
+<h1 id="为什么使用数据库及数据库的概念"><a href="#为什么使用数据库及数据库的概念" class="headerlink" title="为什么使用数据库及数据库的概念"></a>为什么使用数据库及数据库的概念</h1><h2 id="为什么要使用数据库"><a href="#为什么要使用数据库" class="headerlink" title="为什么要使用数据库"></a>为什么要使用数据库</h2><p>1.持久化，把数据保存到可掉电式存储设备中以供之后使用，大多数情况下，特别是企业级应用，数据持久化意味着将内存中数据保存到硬盘上加以固化，而持久化的实现过程大多同过关系数据库来完成.（掉电就不能使用的比如说：内存）</p>
+<p>2.持久化的主要作用是将内存中的数据存储在关系型数据库中，当然也可以存储在磁盘文件，XNL数据文件中</p>
+<p>3.如果非常复杂或者很大的数据保存在文件中，那当要找到其中某一条数据的时候会非常麻烦.但是如果放到数据库中我们就有各种手段去优化去便利数据的查找.</p>
+<p>4.比如说有的数据可以放到文件中，但是读取的时候需要用程序来读取，那单纯打开文件就不行了.</p>
+<p>5.当数据具有复杂的多样性，那单纯的用文件来储存就不好了.数据库不管是从数据的条目数上来讲还是存储数据的丰富度来讲，他都要好于其他的一些介质.</p>
+<h2 id="数据库与数据库管理系统"><a href="#数据库与数据库管理系统" class="headerlink" title="数据库与数据库管理系统"></a>数据库与数据库管理系统</h2><h3 id="数据库的相关概念"><a href="#数据库的相关概念" class="headerlink" title="数据库的相关概念"></a>数据库的相关概念</h3><blockquote>
+<p>DB:数据库（Database）<br>即存储数据的仓库，其本质是一个文件系统。它保存了一系列有组织的数据</p>
+</blockquote>
+<blockquote>
+<p>DBMS:数据库管理系统（Database Management System）<br>是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行统一管理和控制。用户通过数据库管理系统访问数据库中表内的数据</p>
+</blockquote>
+<blockquote>
+<p>SQL:结构化查询语言（Structured Query Language）<br>专门用来和数据库通信的语言</p>
+</blockquote>
+<h3 id="数据库与数据库管理系统的概念"><a href="#数据库与数据库管理系统的概念" class="headerlink" title="数据库与数据库管理系统的概念"></a>数据库与数据库管理系统的概念</h3><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-17-19-10-52.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-17-19-16-08.png"></p>
+<h2 id="常见的DBMS（数据库管理系统）对比"><a href="#常见的DBMS（数据库管理系统）对比" class="headerlink" title="常见的DBMS（数据库管理系统）对比"></a>常见的DBMS（数据库管理系统）对比</h2><p>1.Oracle（老大）：也叫甲骨文，收费的，功能多，安全高，服务好.商用关系型数据库管理系统（RDBMS）<br>2.MySQL：开源免费.Oracle本来想直接收购MySQL但是没成功，后来SUN收购了MySQL，oracle收购了SUN.</p>
+<blockquote>
+<p>java的发明者SUN公司，后被oracle收购.</p>
+</blockquote>
+<p>3.microsoft SQL Server(微软的):既然是微软开发的，和微软自家的产品很适配.与WinNT完全集成，与Microsoft Backofficec产品很好的集成<br>4.DB2：IBM公司的数据库产品，收费，长应用在银行系统中<br>5.PostgresSQL:稳定性强、最符合SQL标准，开放源码、具备商业级DBMS质量，PG对数据量大的文本以及SQL处理较快</p>
+<h1 id="MySQL介绍"><a href="#MySQL介绍" class="headerlink" title="MySQL介绍"></a>MySQL介绍</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>MySQL是一个开放源代码的关系型数据库管理系统</li>
+<li>先被SUN收购，后来SUN被Oracle收购，MySQL的创造者担心被收购后会有闭源的风险，所以创建了MySQL的分支项目mariadb</li>
+<li>MySQL6.x版本之后分为社区版（免费）和商业版（收费）</li>
+<li>MySQL是一种关联数据库管理系统，将数据保存在不同的表中，而不是将数据全都放在一起，这样就增加了速度并提高了灵活性</li>
+<li>MySQL是开源的，你不需要支付任何费用</li>
+<li>MySQL是可以定制的，采用GPL协议，你可以修源码来开发自己的MySQL系统</li>
+<li>MySQL支持大型数据库，可以处理拥有上千万条记录的大型数据库，支持5000万条记录的数据仓库，32位系统表文件最大支持4GB，64位系统表最大支持8TB</li>
+<li>MySQL使用标准的SQL数据语言形式</li>
+<li>MySQL可以允许允许与多个系统上，并支持多种语言，这些语言包括C&#x2F;C++,Python,java,perl,php,ruby等</li>
+</ul>
+<h2 id="关于MySQL8-0"><a href="#关于MySQL8-0" class="headerlink" title="关于MySQL8.0"></a>关于MySQL8.0</h2><p>MySQL8版本在功能上做了显著的改进与增强，开发者对源代码进行重构，最突出的一点是多MySQL optimizer优化器进行了改进，速度上得到了改善.用户体验更好了.</p>
+<h1 id="RDBMS与非RDBMS"><a href="#RDBMS与非RDBMS" class="headerlink" title="RDBMS与非RDBMS"></a>RDBMS与非RDBMS</h1><h2 id="关系型数据库实质"><a href="#关系型数据库实质" class="headerlink" title="关系型数据库实质"></a>关系型数据库实质</h2><p>关系型数据库是最古老的数据库类型，关系型数据库模型是把复杂的数据结构归结为二元关系（即二维表格形式）<br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-17-20-47-58.png"><br>关系型数据库以行和列的形式存储数据，以便用户理解.这一系列的行和列被称为表，一组表组成一个库（database）<br>表与表之间的数据记录有关系。现实世界中的各种实体之间的各种联系均用关系模型来表示。关系型数据库就是建立在关系模型基础上的数据库<br>SQL就是关系型数据库的查询语言</p>
+<h2 id="关系型数据库的优势"><a href="#关系型数据库的优势" class="headerlink" title="关系型数据库的优势"></a>关系型数据库的优势</h2><ul>
+<li>复杂查询<br>可以用SQL语句方便的在一个表或多个表之间做非常复杂的数据查询</li>
+<li>事物支持<br>使得对于安全性能很高的数据访问要求得以实现</li>
+</ul>
+<h2 id="非关系型数据库介绍"><a href="#非关系型数据库介绍" class="headerlink" title="非关系型数据库介绍"></a>非关系型数据库介绍</h2><p>可以看成关系型数据库的阉割版，基于键值对存储数据，不需要经过SQL层的解析，性能非常高。同时，减少不常用的功能，进一步提高性能</p>
+<h2 id="有哪些非关系型数据库"><a href="#有哪些非关系型数据库" class="headerlink" title="有哪些非关系型数据库"></a>有哪些非关系型数据库</h2><blockquote>
+<p>键值型数据库<br>使用场景是作为内存缓存，Redis是最流行的键值型数据库</p>
+</blockquote>
+<blockquote>
+<p>文档型数据库<br>存放并获取文档，XML、JSON等格式。以文档作为处理信息的基本单位，一个文档相当于一条记录，文档数据库存放的文档就相当于键值数据库所存放的值MongoDB是最流行的文档型数据库。此外还有CouchDB等等</p>
+</blockquote>
+<blockquote>
+<p>搜索引擎数据库<br>虽然关系型数据库使用索引提升效率，但是针对全文索引效率却较低。搜索引擎数据库就是应用在搜索领域的数据存储形式，由于搜索引擎会爬取大量数据，并特定的格式进行存储，这样在检索的时候才能保证性能最优。核心原理是倒排索引<br>典型产品：Solr、elasticsearch、splunk等</p>
+</blockquote>
+<blockquote>
+<p>列式数据库<br>oracle、MySQL、SQLserver、都是采用行式存储。列式数据库将数据按照列存储到数据库中，好处是大量降低系统的I&#x2F;O,适合于分布式文件系统。不足在于功能少。<br>典型产品：HBase</p>
+</blockquote>
+<blockquote>
+<p>图形数据库<br>利用图这种数据结构存储了实体（对象）之间的关系，典型例子就是社交网络中人与人的关系。数据模型主要以节点和边（关系）来实现，特点是能高效的解决复杂的关系问题<br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-17-21-35-49.png"></p>
+</blockquote>
+<h1 id="NoSQL的演变"><a href="#NoSQL的演变" class="headerlink" title="NoSQL的演变"></a>NoSQL的演变</h1><p>由于SQL一直霸占DBMS,所以有人想是否有一种数据库技术能远离SQL，于是NoSQL诞生了.下面是NoSQL的变化</p>
+<blockquote>
+<p>1970: nosql &#x3D; we have no sql<br>1980: nosql &#x3D; know sql<br>2000: nosql &#x3D; no sql!<br>2005: nosql &#x3D; not only sql<br>2013: nosql &#x3D; no,sql!</p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>实际开发中，有很多业务需求，其实并不需要完整的关系型数据库功能。非关系型数据库的功能就足够了。这种情况下，使用性能更高，成本更低的非关系型数据库更明智.</p>
+<blockquote>
+<p>nosql的分类很多，但是在DBMS的排行榜中还是sql影响力比较大，所以掌握sql是十分重要的.</p>
+</blockquote>
+<h1 id="关系型数据库设计规则"><a href="#关系型数据库设计规则" class="headerlink" title="关系型数据库设计规则"></a>关系型数据库设计规则</h1><ul>
+<li>关系型数据库典型数据结构就是数据表，这些数据表的组成都是结构化（Structured）。</li>
+<li>先把数据放到表中，在把表放到库中</li>
+<li>一个数据库可以有多个表，每个表都有名字用来标识自己，表名具有唯一性。</li>
+<li>表具有一些特性，这些特性定义了数据在表中如何存储，类似java或python中“类”的设计</li>
+</ul>
+<h2 id="表、记录、字段"><a href="#表、记录、字段" class="headerlink" title="表、记录、字段"></a>表、记录、字段</h2><ul>
+<li>E-R（rntity-relationship,实体-联系）模型中主要有三个概念：实体集、属性、联系集.</li>
+<li>一个实体集（class）对用数据库中的一个表（table），一个实体（instance）对应数据库表中的一行（row）,也称为一条记录（record）.一个属性（attribute）对应数据库表中的一列（column）,也称为一个字段（field）.<blockquote>
+<p>实体集（class） - 表（table）<br>实体（instance）- 行（row） - 记录（record）<br>属性（attribute） - 列（column） - 字段（field）</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-09-41-49.png"></p>
+<blockquote>
+<p>ORM思想（object relational mapping）体现：<br>数据库中的一个表&lt;–&gt;java或python中的一个类<br>表中的一条数据&lt;–&gt;类中的一个对象（实体）<br>表中的一个列&lt;–&gt;类中的一个字段</p>
+</blockquote>
+<h2 id="表的关联关系"><a href="#表的关联关系" class="headerlink" title="表的关联关系"></a>表的关联关系</h2><h3 id="一对一关联（one-to-one）"><a href="#一对一关联（one-to-one）" class="headerlink" title="一对一关联（one-to-one）"></a>一对一关联（one-to-one）</h3><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-09-56-54.png"></p>
+<blockquote>
+<p>如果设计成一张表，在查询的时候，用sql写起来会简洁一些。但是，实际开发的时候发现这张表的字段非常多，而有些字段是常用的，有些字段不是常用的，那我完全可以把常用的字段和不常用的字段分成两张表</p>
+</blockquote>
+<p>两种建表原则：</p>
+<ul>
+<li>外键唯一：主表的主键和从表的外键（唯一），形成主外键关系，外键唯一.</li>
+<li>外键是主键：主表的主键和从表的主键，形成主外键关系.<blockquote>
+<p>在约束中细讲</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="一对多关系（one-to-many）"><a href="#一对多关系（one-to-many）" class="headerlink" title="一对多关系（one-to-many）"></a>一对多关系（one-to-many）</h3><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-09-14.png"></p>
+<blockquote>
+<p>一个员工有一个部门，一个部门有不同的员工.</p>
+</blockquote>
+<p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-12-12.png"></p>
+<blockquote>
+<p>一门课程有一个编号，一门课程有很多人考.</p>
+</blockquote>
+<h3 id="多对多关系（many-to-many）"><a href="#多对多关系（many-to-many）" class="headerlink" title="多对多关系（many-to-many）"></a>多对多关系（many-to-many）</h3><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-17-34.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-18-01.png"></p>
+<blockquote>
+<p>一个学生可以学好几门课（学生信息表），一门课也有好多学生（课程信息表），最后整合在选课信息表.</p>
+</blockquote>
+<p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-21-41.png"></p>
+<blockquote>
+<p>一个产品可以有多个订单（订单表），一个订单可以有多个产品（产品表），最后整合在订单明细表</p>
+</blockquote>
+<h3 id="自我引用"><a href="#自我引用" class="headerlink" title="自我引用"></a>自我引用</h3><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-25-46.png"></p>
+<h1 id="MySQL8-0卸载"><a href="#MySQL8-0卸载" class="headerlink" title="MySQL8.0卸载"></a>MySQL8.0卸载</h1><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-41-19.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-44-48.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-45-46.png"></p>
+<hr>
+<h2 id><a href="#" class="headerlink" title></a><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-46-06.png"></h2><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-47-13.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-58-21.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-59-07.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-10-59-39.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-00-08.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-01-09.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-01-27.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-07-54.png"></p>
+<h1 id="MySQL8-0安装"><a href="#MySQL8-0安装" class="headerlink" title="MySQL8.0安装"></a>MySQL8.0安装</h1><p><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-09-30.png"></p>
+<h2 id="MySQL8-0下载地址"><a href="#MySQL8-0下载地址" class="headerlink" title="MySQL8.0下载地址"></a>MySQL8.0下载地址</h2><p>官网：<a target="_blank" rel="noopener" href="https://www.mysql.com/">https://www.mysql.com</a><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-14-23.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-18-21.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-22-02.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-26-23.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-29-12.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-30-25.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-32-12.png"></p>
+<h2 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h2><p>.zip的文件下完需要自己配置。<br>.msi的不需要自己配置.<br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-41-24.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-45-18.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-52-47.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-56-13.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-11-58-49.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-00-25.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-01-51.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-04-28.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-08-52.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-09-48.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-11-14.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-14-29.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-18-37.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-22-07.png"><br><img src="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/2022-06-18-12-25-11.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AKYCCCC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://akycccc.github.io/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/">https://akycccc.github.io/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AKYCCCC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL学习">
+                        
+                        <span class="card-title">MySQL学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/13/%E4%BF%AE%E6%94%B9%E4%BA%86%E6%9F%90%E4%BA%9B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%90%8E%E5%8D%9A%E5%AE%A2hexo-command-not-found/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="修改了某些环境变量后博客hexo: command not found,">
+                        
+                        <span class="card-title">修改了某些环境变量后博客hexo: command not found,</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
+                                    疑难解答
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <a href="/about" target="_blank">AKYCCCC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "5";
+                        var startDate = "5";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/AKYCCCC/AKYCCCC.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:954660147@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=954660147" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 954660147" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

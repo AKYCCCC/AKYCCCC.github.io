@@ -4,11 +4,55 @@
   
     
     <entry>
+      <title>错误：编码***的不可映射字符</title>
+      <link href="/2022/07/18/%E9%94%99%E8%AF%AF%EF%BC%9A%E7%BC%96%E7%A0%81-%E7%9A%84%E4%B8%8D%E5%8F%AF%E6%98%A0%E5%B0%84%E5%AD%97%E7%AC%A6/"/>
+      <url>/2022/07/18/%E9%94%99%E8%AF%AF%EF%BC%9A%E7%BC%96%E7%A0%81-%E7%9A%84%E4%B8%8D%E5%8F%AF%E6%98%A0%E5%B0%84%E5%AD%97%E7%AC%A6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用<code>javac</code>命令编译.java文件的时候报错提示‘错误：编码***的不可映射字符’</p><h2 id="产生的原因"><a href="#产生的原因" class="headerlink" title="产生的原因"></a>产生的原因</h2><p>JDK的javac命令是以GBK的编码形式运行的</p><ul><li>GBK是针对汉字做出的一种编码</li></ul><p>文本文档默认使用ASCLL码值进行编码.</p><blockquote><p>结论：两边的字节码格式不匹配导致</p></blockquote><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在<code>jaavc</code>命令后面加上<code>-encoding utf-8</code><br>示例：<br><code>javac HelloWorld.java -encoding utf-8</code></p><p>原理就是，指定编译的时候通通以utf-8的编码形式编译</p><blockquote><p>问：为什么用utf-8？<br>答：因为utf-8和ASCLL相容</p></blockquote><p>如果指定了UTF-8还是‘编码***的不可映射字符’<br>可是指定GBK<br><code>javac HelloWorld.java -encoding gbk</code></p><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>ASCII (American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言，共定义了128个字符 。</p><p>Unicode：统一码（又称万国码），它为每种语言中的每个字符设定了唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。</p><p>UTF-8（8-bit Unicode Transformation Format）：是针对Unicode的一种可变长度字符编码，包含全世界所有国家需要用到的字符，且与ASCII相容。因此，它逐渐成为电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。</p><p>GBK（“国标”、“扩展”汉语拼音的第一个字母）：即汉字编码字符集，主要针对汉字编码而形成的解决方案。</p><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>GBK就是在保存帖子的时候，一个汉字占用两个字节。外国人看会出现乱码，此为我们国家为自己汉字编码而形成的解决方案。</p><p>UTF-8就是在保存帖子的时候，一个汉字占用3个字节。但是外国人看的话不会乱码，此为西人为了解决多字节字符而形成的解决方案。</p><p>简言而知，GBK编码方式的编码是以中国国情而创造的，在国际上的兼容性不好，这也是为什么大多数的网页是使用UTF-8编码而不是GBK。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 疑难解答 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JDK下载与安装</title>
+      <link href="/2022/07/18/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+      <url>/2022/07/18/JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java学习</title>
       <link href="/2022/07/17/java%E5%AD%A6%E4%B9%A0/"/>
       <url>/2022/07/17/java%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="java开发工具、集成开发环境、编译器"><a href="#java开发工具、集成开发环境、编译器" class="headerlink" title="java开发工具、集成开发环境、编译器"></a>java开发工具、集成开发环境、编译器</h1><h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+        <content type="html"><![CDATA[<h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h2><ul><li>阿里巴巴是国内java的权威</li><li>java的语法相对来说比c&#x2F;c++简单</li><li>java刚开始叫oak,刚开始是做微波炉、智能家电这一块.<ul><li>java的创始人喜欢喝咖啡，然后印度尼西亚有一个到叫爪哇岛，盛产咖啡.最后oak就变成了java.</li></ul></li></ul><h2 id="java开发环境"><a href="#java开发环境" class="headerlink" title="java开发环境"></a>java开发环境</h2><ul><li>java的编译器是JDK，公司不一定是用最新版的JDK,公司用的最多的版本是JDK1.7,JDK1.8</li><li>JRE是java的运行环境，就是玩我的世界需要下载的那个就是jre</li><li>JVM是java虚拟机</li><li>IDEA是java的集成开发环境</li></ul><blockquote><p>前三者的关系是JDK包着JRE,JRE包着JVM</p></blockquote><h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编程规范建议：左括号‘{’跟着当前行，右括号‘}’和当前行开头对齐.</p><ul><li><code>public calss </code>是类<ul><li>一个java文件中只能有一个public的类</li></ul></li><li><code>HelloWorld</code>是类名<ul><li>类名需要和创建的java文件名相同</li><li>类名用大驼峰的形式命名</li></ul></li><li>在<code>public class HelloWorld</code>里面的叫类体</li><li>在<code>public static void main(String[] args)</code>里面的叫方法体</li><li></li></ul><h2 id="java编译过程"><a href="#java编译过程" class="headerlink" title="java编译过程"></a>java编译过程</h2><p>第一步，有一个.java后缀的文件，这文件里保存的是自己写的java代码</p><p>第二步，使用JDK的命令<code>javac</code>，javac空格+.java后缀的的文件全名包含后缀.<br>执行第二部后生成一个.clas后缀的文件，这个文件是字节码文件.</p><p>第三步，使用JDK命令<code>java</code>，java+文件名（生成的字节码文件的文件名和原来.java的文件名是一致的）</p><h2 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h2><blockquote><p>问1：为什么main是static(静态的)<br>答：</p></blockquote><blockquote><p>问2：JDK&#x2F;JRE&#x2F;JVM是什么，是做什么用的<br>答：</p></blockquote><blockquote><p>问3：讲一讲什么是双亲委派模型、类加载器<br>答：</p></blockquote><blockquote><p>问4：<br>答：</p></blockquote><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2>]]></content>
       
       
       <categories>
@@ -45,7 +89,7 @@
       
         <tags>
             
-            <tag> 教程 </tag>
+            <tag> java </tag>
             
         </tags>
       
@@ -63,7 +107,7 @@
       
       <categories>
           
-          <category> c语言 </category>
+          <category> c语言练习 </category>
           
       </categories>
       
@@ -474,6 +518,12 @@
       
         <content type="html"><![CDATA[<p>去JAVA官网下载最新版的JAVA<br><a href="https://www.java.com/zh-CN/download/manual.jsp">https://www.java.com/zh-CN/download/manual.jsp</a></p><p>去龙猫爱发电，搜龙腾猫跃，找到最新的PCL2并下载<br><a href="https://afdian.net/@LTCat">https://afdian.net/@LTCat</a></p><p>PCL2和JAVA下载教程<br><a href="https://www.bilibili.com/video/BV1U34y1S71y?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1U34y1S71y?spm_id_from=333.337.search-card.all.click</a></p><p>PCL2使用教程<br><a href="https://www.bilibili.com/video/BV1o64y187GJ?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1o64y187GJ?spm_id_from=333.337.search-card.all.click</a></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 教程相关 </category>
+          
+      </categories>
       
       
         <tags>

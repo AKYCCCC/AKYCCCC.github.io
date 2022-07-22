@@ -620,6 +620,130 @@ java的创始人喜欢喝咖啡，然后印度尼西亚有一个到叫爪哇岛�
 <h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><p>把小类型给打类型叫显式类型转换</p>
 <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a>字面常量</h3><p>比如一个数字，一个字符，一个字符串，一个浮点数等</p>
 <h3 id="被final修饰的变量"><a href="#被final修饰的变量" class="headerlink" title="被final修饰的变量"></a>被final修饰的变量</h3><p>final等同于const</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p>+<br>-<br>*<br>&#x2F;<br>%</p>
+<h3 id="复合运算符"><a href="#复合运算符" class="headerlink" title="复合运算符"></a>复合运算符</h3><p>+&#x3D;<br>-&#x3D;<br>&#x2F;&#x3D;<br>*&#x3D;<br>%&#x3D;</p>
+<h3 id="自增自减运算符-–"><a href="#自增自减运算符-–" class="headerlink" title="自增自减运算符++ –"></a>自增自减运算符++ –</h3><h4 id="前置-后置-前置–后置–"><a href="#前置-后置-前置–后置–" class="headerlink" title="前置++后置++前置–后置–"></a>前置++后置++前置–后置–</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> a++;</span><br><span class="line">        <span class="comment">//实质上是b=a;a=a+1;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> ++a;</span><br><span class="line">        <span class="comment">//实质上是a=a+1;b=a;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">d</span> <span class="operator">=</span> a--</span><br><span class="line">        <span class="comment">//实质上是d=a,a=a-1;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">e</span> <span class="operator">=</span> --a</span><br><span class="line">        <span class="comment">//实质上是a=a-1;e=a;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        i = i++;</span><br><span class="line">        System.out.println(i);<span class="comment">//0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个代码最后输出的是0<br>这点和C语言不一样样，c语言是输出1<br>问为什么不一样？<br>这涉及到底层的原理，没必要去理解.知道结果是0就行</p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>&#x3D;&#x3D;<br>!&#x3D;<br>&lt;<br>&gt;<br>&gt;&#x3D;<br>&lt;&#x3D;</p>
+<blockquote>
+<p>关系运算符最后的结果之后true或false</p>
+</blockquote>
+<h3 id="逻辑运算符、与、或、非"><a href="#逻辑运算符、与、或、非" class="headerlink" title="逻辑运算符、与、或、非"></a>逻辑运算符、与、或、非</h3><p>&amp;&amp; - 与<br>|| - 或<br>!  - 非，示例：!true &#x3D;&#x3D; false; !false &#x3D;&#x3D; true;</p>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>按位与：&amp;</p>
+<ul>
+<li>二进制位比较，两个二进制位都是1，则结果是1，其他结果为0</li>
+</ul>
+<p>按位或：|</p>
+<ul>
+<li>二进制位比较，有一个是1，则结果是1</li>
+</ul>
+<p>按位异或：^</p>
+<ul>
+<li>二进制位比较，相同为0，不同为1</li>
+</ul>
+<p>按位取反：~</p>
+<ul>
+<li>二进制位，1变0，,0变1</li>
+</ul>
+<h3 id="移位操作符"><a href="#移位操作符" class="headerlink" title="移位操作符"></a>移位操作符</h3><p>&gt;&gt;:右移操作符</p>
+<ul>
+<li>正数右移，右边去掉，左边补0</li>
+<li>右移相当于除法（不考虑负数的情况）</li>
+<li>负数右移，左边补的是符号位</li>
+</ul>
+<p>&lt;&lt;:左移操作符</p>
+<ul>
+<li>左边去掉，右边补0</li>
+<li>左移相当于乘法（不考虑负数的情况）</li>
+</ul>
+<p>&gt;&gt;&gt;:无符号右移</p>
+<ul>
+<li>左边只补0</li>
+</ul>
+<blockquote>
+<p>没有无符号左移<br>因为左边本来就没有符号位，不需要考虑补1还是补0.<br>左移通通补0</p>
+</blockquote>
+<h2 id="输入（同C语言中的scanf）"><a href="#输入（同C语言中的scanf）" class="headerlink" title="输入（同C语言中的scanf）"></a>输入（同C语言中的scanf）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> scan.nextInt();<span class="comment">//读入整形</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> scan.nextline();<span class="comment">//读入字符串</span></span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：<br><code>import java.util.Scanner;</code>:这个相当于C语言中的头文件，在java中叫做包</p>
+<p><code>Scanner scan = new Scanner(System.in);</code>:其中System.in代表的是从键盘中读取数据</p>
+<p><code>scan.nextInt();</code>:nexInt表示读取一个整形</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for循环<br>while循环</p>
+<ul>
+<li>在while中使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (scan.hasNextInt()) &#123;<span class="comment">//实现不断读取</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> scan.nextInt();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+do..whlie循环</li>
+</ul>
+<h2 id="方法（函数）"><a href="#方法（函数）" class="headerlink" title="方法（函数）"></a>方法（函数）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class 类名 &#123;</span><br><span class="line">    <span class="comment">//创建函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> 返回值类型  方法名（函数名）（参数列表（参数类型 参数名），.....） &#123;</span><br><span class="line">        方法体；</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//主函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>; &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法名：采用小驼峰命名（第一个单词小写，第二个单词首字母大写）</li>
+<li>方法定义：方法要定义在<code>public class 类名 &#123;&#125;</code>里面</li>
+<li>方法位置：java中无所谓在main前面还是后面</li>
+<li>参数列表：就是参数的数据类型和参数名</li>
+</ul>
+<blockquote>
+<p>java中只有按值传递，没有按地址传递<br>java中只有按值传递，没有按地址传递<br>java中只有按值传递，没有按地址传递</p>
+</blockquote>
+<h2 id="方法（函数）的重载（overload）"><a href="#方法（函数）的重载（overload）" class="headerlink" title="方法（函数）的重载（overload）"></a>方法（函数）的重载（overload）</h2><p>简单来说，就是方法（函数）可以是同一个名字</p>
+<p>方法重载的规则</p>
+<ul>
+<li>1.方法名相同</li>
+<li>2.返回值不做要求</li>
+<li>3.参数列表不同（参数的个数或者参数的数据类型不同）</li>
+</ul>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<p>问：重载和重写的区别是什么？<br>答：</p>
+</blockquote>
+<h2 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h2><ul>
+<li>函数递归在栈上开辟空间</li>
+<li>栈的空间大概是1M&#x2F;2M</li>
+<li>函数递归不给终止条件会报错：StackOverflowError</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h3><p>定义数组的方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//两种定义方式没有任何区别</span></span><br><span class="line">        <span class="type">int</span>[] arr1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;<span class="comment">//第一种定义方式</span></span><br><span class="line">        <span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;<span class="comment">//第二种定义方式</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//示例1:</span></span><br><span class="line">        <span class="type">int</span>[] arr3 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">4</span>];<span class="comment">//这个数组的长度是0</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在C语言中数组放在栈上</li>
+<li>在java中数组放在堆上</li>
+<li>java的数组属于引用类型</li>
+<li>C语言中数组属于构造数据类型</li>
+<li>java中不需要定义数组长度，他会自动推算.</li>
+<li>栈上的地址是拿不到的</li>
+<li>堆上的地址，可以打印出来，但是是经过java处理过的，不是真实的.<ul>
+<li>但是你可以当做是真实的.因为，就算经过处理，地址也是唯一的</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-16-24-45.png"><br><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-16-42-31.png"></p>
+<h3 id="求数组的长度"><a href="#求数组的长度" class="headerlink" title="求数组的长度"></a>求数组的长度</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> arr1.length;<span class="comment">//直接调用length</span></span><br><span class="line">        System.out.println(len); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组的打印方式"><a href="#数组的打印方式" class="headerlink" title="数组的打印方式"></a>数组的打印方式</h3><h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><p>和C语言一样<br>用一个循环，然后打印</p>
+<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> val:arr1) &#123;</span><br><span class="line">            System.out.println(val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (数组中元素的类型 自定义变量名： 数组名) &#123;</span><br><span class="line">    System.out.println(自定义变量名);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="将数组以字符串的形式输出"><a href="#将数组以字符串的形式输出" class="headerlink" title="将数组以字符串的形式输出"></a>将数组以字符串的形式输出</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要导入包</span></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> Arrays.toString(arr1);<span class="comment">//以字符串形式输出</span></span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组传参"><a href="#数组传参" class="headerlink" title="数组传参"></a>数组传参</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//创建数组</span></span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="comment">//数组传参</span></span><br><span class="line">        printArr(arr);</span><br><span class="line">    &#125;</span><br><span class="line">                               <span class="comment">//接收数组</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printArr</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="comment">//打印数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> val:arr) &#123;</span><br><span class="line">            System.out.println(val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-17-25-42.png"></p>
+<ul>
+<li>数组传参后在函数中操作会改变数组中的值.</li>
+</ul>
+<h2 id="JVM内存区域的划分"><a href="#JVM内存区域的划分" class="headerlink" title="JVM内存区域的划分"></a>JVM内存区域的划分</h2><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-18-36-38.png"></p>
+<h3 id="数组拷贝"><a href="#数组拷贝" class="headerlink" title="数组拷贝"></a>数组拷贝</h3><h4 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h4><p>用for循环，然后返回数组</p>
+<h4 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h4><p><code>int[] arr = Arrays.copyOf(被拷贝的数组，要拷贝的长度)</code></p>
+<h4 id="第三种方法"><a href="#第三种方法" class="headerlink" title="第三种方法"></a>第三种方法</h4><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-19-41-31.png"></p>
+<h4 id="第四种方法"><a href="#第四种方法" class="headerlink" title="第四种方法"></a>第四种方法</h4><p><code>int[] arr = 被拷贝的数组名.clone();</code></p>
+<blockquote>
+<p>这4中方式从本质上来说都是浅拷贝</p>
+</blockquote>
+<h4 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h4><h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>举个例子，有两个数组，arr1和arr2<br>arr2是arr1的拷贝.<br>此时如果通过arr2修改arr2自己的元素，且不影响arr1的元素，就叫做深拷贝.</p>
+<ul>
+<li>数组中存放的是简单类型</li>
+</ul>
+<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-22-20-18-00.png"><br>array2是array1的拷贝<br>如上图所示：此时如果我改变array2中的数据，那array1中的数据也会改变，这就是浅拷贝.</p>
+<ul>
+<li>数组中存放的是引用类型</li>
+</ul>
 
                 
             </div>

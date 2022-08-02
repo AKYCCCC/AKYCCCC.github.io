@@ -852,20 +852,20 @@ do..whlie循环</li>
 <h5 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//翻转链表,返回新链表的head</span></span><br><span class="line"><span class="keyword">public</span> Node <span class="title function_">reverseList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//用来操作的中间节点</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="comment">//前一个节点</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">//返回的节点</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">newHead</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">while</span>(cur!=<span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">//下一个节点</span></span><br><span class="line">        <span class="type">Node</span> <span class="variable">curNext</span> <span class="operator">=</span> cur.next;</span><br><span class="line">        <span class="comment">//当curNext走到null就说明走到最后了.</span></span><br><span class="line">        <span class="keyword">if</span>(curNext==<span class="literal">null</span>) &#123;</span><br><span class="line">            newHead = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        cur.next = prev;</span><br><span class="line">        prev = cur;</span><br><span class="line">        cur = curNext;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="不带头双向链表"><a href="#不带头双向链表" class="headerlink" title="不带头双向链表"></a>不带头双向链表</h2><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-30-15-50-10.png"></p>
-<h2 id="包、封装、继承、多态"><a href="#包、封装、继承、多态" class="headerlink" title="包、封装、继承、多态"></a>包、封装、继承、多态</h2><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包（package）<br>包是组织类的一种方式<br>使用包的主要目的是保证类的唯一性</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>包（package）<br>包是组织类的一种方式<br>使用包的主要目的是保证类的唯一性</p>
 <ul>
 <li>比如说，在开发中，2个人写了同名的类就会冲突导致编译不能通过</li>
 <li>这时，只要把同名的类放进不同的包里.就可以不冲突的使用.</li>
 </ul>
-<h4 id="创建包"><a href="#创建包" class="headerlink" title="创建包"></a>创建包</h4><p>1.创建包的时候，包名一定是小写的.<br>2.包的命名，包的名字一般用的是域名，域名反过来写.比如百度的域名是<code>www.baidu.com</code>,那百度的包就叫，<code>com.baidu.wwww</code><br>3.包名要和代码路径匹配.因为你创建包的时候，会根据你的包名自动创建一个路径来存放代码<br>4.如果一个类没有package语句，该类会被放到默认包中</p>
-<h4 id="切换包的样式"><a href="#切换包的样式" class="headerlink" title="切换包的样式"></a>切换包的样式</h4><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802123842509.png"></p>
-<h4 id="使用包"><a href="#使用包" class="headerlink" title="使用包"></a>使用包</h4><p>系统提供的包调用：<code>import java.util.包名;</code></p>
+<h3 id="创建包"><a href="#创建包" class="headerlink" title="创建包"></a>创建包</h3><p>1.创建包的时候，包名一定是小写的.<br>2.包的命名，包的名字一般用的是域名，域名反过来写.比如百度的域名是<code>www.baidu.com</code>,那百度的包就叫，<code>com.baidu.wwww</code><br>3.包名要和代码路径匹配.因为你创建包的时候，会根据你的包名自动创建一个路径来存放代码<br>4.如果一个类没有package语句，该类会被放到默认包中</p>
+<h3 id="切换包的样式"><a href="#切换包的样式" class="headerlink" title="切换包的样式"></a>切换包的样式</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802123842509.png"></p>
+<h3 id="使用包"><a href="#使用包" class="headerlink" title="使用包"></a>使用包</h3><p>系统提供的包调用：<code>import java.util.包名;</code></p>
 <p>自己写的包调用：<code>package 包名 ;</code></p>
-<h4 id="常见的系统包"><a href="#常见的系统包" class="headerlink" title="常见的系统包"></a>常见的系统包</h4><p>lang的包不需要手动导入</p>
+<h3 id="常见的系统包"><a href="#常见的系统包" class="headerlink" title="常见的系统包"></a>常见的系统包</h3><p>lang的包不需要手动导入</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220731200131359.png"></p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>关键字 - extends</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>关键字 - extends</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802131350636.png">、</p>
-<h4 id="演示继承怎么用"><a href="#演示继承怎么用" class="headerlink" title="演示继承怎么用"></a>演示继承怎么用</h4><p>首先创建了一个类，叫Animal（动物）</p>
+<h3 id="演示继承怎么用"><a href="#演示继承怎么用" class="headerlink" title="演示继承怎么用"></a>演示继承怎么用</h3><p>首先创建了一个类，叫Animal（动物）</p>
 <p>动物有名字，有动作，会吃，会睡觉</p>
 <p>创建完之后就是这样的：（注：实际开发中一个java文件里只能有一个类（class），学习时为了方便所以写在一个文件中.）</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802125733498.png"></p>
@@ -892,7 +892,7 @@ do..whlie循环</li>
 <li>父类中有private的代码子类是不能使用的</li>
 </ul>
 <hr>
-<h5 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h5><p><strong>super关键字可以调用父类的构造方法</strong></p>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p><strong>super关键字可以调用父类的构造方法</strong></p>
 <p>继续修改代码，在Animal类中加个构造方法</p>
 <p>会发现报错了，如下：</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802144535715.png"></p>
@@ -907,19 +907,24 @@ do..whlie循环</li>
 <hr>
 <p>最后在看一个</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802161401068.png"></p>
-<h4 id="继承的规则"><a href="#继承的规则" class="headerlink" title="继承的规则"></a>继承的规则</h4><ol>
+<h3 id="继承的规则"><a href="#继承的规则" class="headerlink" title="继承的规则"></a>继承的规则</h3><ol>
 <li>使用extends继承父类</li>
 <li>java中一个子类只能继承一个父类</li>
 <li>一个父类可以被多个子类继承</li>
 <li>子类会继承父类中所有public的字段和方法</li>
 <li>父类中private的字段和方法，子类是不能使用的.（是不能被子类使用，但还是被子类继承的）</li>
 <li>子类的实例中也包含父类的实例，可以使用super关键字引用.</li>
+<li>子类可以继承父类，新子类可以继承（子类继承父类），可以无限套娃继承</li>
+<li>继承不建议超过三层</li>
 </ol>
-<h4 id="继承的优点"><a href="#继承的优点" class="headerlink" title="继承的优点"></a>继承的优点</h4><ul>
+<h3 id="继承的优点"><a href="#继承的优点" class="headerlink" title="继承的优点"></a>继承的优点</h3><ul>
 <li>可以达到代码的复用效果</li>
 </ul>
 <p>问：什么是代码复用？</p>
 <p>答：子类可以使用父类的代码（除构造方法外所有的）</p>
+<blockquote>
+<p>继承的意义是：为了代码的复用.如果不继承，那么重复的代码会变得非常多.</p>
+</blockquote>
 <h2 id="面试问题-2"><a href="#面试问题-2" class="headerlink" title="面试问题"></a>面试问题</h2><blockquote>
 <p>问：子类继承了父类的什么？</p>
 <p>答：子类继承了除父类构造方法外的所有属性和方法.</p>
@@ -945,6 +950,92 @@ do..whlie循环</li>
 <p>包访问权限是：只能在同一包中进行访问使用.</p>
 <p>访问限定修饰符有：</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802162023433.png"></p>
+<p>被protected修饰的，从不同包中的子类进行访问要用super</p>
+<h2 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h2><p>举例：<code>final int a = 10;</code>修饰变量</p>
+<p>被final修饰后就变成了常量，只能被初始化一次，接下来不能被修改</p>
+<p>举例：<code>final 类名;</code>修饰类</p>
+<p>被final修饰的类，不能被继承.</p>
+<p>举例：<code>final 方法名;</code>修饰方法</p>
+<p>被final修饰的方法叫密封方法.</p>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>组合和继承类似，组合也是表达类之间关系的方式，也能够达到代码复用的效果</p>
+<p>继承中两个类的关系是is-a.比如说，鸟是动物，猫是动物.但不能反过来说动物都是鸟.</p>
+<p>组合中类的关系是has-a,比如说，学校里有老师，学校里有学生.但不能说老师是学校.</p>
+<p>看代码：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802205822759.png"></p>
+<blockquote>
+<p>组合中没有特殊的语法（比如像继承中的extends），组合就是将一个类的实例作为另一个类的字段.</p>
+</blockquote>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h3 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h3><p>先看一下总的代码，普通调用的代码：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802214304712.png"></p>
+<hr>
+<p>那什么叫向上转型呢？</p>
+<p>其他的没变，主函数里稍微改变一下，代码如下：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802215207483.png"></p>
+<blockquote>
+<p>(父类引用)引用(子类对象)就是向上引用（向上转型）</p>
+</blockquote>
+<hr>
+<p>那向上引用有什么用呢，或者说和普通引用差在哪里.</p>
+<p>稍微修改下代码，看代码：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802221448757.png"></p>
+<blockquote>
+<p>结论就是：向上转型之后，通过父类引用（ani）只能访问父类自己的方法和属性.不能访问子类的方法和属性.</p>
+</blockquote>
+<h4 id="向上转型的时机"><a href="#向上转型的时机" class="headerlink" title="向上转型的时机"></a>向上转型的时机</h4><h5 id="1-直接赋值"><a href="#1-直接赋值" class="headerlink" title="1.直接赋值"></a>1.直接赋值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802224003955.png"></p>
+<h5 id="2-传参"><a href="#2-传参" class="headerlink" title="2.传参"></a>2.传参</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802230426142.png"></p>
+<h5 id="3-返回值"><a href="#3-返回值" class="headerlink" title="3.返回值"></a>3.返回值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802231949344.png"></p>
+<h3 id="运行时绑定（动态绑定）"><a href="#运行时绑定（动态绑定）" class="headerlink" title="运行时绑定（动态绑定）"></a>运行时绑定（动态绑定）</h3><p>先看代码</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802234453457.png"></p>
+<p>导致这个结果的原因就是发生了&#x3D;&#x3D;<strong>多态</strong>&#x3D;&#x3D;</p>
+<p>这个过程也叫运行时绑定</p>
+<p>也可以叫动态绑定</p>
+<p>运行时绑定发生的**&#x3D;&#x3D;前提&#x3D;&#x3D;**是通过（父类引用）引用（子类对象），通过父类引用调用同名的方法.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802235359614.png"></p>
+<blockquote>
+<p>从底层原理来看，代码在&#x3D;&#x3D;<strong>编译</strong>&#x3D;&#x3D;的时候，确实是去调用的Animal的eat,但是最后&#x3D;&#x3D;<strong>运行</strong>&#x3D;&#x3D;还是变成了Cat的eat</p>
+<p>在运行的时候才确定调用的是谁</p>
+<p>这就是运行时绑定，也叫动态绑定.</p>
+</blockquote>
+<blockquote>
+<p>（父类引用）引用（子类对象）.同时，通过（父类引用）调用同名的覆盖方法.此时会发生运行时绑定（动态绑定）</p>
+</blockquote>
+<blockquote>
+<p>总结：在调用有继承关系的两个类的方法的时候，究竟是执行父类的方法还是执行子类的方法.这个调用过程是由程序&#x3D;&#x3D;运行&#x3D;&#x3D;时决定，而不是&#x3D;&#x3D;编译&#x3D;&#x3D;时决定的叫运行时绑定，也叫动态绑定.</p>
+</blockquote>
+<h3 id="重写和重载"><a href="#重写和重载" class="headerlink" title="重写和重载"></a>重写和重载</h3><h4 id="重写（override）"><a href="#重写（override）" class="headerlink" title="重写（override）"></a>重写（override）</h4><p>也可以叫覆盖，覆写</p>
+<p>1.方法（函数）名称相同</p>
+<p>2.返回值相同</p>
+<p>3.参数列表相同</p>
+<p>注意事项：</p>
+<p>1.重写和重载不一样</p>
+<p>2.被final修饰的和静态（static）的方法不能被重写</p>
+<p>3.私有的（private）方法不能被重写</p>
+<p>4.子类中方法的访问限定修饰符权限必须大于等于父类的访问限定修饰符权限。不然不能重写.</p>
+<blockquote>
+<p>必须在不同的两个类上才能重写.因为你一个类中，写2个一模一样的方法有什么意义吗？</p>
+<p>这两个类必须是&#x3D;&#x3D;继承&#x3D;&#x3D;关系，是子类还是父类无所谓.</p>
+</blockquote>
+<h4 id="重载（overload）"><a href="#重载（overload）" class="headerlink" title="重载（overload）"></a>重载（overload）</h4><p>1.方法（函数）名相同</p>
+<p>2.参数列表不同（参数的数据类型不同，参数的个数不同就可以）</p>
+<p>3.返回值不做要求</p>
+<blockquote>
+<p>必须是同一个类中.</p>
+</blockquote>
+<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803005420419.png"></p>
+<ul>
+<li><p>向下转型非常不安全，很少会使用向下转型</p>
+<p>问：为什么不安全？</p>
+<p>答：在使用强制类型转换的时候，如果说你强转的类型不匹配，编译器不会直接报错（代码下有红色波浪线）。而是在运行时才会报异常（类型转换异常）</p>
+<h3 id="instanceof关键字"><a href="#instanceof关键字" class="headerlink" title="instanceof关键字"></a>instanceof关键字</h3><p>instanceof(运算符)</p>
+<p>为了防止向下转型发生错误，可以使用关键字instanceof（运算符）</p>
+<p>使用方法：<code>if(类名A instanceof 类名B) &#123;......&#125;;</code></p>
+<p>这个关键字可以判断A是不是B的一个实例.判断一下A引用的是不是B.</p>
+</li>
+</ul>
+<h3 id="在构造方法中调用重写方法"><a href="#在构造方法中调用重写方法" class="headerlink" title="在构造方法中调用重写方法"></a>在构造方法中调用重写方法</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803013445102.png"></p>
+<blockquote>
+<p>在构造方法中会发生动态绑定</p>
+</blockquote>
 
                 
             </div>

@@ -863,7 +863,7 @@ do..whlie循环</li>
 <p>自己写的包调用：<code>package 包名 ;</code></p>
 <h3 id="常见的系统包"><a href="#常见的系统包" class="headerlink" title="常见的系统包"></a>常见的系统包</h3><p>lang的包不需要手动导入</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220731200131359.png"></p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>关键字 - extends</p>
+<h2 id="继承（extends）"><a href="#继承（extends）" class="headerlink" title="继承（extends）"></a>继承（extends）</h2><p>关键字 - extends</p>
 <p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802131350636.png">、</p>
 <h3 id="演示继承怎么用"><a href="#演示继承怎么用" class="headerlink" title="演示继承怎么用"></a>演示继承怎么用</h3><p>首先创建了一个类，叫Animal（动物）</p>
 <p>动物有名字，有动作，会吃，会睡觉</p>
@@ -1036,7 +1036,139 @@ do..whlie循环</li>
 <blockquote>
 <p>在构造方法中会发生动态绑定</p>
 </blockquote>
-
+<h3 id="多态小总结"><a href="#多态小总结" class="headerlink" title="多态小总结"></a>多态小总结</h3><p>问：什么是多态？</p>
+<p>答：一种事物的多种形态.多态也可以是一种思想</p>
+<h4 id="多态发生的前提"><a href="#多态发生的前提" class="headerlink" title="多态发生的前提"></a>多态发生的前提</h4><ol>
+<li>（父类引用）引用（子类对象）</li>
+<li>父类和子类有同名的覆盖（重写、覆写）方法</li>
+<li>通过父类引用调用重写的代码</li>
+</ol>
+<h4 id="多态的好处"><a href="#多态的好处" class="headerlink" title="多态的好处"></a>多态的好处</h4><p>类的调用者对类的使用成本降低</p>
+<ul>
+<li>封装让类的调用者不需要知道类的细节</li>
+<li>多态能让类的调用者连这个类的类型是什么都不必知道，只要知道这个对象有某个方法直接调用即可</li>
+<li>降低了代码管理的复杂度</li>
+<li>可拓展能力强，使用多态的代码改动成本也较低</li>
+</ul>
+<h3 id="圈复杂度"><a href="#圈复杂度" class="headerlink" title="圈复杂度"></a>圈复杂度</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803185510407.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803185724405.png"></p>
+<h2 id="抽象类（abstract）"><a href="#抽象类（abstract）" class="headerlink" title="抽象类（abstract）"></a>抽象类（abstract）</h2><p>关键字 - abstract</p>
+<p>一个类被abstract修饰他就是抽象类</p>
+<p>抽象类里可以没有抽象方法.</p>
+<p>抽象类里面的属性和方法可以不是抽象的</p>
+<h3 id="1-抽象方法"><a href="#1-抽象方法" class="headerlink" title="1.抽象方法"></a>1.抽象方法</h3><p>一个方法被abstract修饰，他就是抽象方法</p>
+<p>抽象方法不能被private修饰</p>
+<p>如果一个类中有一个抽象方法，这个类就必须声明成抽象类</p>
+<h3 id="抽象类注意点"><a href="#抽象类注意点" class="headerlink" title="抽象类注意点"></a>抽象类注意点</h3><ol>
+<li>抽象类不可以被实例化</li>
+<li>抽象类里的数据成员和方法，与普通类没区别</li>
+<li>抽象类主要就是被用来继承的</li>
+<li>如果一个类继承了抽象类，那么这个类必须重写抽象类中的抽象方法（如果不想重写抽象方法，就把子类也变成抽象类）</li>
+<li>抽象类和抽象方法不能被final修饰，抽象方法不能被private修饰</li>
+</ol>
+<h3 id="抽象类的作用"><a href="#抽象类的作用" class="headerlink" title="抽象类的作用"></a>抽象类的作用</h3><p>就是用来被继承</p>
+<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口(interface)"></a>接口(interface)</h2><p>一个类被interface修饰就是接口</p>
+<h3 id="创建接口"><a href="#创建接口" class="headerlink" title="创建接口"></a>创建接口</h3><p>具体语法<code>interface 接口名&#123;......&#125;;</code></p>
+<h3 id="继承接口（implement）"><a href="#继承接口（implement）" class="headerlink" title="继承接口（implement）"></a>继承接口（implement）</h3><p>具体语法：<code>class 类名 implement 接口名&#123;......&#125;;</code></p>
+<h3 id="接口的规则和注意点"><a href="#接口的规则和注意点" class="headerlink" title="接口的规则和注意点"></a>接口的规则和注意点</h3><ol>
+<li>接口中的方法都是抽象方法，接口中的方法不能被具体实现</li>
+<li>JDK1.8后接口中的方法可以被具体实现，（在需要具体实现的方法前用default修饰）</li>
+<li>接口中定义的变量，默认是静态常量（public static final修饰）.方法默认是抽象方法（public abstract修饰）</li>
+<li>接口和抽象类一样，不可以被实例化（但是可以用（接口引用）引用（子类对象）来使用.和（父类引用）引用（子类对象）一样）</li>
+<li>接口和类的关系是implement，使用implement继承接口.</li>
+<li>一个类继承（implement）了接口，一定要在这个类中重写接口中的方法</li>
+<li>接口和类发生继承（implement）关系后，就可以发生向上转型</li>
+</ol>
+<h3 id="接口的作用"><a href="#接口的作用" class="headerlink" title="接口的作用"></a>接口的作用</h3><p>接口可以有多个.</p>
+<p>解决java中单继承的问题（在java中一个类只能继承一个类）</p>
+<h3 id="接口解决多继承问题"><a href="#接口解决多继承问题" class="headerlink" title="接口解决多继承问题"></a>接口解决多继承问题</h3><p>有时需要一个子类继承多个父类，但是在java中一个子类只能继承一个父类。</p>
+<p>在别的语言中可以通过多继承来实现.</p>
+<p>而java只能是单继承。</p>
+<p>但是java可以使用多个接口，来达到多继承的效果.</p>
+<p>看代码：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803223055536.png"></p>
+<h3 id="接口的使用"><a href="#接口的使用" class="headerlink" title="接口的使用"></a>接口的使用</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803223906071.png"></p>
+<hr>
+<hr>
+<hr>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220804002610520.png"></p>
+<h5 id="关于Comparable-lt-gt"><a href="#关于Comparable-lt-gt" class="headerlink" title="关于Comparable&lt;&gt;"></a>关于Comparable&lt;&gt;</h5><p>先在类中调用这个接口.</p>
+<p>然后会报错，代码底下有红色波浪线</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220804003349761.png"></p>
+<p>这个主要用在自定义类型的，按照其中的某个值进行排序.</p>
+<h2 id="克隆Clone-Clonable接口和深拷贝"><a href="#克隆Clone-Clonable接口和深拷贝" class="headerlink" title="克隆Clone\Clonable接口和深拷贝"></a>克隆Clone\Clonable接口和深拷贝</h2><p>深拷贝：对数据进行拷贝，在修改拷贝的数据时，不影响原来的数据叫深拷贝.</p>
+<p>浅拷贝：对数据进行拷贝，在修改拷贝的数据时，会影响原来的数据叫浅拷贝.</p>
+<p>如果一个类实现了空接口（标记接口），就说明这个类是可以克隆（clone）的.</p>
+<p>一个类被克隆，需要满足2个要求：</p>
+<ol>
+<li>实现了空接口</li>
+<li>重写克隆(clone)方法.重写的是Object的clone方法.</li>
+</ol>
+<blockquote>
+<p>实现接口：<code>interface Cloneable;</code></p>
+</blockquote>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><code>Clonable;</code>是一个接口.</p>
+<p><code>clone();</code>本身是浅拷贝，clone想直接拷贝一个类是不行的.</p>
+<p>一个类实现这个接口并重写clone方法就可以对这个类进行克隆.</p>
+<p>先创建一个类（人），这个类中只写了一个成员属性age.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201241750.png"></p>
+<p>接着在主函数<code>Person p1 = new Person();</code>new个新对象出来</p>
+<p>然后直接调用<code>clone();</code>会发现是没有clone选项的.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201346995.png"></p>
+<hr>
+<p>那要怎么进行克隆，要先让人这个类实现Clonable这个接口</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201626129.png"></p>
+<p>然后鼠标放到人这个类中，按ALT+INSERT,出现如下界面后点击.这一步就是重写Object类中的clone方法.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201959595.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202009601.png"></p>
+<p>然后在输入，就发现有clone了</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202104189.png"></p>
+<p>但到现在还没结束.clone()下面还是有红色报错.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202229641.png"></p>
+<p>这是因为重写的克隆的方法声明了（throws）一个异常.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202515084.png"></p>
+<p>所以在用这个方法的时候需要处理这个异常.</p>
+<p>怎么做呢？鼠标点到clone上右键.找到小灯泡，点进去，有两个灯泡，都可以选，我选了第一个.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202752079.png"></p>
+<p>选完后会自动生成</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202855619.png"></p>
+<p>到现在是在报错，这是为什么呢？因为在上面重写的构造方法中返回值是Object,所以这里要强制类型装换一下</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203305124.png"></p>
+<p>拷贝完成.</p>
+<p>这种拷贝出的结果是<strong>深拷贝</strong></p>
+<hr>
+<p>分析一下代码大概的执行过程</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809225657107.png"></p>
+<p>这样就完成了深拷贝.</p>
+<hr>
+<hr>
+<p>现在新写一个类</p>
+<p>钱</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203508031.png"></p>
+<p>然后我在人(person)中new一个钱</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203808247.png"></p>
+<p>然后在主函数里执行如下代码</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203834233.png"></p>
+<p>会发现，刚刚新加的m是浅拷贝.</p>
+<p>因为如果这样写的话，在内存中是这样的</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809204605058.png"></p>
+<p><strong>注：上面图中的m的数据是Money类中的m，不是Person类中的</strong></p>
+<p>造成了m浅拷贝.</p>
+<p>如果想让m也是深拷贝.</p>
+<p>接下来开始修改代码.</p>
+<p>总的来说就是要让Money也被深拷贝</p>
+<p>所以，首先让Money也实现个Cloneable接口，然后在Money中重写一下clone方法</p>
+<p><strong>为了方便区分，Money类中的<code>double m = 100;</code>改成<code>double money = 100;</code></strong></p>
+<p>修改后的代码如下：</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809230821425.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809231127707.png"></p>
+<p>再来分析下代码的流程.</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809233713673.png"></p>
+<h2 id="面试问题-3"><a href="#面试问题-3" class="headerlink" title="面试问题"></a>面试问题</h2><blockquote>
+<p>问：<code>public interface Cloneable &#123;......&#125;;</code>,为什么这个接口是空接口？</p>
+<p>答：1.空接口也把它叫做标记接口（只要一个类实现了这个接口，那么就标记这个类是可以进行克隆的）.2.想要clone(克隆)，需要重写clone(克隆)方法,这个克隆方法是Object的,（clone方法是在Object这个类中的）</p>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title></a></h2>
                 
             </div>
             <hr/>

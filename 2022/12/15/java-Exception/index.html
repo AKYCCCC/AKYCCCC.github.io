@@ -518,7 +518,9 @@
 <h4 id="异常中的方法"><a href="#异常中的方法" class="headerlink" title="异常中的方法"></a>异常中的方法</h4><p><img src="/2022/12/15/java-Exception/image-20221215193738695.png"></p>
 <h3 id="3-抛出异常"><a href="#3-抛出异常" class="headerlink" title="3.抛出异常"></a>3.抛出异常</h3><h4 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h4><p><img src="/2022/12/15/java-Exception/image-20221215194911504.png"></p>
 <h4 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h4><p><img src="/2022/12/15/java-Exception/image-20221215194922992.png"></p>
-<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h3 id="创建自定义异常"><a href="#创建自定义异常" class="headerlink" title="创建自定义异常"></a>创建自定义异常</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">class</span> 异常名字 extends 运行是异常或编译时异常 &#123;</span><br><span class="line">    <span class="comment">//空参构造</span></span><br><span class="line">    异常名字 () &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//有参构造</span></span><br><span class="line">    异常名字 (String message) &#123;</span><br><span class="line">        <span class="built_in">super</span>(message);<span class="comment">//表示报错的信息</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//异常名字的起名技巧</span></span><br><span class="line">    <span class="comment">//前一段表示异常的名字</span></span><br><span class="line">    <span class="comment">//后一段加上Exception表示这是一个异常</span></span><br><span class="line">    <span class="comment">//例：创建一个名字格式化异常</span></span><br><span class="line">    <span class="comment">//NameFormat : 表示名字格式化有误</span></span><br><span class="line">    <span class="comment">//Exception : 表示异常</span></span><br><span class="line">    <span class="comment">//名字格式化异常 ： NameFormatException</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建运行时异常继承：RunTimeException 表示由于参数错误而导致的问题</span></span><br><span class="line">    <span class="comment">//创建编译时异常继承：Exception 提醒程序员检查本地信息</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
                 
             </div>
             <hr/>
@@ -631,18 +633,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/12/15/java-Exception/">
+                <a href="/2022/12/16/java-File%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java_Exception">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="java_File文件操作">
                         
-                        <span class="card-title">java_Exception</span>
+                        <span class="card-title">java_File文件操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,9 +653,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -667,7 +668,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -741,8 +741,6 @@
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
 
 <!-- 代码块复制 -->
 
@@ -750,8 +748,6 @@
 
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>

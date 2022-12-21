@@ -618,7 +618,183 @@ O : output
 
 
 
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221220133641960.png"></p>
+<h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221220133658765.png"></p>
+<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><p>字符流底层就是字节流</p>
+<p>字节流：一个字节一个字节读取数据</p>
+<p>字符流：可以一个字节一个字节读，遇到中文可以多个字节读</p>
+<h3 id="字符流特点"><a href="#字符流特点" class="headerlink" title="字符流特点"></a>字符流特点</h3><p>读一般字符时可以一个字节一个字节读</p>
+<p>读中文时，可以一次读取多个字节</p>
+<p><strong>字符流 &#x3D;&#x3D; 字节流+字符集</strong></p>
+<p>使用场景是对纯文本文件进行读写</p>
+<h3 id="字符流使用方法"><a href="#字符流使用方法" class="headerlink" title="字符流使用方法"></a>字符流使用方法</h3><p>1.创建对象</p>
+<p>2.文件读写</p>
+<p>3.关闭资源</p>
+<h2 id="字符输入流FileReader"><a href="#字符输入流FileReader" class="headerlink" title="字符输入流FileReader"></a>字符输入流FileReader</h2><h5 id="创建对象-1"><a href="#创建对象-1" class="headerlink" title="创建对象"></a>创建对象</h5><p><code>public FileReader(File file)</code></p>
+<ul>
+<li>根据文件对象创建对象</li>
+</ul>
+<p><code>public FileRader(String str)</code></p>
+<ul>
+<li>根据字符串创建对象</li>
+</ul>
+<h5 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h5><p><code>read()</code></p>
+<ul>
+<li>一个一个读</li>
+<li>遇到中文一次读取多个字节</li>
+<li>读不到返回-1</li>
+<li>返回值是读取到的数据转换成十进制</li>
+</ul>
+<p><code>read(char[] arr)</code></p>
+<ul>
+<li><p>一次读多个放到char类型数组中</p>
+</li>
+<li><p>遇到中文一次读取多个字节，将字节解码后放进char数组</p>
+</li>
+<li><p>读不到返回-1</p>
+</li>
+<li><p>返回值是读取到的字符个数</p>
+</li>
+</ul>
+<h5 id="关闭资源"><a href="#关闭资源" class="headerlink" title="关闭资源"></a>关闭资源</h5><p><code>close()</code></p>
+<h2 id="字符输出流FileWriter"><a href="#字符输出流FileWriter" class="headerlink" title="字符输出流FileWriter"></a>字符输出流FileWriter</h2><h5 id="创建对象-2"><a href="#创建对象-2" class="headerlink" title="创建对象"></a>创建对象</h5><p><code>FileWriter(File file)</code></p>
+<ul>
+<li>根据文件对象创建对象</li>
+</ul>
+<p><code>FileWriter</code>(String str)</p>
+<ul>
+<li><p>根据字符串创建对象</p>
+</li>
+<li><p>文件如果存在，会清空文件中的内容</p>
+</li>
+</ul>
+<p><code>FileWriter(File file,boolean)</code></p>
+<ul>
+<li>打开续写</li>
+</ul>
+<p><code>FileWriter(String str,boolean)</code></p>
+<ul>
+<li>打开续写</li>
+</ul>
+<h5 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h5><p><code>write()</code></p>
+<ul>
+<li>写一个字符</li>
+</ul>
+<p><code>write(String str)</code></p>
+<ul>
+<li>写一个字符串</li>
+</ul>
+<p><code>write(String str,int off,int len)</code></p>
+<ul>
+<li>写出字符串的一部分</li>
+</ul>
+<p><code>write(char[] arr)</code></p>
+<ul>
+<li>写出一个字符数组</li>
+</ul>
+<p><code>write(char[] arr,int off,int len)</code></p>
+<ul>
+<li>写出字符数组的一部分</li>
+</ul>
+<h5 id="关闭资源-1"><a href="#关闭资源-1" class="headerlink" title="关闭资源"></a>关闭资源</h5><p><code>close()</code></p>
+<h2 id="高级流"><a href="#高级流" class="headerlink" title="高级流"></a>高级流</h2><p>高级流就是把基本流做了封装，并提供了一些新的功能</p>
+<h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><p>因为基本流的读写效率太慢了。所以对基本流添加了缓冲增加效率</p>
+<p>因为字符流底层本身就有缓冲区，所以字符缓冲流的效率和普通字符流差的不多</p>
+<p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221153759215.png"></p>
+<h4 id="字节缓冲输入-x2F-输出流"><a href="#字节缓冲输入-x2F-输出流" class="headerlink" title="字节缓冲输入&#x2F;输出流"></a>字节缓冲输入&#x2F;输出流</h4><p>字节缓冲流底层带了8192的缓冲区提高效率</p>
+<p>字节缓冲流是高级流</p>
+<p>&#x3D;&#x3D;字节缓冲流缓冲区是8192<strong>字节</strong>数组&#x3D;&#x3D;</p>
+<h5 id="创建对象-3"><a href="#创建对象-3" class="headerlink" title="创建对象"></a>创建对象</h5><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221155410477.png"></p>
+<p><code>BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;文件路径&quot;),8192);</code></p>
+<p><code>BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;文件路径&quot;),8192);</code></p>
+<p>第二个参数为手动设置缓冲区大小，省略默认是8192</p>
+<h4 id="字符缓冲输入-x2F-输出流"><a href="#字符缓冲输入-x2F-输出流" class="headerlink" title="字符缓冲输入&#x2F;输出流"></a>字符缓冲输入&#x2F;输出流</h4><p>字符基本流自己就有缓冲区，所以效率和字符缓冲流没有太大的差异</p>
+<p>但是字符缓冲流中有好用的成员方法</p>
+<p>&#x3D;&#x3D;字符缓冲流缓冲区是8192<strong>字符</strong>数组&#x3D;&#x3D;</p>
+<h5 id="创建对象-4"><a href="#创建对象-4" class="headerlink" title="创建对象"></a>创建对象</h5><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221163939927.png"></p>
+<p><code>BufferedReader br = new BufferedReader(new FileReader(&quot;文件路径&quot;));</code></p>
+<p><code>BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;文件路径&quot;，true));</code></p>
+<ul>
+<li>续写开关要写在<code>FileWriter()</code>中</li>
+</ul>
+<h5 id="字符输入流特有成员方法"><a href="#字符输入流特有成员方法" class="headerlink" title="字符输入流特有成员方法"></a>字符输入流特有成员方法</h5><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221164222474.png"></p>
+<ul>
+<li>一行一行读数据，遇到回车或者换行就停止</li>
+<li>不会把换行或者回车读进缓冲区</li>
+</ul>
+<h5 id="字符输出流特有成员方法"><a href="#字符输出流特有成员方法" class="headerlink" title="字符输出流特有成员方法"></a>字符输出流特有成员方法</h5><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221164316856.png"></p>
+<ul>
+<li>在各个平台下，换行是不同的<ul>
+<li>Mac:\r</li>
+<li>linux\n</li>
+<li>win:\r\n</li>
+</ul>
+</li>
+<li>newLine会自动判断平台，并换行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedWriter</span> <span class="variable">bw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;文件路径&quot;</span>));</span><br><span class="line">bw.write(<span class="string">&quot;数据&quot;</span>);</span><br><span class="line">bw.newLine();<span class="comment">//换行</span></span><br><span class="line">bw.close();</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221191641536.png"></p>
+<h4 id="转换流主要作用"><a href="#转换流主要作用" class="headerlink" title="转换流主要作用"></a>转换流主要作用</h4><h5 id="指定格式读取-x2F-写入"><a href="#指定格式读取-x2F-写入" class="headerlink" title="指定格式读取&#x2F;写入"></a>指定格式读取&#x2F;写入</h5><p>利用转换流按照指定编码进行读取（jdk11以后被抛弃只需了解）</p>
+<p><code>InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;文件路径&quot;),&quot;指定读取编码格式&quot;);</code></p>
+<p>使用场景：手动创建了一个GBK编码的文件，使用IDEA(默认UTF-8编码)读取数据，不能出现乱码.</p>
+<p>jdk11以后：<code>FileReader fr = new FileReader(&quot;文件路径&quot;, Charset.forName(&quot;指定编码格式&quot;));</code></p>
+<p>利用转换流按照指定编码进行读取</p>
+<p>使用场景：使用IDEA(默认UTF-8编码)，对一个GBK编码的文件进行写入，不能出现乱码</p>
+<p><code>OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;文件路径&quot;),&quot;指定写入编码格式&quot;);</code></p>
+<p>jdk11以后：<code>FileWriter fw = new FileWriter(&quot;文件路径&quot;,Charset.forName(&quot;指定编码格式&quot;));</code></p>
+<p>联合使用场景：将文件以GBK格式读取，然后以UTF-8格式写入文件</p>
+<h5 id="字节流使用字符流中的方法"><a href="#字节流使用字符流中的方法" class="headerlink" title="字节流使用字符流中的方法"></a>字节流使用字符流中的方法</h5><p>使用案例：使用字节流读取中文文本文件中的数据，每次读取一行，不能出现乱码</p>
+<ul>
+<li>字节流读中文是会出现乱码的</li>
+<li>字节流没有一次读取一行的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用字节流读取中文文本文件中的数据，每次读取一行，不能出现乱码</span></span><br><span class="line"><span class="comment">//创建字节流</span></span><br><span class="line"><span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;文件路径&quot;</span>);</span><br><span class="line"><span class="comment">//创建转换流，将字节流对象关联到转换流</span></span><br><span class="line"><span class="type">InputStreamReader</span> <span class="variable">isr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(fis);<span class="comment">//此时可以读取中文</span></span><br><span class="line"><span class="comment">//创建缓冲流，将转换流关联缓冲流</span></span><br><span class="line"><span class="type">BufferedReader</span> <span class="variable">bfr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(isr);<span class="comment">//此时可以一行一行读</span></span><br><span class="line"><span class="comment">//读取关闭略</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="序列化流"><a href="#序列化流" class="headerlink" title="序列化流"></a>序列化流</h3><p><code>ObjectOutputStream()</code></p>
+<p>可以将java中的对象写到本地文件</p>
+<h4 id="创建对象-5"><a href="#创建对象-5" class="headerlink" title="创建对象"></a>创建对象</h4><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221204828812.png"></p>
+<h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221204847662.png"></p>
+<h4 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h4><p>将Student对象写到Test10.txt文件中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="comment">//Serializable是一个空接口，当一个类实现了这个接口.就可以被序列化</span></span><br><span class="line"><span class="comment">//Serializable相当于一个标记，标记这个类可以被序列化</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test10</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">//序列化流</span></span><br><span class="line">        <span class="comment">//创建一个Student对象</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张三&quot;</span>,<span class="number">20</span>);</span><br><span class="line">        <span class="comment">//创建序列化流</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">ois</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;Test10.txt&quot;</span>));</span><br><span class="line">        <span class="comment">//细节：直接写入会报异常，需要在被写入的类中实现Serializable接口</span></span><br><span class="line">        ois.writeObject(s1);<span class="comment">//写入</span></span><br><span class="line">        ois.close();<span class="comment">//关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="反序列化流"><a href="#反序列化流" class="headerlink" title="反序列化流"></a>反序列化流</h3><p><code>ObjectInputStream()</code></p>
+<p>可以将序列化之后的文件内容读回来</p>
+<h4 id="创建对象-6"><a href="#创建对象-6" class="headerlink" title="创建对象"></a>创建对象</h4><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221210513092.png"></p>
+<h4 id="成员方法-1"><a href="#成员方法-1" class="headerlink" title="成员方法"></a>成员方法</h4><p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221210534376.png"></p>
+<h4 id="演示-1"><a href="#演示-1" class="headerlink" title="演示"></a>演示</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建反序列化流</span></span><br><span class="line"><span class="type">ObjectInputStream</span> <span class="variable">ois</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;Test10.txt&quot;</span>));</span><br><span class="line"><span class="comment">//读取</span></span><br><span class="line"><span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> (Student) ois.readObject();</span><br><span class="line">System.out.println(s2);</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="序列化流-x2F-反序列化流使用注意点"><a href="#序列化流-x2F-反序列化流使用注意点" class="headerlink" title="序列化流&#x2F;反序列化流使用注意点"></a>序列化流&#x2F;反序列化流使用注意点</h3><h4 id="1-已经在文件中写入了一个类，然后在代码中修改了类中的某些属性-读取的时候就会报错"><a href="#1-已经在文件中写入了一个类，然后在代码中修改了类中的某些属性-读取的时候就会报错" class="headerlink" title="1.已经在文件中写入了一个类，然后在代码中修改了类中的某些属性.读取的时候就会报错."></a>1.已经在文件中写入了一个类，然后在代码中修改了类中的某些属性.读取的时候就会报错.</h4><p>因为在底层，每次写入文件时java会自动根据类中的内容进行计算，计算出一个版本号.</p>
+<p>当修改了类中的属性，java会重新根据类中的内容计算版本号.</p>
+<p>写入时也会将版本号写入</p>
+<p>如果读取的时候文件中的，和程序中的版本号不同，就会报错</p>
+<p>解决方法是在类中定义一个固定的版本号，格式如下：</p>
+<p>1.手动设置</p>
+<p><code>private static final long serialVersionUID = 1L</code></p>
+<ul>
+<li>可以手动设置版本号，后面必须带L</li>
+<li>版本号的名字必须是serialVersionUID</li>
+</ul>
+<p>2.自动设置</p>
+<p>可以通过修改设置自动生成UID,操作方法如下：</p>
+<p>2.1打开设置Setings</p>
+<p>2.2搜索Serializable</p>
+<p>2.3<img src="/2022/12/17/java-IO%E6%B5%81/image-20221221214431434.png"></p>
+<p>第二个搜不到的可以手动File &gt; Settings &gt; Editor &gt; Inspections &gt; JVM languages 下找到并勾选应用就可以了</p>
+<p>2.4回到程序，看到类名出现黄色背景</p>
+<p>右键小灯泡就就会自动创建版本号</p>
+<p>这么创建出来的版本号是java根据类中属性计算出的，比较推荐这种方式</p>
+<p><img src="/2022/12/17/java-IO%E6%B5%81/image-20221221214625923.png"></p>
+<h4 id="2-transient关键字"><a href="#2-transient关键字" class="headerlink" title="2.transient关键字"></a>2.transient关键字</h4><p>如果不想类中的某个属性序列化写到文件中，就在前面加上transient关键字</p>
+<h4 id="3-序列化流写到文件中的数据是不能修改的，一旦修改就无法再次读回来"><a href="#3-序列化流写到文件中的数据是不能修改的，一旦修改就无法再次读回来" class="headerlink" title="3.序列化流写到文件中的数据是不能修改的，一旦修改就无法再次读回来."></a>3.序列化流写到文件中的数据是不能修改的，一旦修改就无法再次读回来.</h4>
                 
             </div>
             <hr/>

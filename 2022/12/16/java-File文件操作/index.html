@@ -6,7 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="java_File文件操作, AKYCCCC">
     <meta name="description" content="java_File构造方法
-创建对象12345678910111213141516171819202122import java.io.File;public class Test01 &amp;#123;    public static voi">
+创建对象import java.io.File;
+public class Test01 &amp;#123;
+    public static void main(String[] args) &amp;#123;
+    ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -472,13 +475,37 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="java-File"><a href="#java-File" class="headerlink" title="java_File"></a>java_File</h2><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><p><img src="/2022/12/16/java-File%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/image-20221216201505634.png"></p>
-<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.根据文件路径创建文件对象</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;Test01.txt&quot;</span>);<span class="comment">//相对路径</span></span><br><span class="line">        System.out.println(file1);</span><br><span class="line">        <span class="type">File</span> <span class="variable">file2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\java_学习代码文件\\java_File\\Test01.txt&quot;</span>);</span><br><span class="line">        System.out.println(file2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.根据父路径名字符串和子路径名字符串创建文件对象</span></span><br><span class="line">        <span class="comment">//以&quot;E:\\java_学习代码文件\\java_File\\Test01.txt&quot;)为例</span></span><br><span class="line">        <span class="comment">//父级路径：E:\\java_学习代码文件\\java_File</span></span><br><span class="line">        <span class="comment">//子级路径：Test01.txt</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\java_学习代码文件\\java_File&quot;</span>,<span class="string">&quot;Test01.txt&quot;</span>);</span><br><span class="line">        System.out.println(file3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.根据父级路径对象和子级路径字符串创建文件对象</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;E:\\java_学习代码文件\\java_File&quot;</span>);<span class="comment">//父级路径对象</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(file4,<span class="string">&quot;Test01.txt&quot;</span>);</span><br><span class="line">        System.out.println(file5);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//1.根据文件路径创建文件对象</span>
+        <span class="token class-name">File</span> file1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"Test01.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//相对路径</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">File</span> file2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"E:\\java_学习代码文件\\java_File\\Test01.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//2.根据父路径名字符串和子路径名字符串创建文件对象</span>
+        <span class="token comment">//以"E:\\java_学习代码文件\\java_File\\Test01.txt")为例</span>
+        <span class="token comment">//父级路径：E:\\java_学习代码文件\\java_File</span>
+        <span class="token comment">//子级路径：Test01.txt</span>
+        <span class="token class-name">File</span> file3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"E:\\java_学习代码文件\\java_File"</span><span class="token punctuation">,</span><span class="token string">"Test01.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//3.根据父级路径对象和子级路径字符串创建文件对象</span>
+        <span class="token class-name">File</span> file4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"E:\\java_学习代码文件\\java_File"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//父级路径对象</span>
+        <span class="token class-name">File</span> file5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>file4<span class="token punctuation">,</span><span class="token string">"Test01.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 

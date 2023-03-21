@@ -471,6 +471,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -481,7 +484,44 @@
 <p>容器的作用：主要用来放数据<br> 常用的容器数据结构：数组、链表、树、栈、队列、集合、映射表等<br> 1.序列式容器：数据放进去什么顺序，出来还是什么顺序.<br> 2.关联式容器：数据放进去，会自动根据算法排序.</p>
 <p> 算法：对数据进行操作<br> 1.质变算法：会改变容器中的数据,如拷贝、替换、删除等<br> 2.非质变算法：不会改变容器中的数据，如查找、遍历、计数等</p>
 <p>迭代器：容器和算法之间的桥梁<br>提供一种方法，使外部可以访问容器中的各个元素，又不会暴露容器内部.<br>每个容器都有自己的迭代器</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用for_each写的打印函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myPrintf</span><span class="params">(<span class="type">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建容器</span></span><br><span class="line">	vector&lt;<span class="type">int</span>&gt;v;</span><br><span class="line">	<span class="type">int</span>  i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//向容器中插入数据，尾插</span></span><br><span class="line">		v.<span class="built_in">push_back</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//第一种打印容器中数据的方法</span></span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//第二种方法</span></span><br><span class="line">	vector&lt;<span class="type">int</span>&gt;::iterator itBegin = v.<span class="built_in">begin</span>();<span class="comment">//begin是第一个元素的位置</span></span><br><span class="line">	vector&lt;<span class="type">int</span>&gt;::iterator itEnd = v.<span class="built_in">end</span>();<span class="comment">//end是最后一个元素的下一个位置</span></span><br><span class="line">	<span class="keyword">while</span> (itBegin != itEnd)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *itBegin;</span><br><span class="line">		itBegin++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//第三种方法</span></span><br><span class="line">	<span class="comment">//使用自带的算法打印数据</span></span><br><span class="line">	<span class="comment">//需包含头文件#include&lt;algorithm&gt;</span></span><br><span class="line">	<span class="comment">//3个参数，一个起始位置.一个结束位置.一个函数(自己写)类似qsort的那种回调函数</span></span><br><span class="line">	for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), myPrintf);</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;使用for_each写的打印函数
+void myPrintf(int val)
+&#123;
+	cout &lt;&lt; val;
+&#125;
+int main()
+&#123;
+	&#x2F;&#x2F;创建容器
+	vector&lt;int&gt;v;
+	int  i;
+	for (i &#x3D; 0; i &lt; 10; i++)
+	&#123;
+		&#x2F;&#x2F;向容器中插入数据，尾插
+		v.push_back(i);
+	&#125;
+	&#x2F;&#x2F;第一种打印容器中数据的方法
+	for (vector&lt;int&gt;::iterator it &#x3D; v.begin(); it !&#x3D; v.end(); it++)
+	&#123;
+		cout &lt;&lt; *it;
+	&#125;
+	cout &lt;&lt; endl;
+	&#x2F;&#x2F;第二种方法
+	vector&lt;int&gt;::iterator itBegin &#x3D; v.begin();&#x2F;&#x2F;begin是第一个元素的位置
+	vector&lt;int&gt;::iterator itEnd &#x3D; v.end();&#x2F;&#x2F;end是最后一个元素的下一个位置
+	while (itBegin !&#x3D; itEnd)
+	&#123;
+		cout &lt;&lt; *itBegin;
+		itBegin++;
+	&#125;
+	cout &lt;&lt; endl;
+	&#x2F;&#x2F;第三种方法
+	&#x2F;&#x2F;使用自带的算法打印数据
+	&#x2F;&#x2F;需包含头文件#include&lt;algorithm&gt;
+	&#x2F;&#x2F;3个参数，一个起始位置.一个结束位置.一个函数(自己写)类似qsort的那种回调函数
+	for_each(v.begin(), v.end(), myPrintf);
+	cout &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="string容器"><a href="#string容器" class="headerlink" title="string容器"></a>string容器</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>创建空字符串，如：<code>string str;</code></p>
 <ul>
@@ -619,7 +659,13 @@
 <li><code>vector(const vector &amp;v)</code></li>
 </ul>
 <h3 id="赋值操作-1"><a href="#赋值操作-1" class="headerlink" title="赋值操作"></a>赋值操作</h3><p>赋值都要先构造在赋值</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先构造</span></span><br><span class="line">vector&lt;T&gt; v1;</span><br><span class="line">vector&lt;T&gt; v2;</span><br><span class="line"><span class="comment">//在赋值</span></span><br><span class="line">v1.<span class="built_in">assing</span>(<span class="number">10</span>,<span class="number">100</span>);</span><br><span class="line">v2.<span class="built_in">assing</span>(v1.begin,v1.<span class="built_in">end</span>());</span><br><span class="line">v2 = v1;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;先构造
+vector&lt;T&gt; v1;
+vector&lt;T&gt; v2;
+&#x2F;&#x2F;在赋值
+v1.assing(10,100);
+v2.assing(v1.begin,v1.end());
+v2 &#x3D; v1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运算符重载</p>
 <ul>
@@ -694,7 +740,35 @@
 <ul>
 <li><code>reverse(int len)</code></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//统计一下vector开辟了几次内存</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建容器</span></span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line">	<span class="comment">//创建一个空指针</span></span><br><span class="line">	<span class="type">int</span>* p = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//向容器中插入100000个数据，看看他会开辟几次空间</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//尾插法，插入数据.</span></span><br><span class="line">		v.<span class="built_in">push_back</span>(i);</span><br><span class="line">		<span class="comment">//让p指向第一个数据的地址</span></span><br><span class="line">		<span class="comment">//p = &amp;v[0];//因为第一次没数据到有数据，也算一次.所以这里注释掉.</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//因为vector底层扩容的原理是新开辟一块内存.所以每次扩容，v[0]的地址都会变化.</span></span><br><span class="line">		<span class="comment">//统计变化的次数.就可以知道vector开辟了几次内存</span></span><br><span class="line">		<span class="keyword">if</span> (p != &amp;v[<span class="number">0</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//每记录一次就让指针指向新开的内存.</span></span><br><span class="line">			<span class="comment">//有变化就是又新开了内存</span></span><br><span class="line">			p = &amp;v[<span class="number">0</span>];</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; count;<span class="comment">//输出30</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;统计一下vector开辟了几次内存
+int main()
+&#123;
+	&#x2F;&#x2F;创建容器
+	vector&lt;int&gt; v;
+	&#x2F;&#x2F;创建一个空指针
+	int* p &#x3D; NULL;
+	int count &#x3D; 0;
+	&#x2F;&#x2F;向容器中插入100000个数据，看看他会开辟几次空间
+	for (int i &#x3D; 0; i &lt; 100000; i++)
+	&#123;
+		&#x2F;&#x2F;尾插法，插入数据.
+		v.push_back(i);
+		&#x2F;&#x2F;让p指向第一个数据的地址
+		&#x2F;&#x2F;p &#x3D; &amp;v[0];&#x2F;&#x2F;因为第一次没数据到有数据，也算一次.所以这里注释掉.
+		
+		&#x2F;&#x2F;因为vector底层扩容的原理是新开辟一块内存.所以每次扩容，v[0]的地址都会变化.
+		&#x2F;&#x2F;统计变化的次数.就可以知道vector开辟了几次内存
+		if (p !&#x3D; &amp;v[0])
+		&#123;
+			&#x2F;&#x2F;每记录一次就让指针指向新开的内存.
+			&#x2F;&#x2F;有变化就是又新开了内存
+			p &#x3D; &amp;v[0];
+			count++;
+		&#125;
+	&#125;
+	cout &lt;&lt; count;&#x2F;&#x2F;输出30
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>不预留要开辟30次才能放10w个数据.</p>
 <p>假设我知道要存10w个数据，那我直接预留10w个空间，效率就比他自己增长要高</p>
@@ -921,11 +995,88 @@
 </ul>
 <p>3.在创建set容器时将包含函数运算符重载的类放进去.</p>
 <p>4.此时在插入数据，就是按照类中重载的函数运算符提供的规则排序</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个类用于函数运算符重载</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Comper</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//重载函数运算符`（）`</span></span><br><span class="line">	<span class="comment">//在新版本中需要加const，很早之前是不用加的.</span></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a &gt; b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//创建set容器时将包含函数运算符重载的类放进去</span></span><br><span class="line">	set&lt;<span class="type">int</span>, Comper&gt; s;</span><br><span class="line">    <span class="comment">//此时在插入数据，就是按照类中重载的函数运算符提供的规则排序</span></span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">30</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">30</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">50</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">60</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">30</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">20</span>);</span><br><span class="line">	s.<span class="built_in">insert</span>(<span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印</span></span><br><span class="line">	<span class="keyword">for</span> (set&lt;<span class="type">int</span>, Comper&gt;::iterator it = s.<span class="built_in">begin</span>(); it != s.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;创建一个类用于函数运算符重载
+class Comper
+&#123;
+public:
+	&#x2F;&#x2F;重载函数运算符&#96;（）&#96;
+	&#x2F;&#x2F;在新版本中需要加const，很早之前是不用加的.
+	bool operator()(int a, int b) const
+	&#123;
+		return a &gt; b;
+	&#125;
+&#125;;
+int main()
+&#123;
+    &#x2F;&#x2F;创建set容器时将包含函数运算符重载的类放进去
+	set&lt;int, Comper&gt; s;
+    &#x2F;&#x2F;此时在插入数据，就是按照类中重载的函数运算符提供的规则排序
+	s.insert(30);
+	s.insert(30);
+	s.insert(50);
+	s.insert(60);
+	s.insert(30);
+	s.insert(20);
+	s.insert(80);
+
+	&#x2F;&#x2F;打印
+	for (set&lt;int, Comper&gt;::iterator it &#x3D; s.begin(); it !&#x3D; s.end(); it++)
+	&#123;
+		cout &lt;&lt; *it&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="自定义数据类型"><a href="#自定义数据类型" class="headerlink" title="自定义数据类型"></a>自定义数据类型</h4><p>原理和普通数据类型一样.</p>
 <p>多了一步类的创建和赋值.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义数据类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="built_in">Person</span>(string name, <span class="type">int</span> age)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	string name;<span class="comment">//姓名</span></span><br><span class="line">	<span class="type">int</span> age;<span class="comment">//年龄</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建一个类用于函数运算符重载</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Comper</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//重载函数运算符`（）`</span></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Person&amp; p1,<span class="type">const</span> Person&amp; p2)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> p1.age &gt; p2.age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建容器</span></span><br><span class="line">	set&lt;Person, Comper&gt; s;</span><br><span class="line">	<span class="comment">//创建对象</span></span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">&quot;人1&quot;</span>,<span class="number">20</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">&quot;人2&quot;</span>, <span class="number">15</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">&quot;人3&quot;</span>, <span class="number">30</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p4</span><span class="params">(<span class="string">&quot;人4&quot;</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p5</span><span class="params">(<span class="string">&quot;人5&quot;</span>, <span class="number">60</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//插入数据</span></span><br><span class="line">	s.<span class="built_in">insert</span>(p1);</span><br><span class="line">	s.<span class="built_in">insert</span>(p2);</span><br><span class="line">	s.<span class="built_in">insert</span>(p3);</span><br><span class="line">	s.<span class="built_in">insert</span>(p4);</span><br><span class="line">	s.<span class="built_in">insert</span>(p5);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印</span></span><br><span class="line">	<span class="keyword">for</span> (set&lt;Person, Comper&gt;::iterator it = s.<span class="built_in">begin</span>(); it != s.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; it-&gt;name&lt;&lt;<span class="string">&quot; &quot;</span> &lt;&lt; it-&gt;age &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;自定义数据类型
+class Person
+&#123;
+public:
+	&#x2F;&#x2F;构造函数
+	Person(string name, int age)
+	&#123;
+		this-&gt;name &#x3D; name;
+		this-&gt;age &#x3D; age;
+	&#125;
+	string name;&#x2F;&#x2F;姓名
+	int age;&#x2F;&#x2F;年龄
+&#125;;
+&#x2F;&#x2F;创建一个类用于函数运算符重载
+class Comper
+&#123;
+public:
+	&#x2F;&#x2F;重载函数运算符&#96;（）&#96;
+	bool operator()(const Person&amp; p1,const Person&amp; p2) const
+	&#123;
+		return p1.age &gt; p2.age;
+	&#125;
+&#125;;
+int main()
+&#123;
+	&#x2F;&#x2F;创建容器
+	set&lt;Person, Comper&gt; s;
+	&#x2F;&#x2F;创建对象
+	Person p1(&quot;人1&quot;,20);
+	Person p2(&quot;人2&quot;, 15);
+	Person p3(&quot;人3&quot;, 30);
+	Person p4(&quot;人4&quot;, 10);
+	Person p5(&quot;人5&quot;, 60);
+
+	&#x2F;&#x2F;插入数据
+	s.insert(p1);
+	s.insert(p2);
+	s.insert(p3);
+	s.insert(p4);
+	s.insert(p5);
+
+	&#x2F;&#x2F;打印
+	for (set&lt;Person, Comper&gt;::iterator it &#x3D; s.begin(); it !&#x3D; s.end(); it++)
+	&#123;
+		cout &lt;&lt; it-&gt;name&lt;&lt;&quot; &quot; &lt;&lt; it-&gt;age &lt;&lt; &quot; &quot; &lt;&lt; endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -955,16 +1106,67 @@
 </ul>
 <h3 id="构造和赋值-1"><a href="#构造和赋值-1" class="headerlink" title="构造和赋值"></a>构造和赋值</h3><p><img src="/2022/10/17/STL%E5%92%8Cc-%E5%AE%B9%E5%99%A8/image-20221018184638184.png"></p>
 <p>插入数据要使用对组.map容器中所有元素都是成对出现</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建容器</span></span><br><span class="line">	map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;m;</span><br><span class="line">	<span class="comment">//map插入数据要用pair（对组）这样插入</span></span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">1</span>, <span class="number">10</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">2</span>, <span class="number">20</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">3</span>, <span class="number">30</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">4</span>, <span class="number">40</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印map容器元素</span></span><br><span class="line">	<span class="keyword">for</span> (map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = m.<span class="built_in">begin</span>(); it != m.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//打印必须要用first和second</span></span><br><span class="line">		cout &lt;&lt; it-&gt;first &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
+&#123;
+	&#x2F;&#x2F;创建容器
+	map&lt;int, int&gt;m;
+	&#x2F;&#x2F;map插入数据要用pair（对组）这样插入
+	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair&lt;int, int&gt;(2, 20));
+	m.insert(pair&lt;int, int&gt;(3, 30));
+	m.insert(pair&lt;int, int&gt;(4, 40));
+
+	&#x2F;&#x2F;打印map容器元素
+	for (map&lt;int, int&gt;::iterator it &#x3D; m.begin(); it !&#x3D; m.end(); it++)
+	&#123;
+		&#x2F;&#x2F;打印必须要用first和second
+		cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="大小和互换"><a href="#大小和互换" class="headerlink" title="大小和互换"></a>大小和互换</h3><p><img src="/2022/10/17/STL%E5%92%8Cc-%E5%AE%B9%E5%99%A8/image-20221018185903345.png"></p>
 <h3 id="插入和删除-2"><a href="#插入和删除-2" class="headerlink" title="插入和删除"></a>插入和删除</h3><p><img src="/2022/10/17/STL%E5%92%8Cc-%E5%AE%B9%E5%99%A8/image-20221018190639197.png"></p>
-<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; m;</span><br><span class="line"><span class="comment">//第一种插入方式 最基础的</span></span><br><span class="line">m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt;(<span class="number">1</span>,<span class="number">10</span>));</span><br><span class="line"><span class="comment">//第二种插入方式 推荐</span></span><br><span class="line">m.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(<span class="number">2</span>,<span class="number">20</span>));</span><br><span class="line"><span class="comment">//第三种，不建议用（太长）</span></span><br><span class="line">m.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;::<span class="built_in">value_type</span>(<span class="number">3</span>,<span class="number">30</span>));</span><br><span class="line"><span class="comment">//第四种,map重载了[]可以直接插入.但是[]主要用来读数据，所以一般不用[]插数据</span></span><br><span class="line">m[<span class="number">4</span>] = <span class="number">40</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">map&lt;int,int&gt; m;
+&#x2F;&#x2F;第一种插入方式 最基础的
+m.insert(pair&lt;int,int&gt;(1,10));
+&#x2F;&#x2F;第二种插入方式 推荐
+m.insert(make_pair(2,20));
+&#x2F;&#x2F;第三种，不建议用（太长）
+m.insert(map&lt;int,int&gt;::value_type(3,30));
+&#x2F;&#x2F;第四种,map重载了[]可以直接插入.但是[]主要用来读数据，所以一般不用[]插数据
+m[4] &#x3D; 40;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="查找和统计-1"><a href="#查找和统计-1" class="headerlink" title="查找和统计"></a>查找和统计</h3><p><img src="/2022/10/17/STL%E5%92%8Cc-%E5%AE%B9%E5%99%A8/image-20221018194459703.png"></p>
 <h3 id="排序-1"><a href="#排序-1" class="headerlink" title="排序"></a>排序</h3><p>同过仿函数（函数运算符重载）来排序</p>
 <p>map默认是升序</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Comper</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//仿函数</span></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a &gt; b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建容器</span></span><br><span class="line">	map&lt;<span class="type">int</span>, <span class="type">int</span>,Comper&gt;m;</span><br><span class="line">	<span class="comment">//map插入数据要用pair（对组）这样插入</span></span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">1</span>, <span class="number">10</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">4</span>, <span class="number">40</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">2</span>, <span class="number">20</span>));</span><br><span class="line">	m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(<span class="number">3</span>, <span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印map容器元素</span></span><br><span class="line">	<span class="keyword">for</span> (map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = m.<span class="built_in">begin</span>(); it != m.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//打印必须要用first和second</span></span><br><span class="line">		cout &lt;&lt; it-&gt;first &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Comper
+&#123;
+public:
+    &#x2F;&#x2F;仿函数
+	bool operator()(int a, int b) const
+	&#123;
+		return a &gt; b;
+	&#125;
+&#125;;
+int main()
+&#123;
+	&#x2F;&#x2F;创建容器
+	map&lt;int, int,Comper&gt;m;
+	&#x2F;&#x2F;map插入数据要用pair（对组）这样插入
+	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair&lt;int, int&gt;(4, 40));
+	m.insert(pair&lt;int, int&gt;(2, 20));
+	m.insert(pair&lt;int, int&gt;(3, 30));
+
+	&#x2F;&#x2F;打印map容器元素
+	for (map&lt;int, int&gt;::iterator it &#x3D; m.begin(); it !&#x3D; m.end(); it++)
+	&#123;
+		&#x2F;&#x2F;打印必须要用first和second
+		cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot;&lt;&lt;it-&gt;second&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 

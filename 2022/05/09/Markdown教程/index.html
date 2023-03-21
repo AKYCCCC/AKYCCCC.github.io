@@ -473,6 +473,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -484,7 +487,12 @@
 <hr>
 <h2 id="2-标题"><a href="#2-标题" class="headerlink" title="2.标题"></a>2.标题</h2><p>标题的操作符是 “#”<br>操作符和内容之间需要一个空格</p>
 <h3 id="标题等级"><a href="#标题等级" class="headerlink" title="标题等级"></a>标题等级</h3><p>标题一共分6个等级.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 我是一级标题</span><br><span class="line">## 我是二级标题   </span><br><span class="line">### 我是三级标题</span><br><span class="line">#### 我是四级标题</span><br><span class="line">##### 我是五级标题</span><br><span class="line">###### 我是六级标题</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 我是一级标题
+## 我是二级标题   
+### 我是三级标题
+#### 我是四级标题
+##### 我是五级标题
+###### 我是六级标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="标题的使用"><a href="#标题的使用" class="headerlink" title="标题的使用"></a>标题的使用</h3><p>在我学习的时候，我发现很多教程里面对于标题使用方法的解释都有误导，或者说解析的根本不全，导致很多小白错误的认识和理解标题.<br>最常见的就是把标题代码一列，然后下面放一个效果展示，（可以去看我刚开始写的markdown教程，我就是被误导了）<br>我刚开始以为标题就是调整字体的大小.<br>实际上，标题就像是书的目录一样，有一个大的分类，然后里面有小的分类.（解释不太好说明）看图片<br><img src="/2022/05/09/Markdown%E6%95%99%E7%A8%8B/2022-05-09-19-24-32.png"><br><img src="/2022/05/09/Markdown%E6%95%99%E7%A8%8B/2022-05-09-19-16-05.png"><br>我对正文部分进行了缩放，可以对着上面两张图自己解析一下标题的用法<br>标题的等级决定了哪个标题在哪个标题的里面<br>只要设置同等级的标题，标题和标题就会被分开<br>可以在低等级的标题外面设置更大标题把低等级的包起来（最大是一级标题）<br>也可以在高等级的标题里设置更小的标题（最小的是六级标题）<br>注意：标题并不适合用来调整正文里面文字的大小.有的人发现加上标题字体会变化后，会把标题当做用来放大字体的工具.（如果你这么做了，那你博客里面的目录，或者大纲会变得很灿烂，详情参考我之前写的markdown教程）.<br>关于在使用标题时候遇到的一些稀奇古怪的问题，可以去我的疑难解答里找找.<br>至少我会把我学习时候遇到的问题记录下来.</p>
 <hr>
 <h2 id="3-段落（正文）"><a href="#3-段落（正文）" class="headerlink" title="3.段落（正文）"></a>3.段落（正文）</h2><p>很蛋疼的一个点，在markdown中想用空格分开内容是做不到的，至少我没找到方法，它会自动忽略文字和文字之间的空格并且将内容对齐.</p>
@@ -504,7 +512,12 @@
 <p>在vscode默认设置中，高亮是无法直接显示，在typora里也需要在设置中设置：文件 &gt;  偏好设置 &gt; Markdown</p>
 <hr>
 <h2 id="5-引用"><a href="#5-引用" class="headerlink" title="5.引用"></a>5.引用</h2><p>引用操作符和内容之间加不加空格都可以</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 我是引用</span><br><span class="line">&gt; 我是引用</span><br><span class="line">&gt;&gt; 我是引用</span><br><span class="line">&gt;&gt;&gt; 我是引用</span><br><span class="line">&gt;&gt;&gt;&gt; 我是引用</span><br><span class="line">&gt;&gt;&gt;&gt;&gt; 我是引用</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&gt; 我是引用
+&gt; 我是引用
+&gt;&gt; 我是引用
+&gt;&gt;&gt; 我是引用
+&gt;&gt;&gt;&gt; 我是引用
+&gt;&gt;&gt;&gt;&gt; 我是引用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>我是引用<br>测试1<br>我是引用</p>
 <blockquote>
@@ -529,12 +542,15 @@
 <p>这里我是想写一个类似名人名言的格式，就是一段话，后面加个名字，但是名字想靠到后面打空格不管用，只会在最前面.由于我并不怎么使用引用这个功能，所以这方面会在以后补充</p>
 <hr>
 <h2 id="6-分割线"><a href="#6-分割线" class="headerlink" title="6.分割线"></a>6.分割线</h2><p>分割线操作符</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//分割线1</span><br><span class="line">---</span><br><span class="line">//分割线2</span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;分割线1
+---
+&#x2F;&#x2F;分割线2
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>两种写法只是写法不同，实际使用效果都一样.</p>
 <hr>
 <h2 id="7-代码"><a href="#7-代码" class="headerlink" title="7.代码"></a>7.代码</h2><p>代码操作符是ESC下面的那个点.</p>
 <h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><p>用”&#96;”把代码包起来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 `printf()`</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">输入 &#96;printf()&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>效果 <code>printf()</code></p>
 <h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>在typora上，输入&#96;&#96;&#96;回车，可以在右下角选择自己代码的语言.</p>
 <p>也可以在&#96;&#96;&#96;后面输入自己代码的语言在回车</p>
@@ -563,7 +579,9 @@
 </ul>
 <p><img src="/2022/05/09/Markdown%E6%95%99%E7%A8%8B/2022-05-09-20-12-20.png"><br>列表开头的那个图案，一级列表是实心圆，二级列表是空心圆，三级列表是实心方块。实心方块在往后就都是实心方块了.</p>
 <p>操作符后面需要一个空格</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 列表 </span><br><span class="line">* 列表</span><br><span class="line">+ 列表</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">- 列表 
+* 列表
++ 列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>效果展示：</p>
 <ul>
 <li>列表</li>

@@ -1100,26 +1100,26 @@ do..whlie循环</li>
     <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="不带头双向链表"><a href="#不带头双向链表" class="headerlink" title="不带头双向链表"></a>不带头双向链表</h2><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/2022-07-30-15-50-10.png"></p>
+<h2 id="不带头双向链表"><a href="#不带头双向链表" class="headerlink" title="不带头双向链表"></a>不带头双向链表</h2><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/2022-07-30-15-50-10.png"></p>
 <h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>包（package）<br>包是组织类的一种方式<br>使用包的主要目的是保证类的唯一性</p>
 <ul>
 <li>比如说，在开发中，2个人写了同名的类就会冲突导致编译不能通过</li>
 <li>这时，只要把同名的类放进不同的包里.就可以不冲突的使用.</li>
 </ul>
 <h3 id="创建包"><a href="#创建包" class="headerlink" title="创建包"></a>创建包</h3><p>1.创建包的时候，包名一定是小写的.<br>2.包的命名，包的名字一般用的是域名，域名反过来写.比如百度的域名是<code>www.baidu.com</code>,那百度的包就叫，<code>com.baidu.wwww</code><br>3.包名要和代码路径匹配.因为你创建包的时候，会根据你的包名自动创建一个路径来存放代码<br>4.如果一个类没有package语句，该类会被放到默认包中</p>
-<h3 id="切换包的样式"><a href="#切换包的样式" class="headerlink" title="切换包的样式"></a>切换包的样式</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802123842509.png"></p>
+<h3 id="切换包的样式"><a href="#切换包的样式" class="headerlink" title="切换包的样式"></a>切换包的样式</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802123842509.png"></p>
 <h3 id="使用包"><a href="#使用包" class="headerlink" title="使用包"></a>使用包</h3><p>系统提供的包调用：<code>import java.util.包名;</code></p>
 <p>自己写的包调用：<code>package 包名 ;</code></p>
 <h3 id="常见的系统包"><a href="#常见的系统包" class="headerlink" title="常见的系统包"></a>常见的系统包</h3><p>lang的包不需要手动导入</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220731200131359.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220731200131359.png"></p>
 <h2 id="继承（extends）"><a href="#继承（extends）" class="headerlink" title="继承（extends）"></a>继承（extends）</h2><p>关键字 - extends</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802131350636.png">、</p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802131350636.png">、</p>
 <h3 id="演示继承怎么用"><a href="#演示继承怎么用" class="headerlink" title="演示继承怎么用"></a>演示继承怎么用</h3><p>首先创建了一个类，叫Animal（动物）</p>
 <p>动物有名字，有动作，会吃，会睡觉</p>
 <p>创建完之后就是这样的：（注：实际开发中一个java文件里只能有一个类（class），学习时为了方便所以写在一个文件中.）</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802125733498.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802125733498.png"></p>
 <p>然后在创建几个，Cat(猫)、Bird(鸟）.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802130748938.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802130748938.png"></p>
 <p>创建完后正常的使用都是没问题的.</p>
 <p>使用过程中发现，猫会吃东西，鸟会吃东西，动物也会吃东西，假如说以后动物多了，那吃东西（eat）这个方法会被写很多遍.</p>
 <p>在想想后，这三个类都有一个相同的eat方法，也都有name属性.行为和意义完全一样</p>
@@ -1128,14 +1128,14 @@ do..whlie循环</li>
 <hr>
 <p>开始继承，以猫(cat)继承动物(animal)为例，修改一下代码.</p>
 <p>修改完的代码如下：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802140716970.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802140716970.png"></p>
 <p>Cat中的代码被屏蔽了，但是可以正常运行.</p>
 <p>下面对代码进行说明：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802141037729.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802141037729.png"></p>
 <p>这就是继承</p>
 <p>子类继承父类除构造方法外所有的.</p>
 <p>如果子类里有代码的情况：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802142210012.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802142210012.png"></p>
 <p>子类可以使用自己里面的代码，也可以使用父类的代码.</p>
 <ul>
 <li>父类中有private的代码子类是不能使用的</li>
@@ -1144,7 +1144,7 @@ do..whlie循环</li>
 <h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p><strong>super关键字可以调用父类的构造方法</strong></p>
 <p>继续修改代码，在Animal类中加个构造方法</p>
 <p>会发现报错了，如下：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802144535715.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802144535715.png"></p>
 <p>问：为什么会报错呢？</p>
 <p>答：因为子类在构造的时候，要先帮助父类进行构造</p>
 <p>问：为什么之前Animal是默认构造方法的时候没报错.</p>
@@ -1152,10 +1152,10 @@ do..whlie循环</li>
 <p>问：为什么自己写了一个构造方法就报错了？</p>
 <p>答：因为自己写的构造方法需要传过去一个name才能构造，而构造子类需要先构造父类.子类中没传name过去，那父类就没法构造，子类就也没法构造，所以就报错了.</p>
 <p>开始修改代码并分析：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802153943910.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802153943910.png"></p>
 <hr>
 <p>最后在看一个</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802161401068.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802161401068.png"></p>
 <h3 id="继承的规则"><a href="#继承的规则" class="headerlink" title="继承的规则"></a>继承的规则</h3><ol>
 <li>使用extends继承父类</li>
 <li>java中一个子类只能继承一个父类</li>
@@ -1198,7 +1198,7 @@ do..whlie循环</li>
 <p>默认访问权限是：包访问权限</p>
 <p>包访问权限是：只能在同一包中进行访问使用.</p>
 <p>访问限定修饰符有：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802162023433.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802162023433.png"></p>
 <p>被protected修饰的，从不同包中的子类进行访问要用super</p>
 <h2 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h2><p>举例：<code>final int a = 10;</code>修饰变量</p>
 <p>被final修饰后就变成了常量，只能被初始化一次，接下来不能被修改</p>
@@ -1210,36 +1210,36 @@ do..whlie循环</li>
 <p>继承中两个类的关系是is-a.比如说，鸟是动物，猫是动物.但不能反过来说动物都是鸟.</p>
 <p>组合中类的关系是has-a,比如说，学校里有老师，学校里有学生.但不能说老师是学校.</p>
 <p>看代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802205822759.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802205822759.png"></p>
 <blockquote>
 <p>组合中没有特殊的语法（比如像继承中的extends），组合就是将一个类的实例作为另一个类的字段.</p>
 </blockquote>
 <h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h3 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h3><p>先看一下总的代码，普通调用的代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802214304712.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802214304712.png"></p>
 <hr>
 <p>那什么叫向上转型呢？</p>
 <p>其他的没变，主函数里稍微改变一下，代码如下：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802215207483.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802215207483.png"></p>
 <blockquote>
 <p>(父类引用)引用(子类对象)就是向上引用（向上转型）</p>
 </blockquote>
 <hr>
 <p>那向上引用有什么用呢，或者说和普通引用差在哪里.</p>
 <p>稍微修改下代码，看代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802221448757.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802221448757.png"></p>
 <blockquote>
 <p>结论就是：向上转型之后，通过父类引用（ani）只能访问父类自己的方法和属性.不能访问子类的方法和属性.</p>
 </blockquote>
-<h4 id="向上转型的时机"><a href="#向上转型的时机" class="headerlink" title="向上转型的时机"></a>向上转型的时机</h4><h5 id="1-直接赋值"><a href="#1-直接赋值" class="headerlink" title="1.直接赋值"></a>1.直接赋值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802224003955.png"></p>
-<h5 id="2-传参"><a href="#2-传参" class="headerlink" title="2.传参"></a>2.传参</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802230426142.png"></p>
-<h5 id="3-返回值"><a href="#3-返回值" class="headerlink" title="3.返回值"></a>3.返回值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802231949344.png"></p>
+<h4 id="向上转型的时机"><a href="#向上转型的时机" class="headerlink" title="向上转型的时机"></a>向上转型的时机</h4><h5 id="1-直接赋值"><a href="#1-直接赋值" class="headerlink" title="1.直接赋值"></a>1.直接赋值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802224003955.png"></p>
+<h5 id="2-传参"><a href="#2-传参" class="headerlink" title="2.传参"></a>2.传参</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802230426142.png"></p>
+<h5 id="3-返回值"><a href="#3-返回值" class="headerlink" title="3.返回值"></a>3.返回值</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802231949344.png"></p>
 <h3 id="运行时绑定（动态绑定）"><a href="#运行时绑定（动态绑定）" class="headerlink" title="运行时绑定（动态绑定）"></a>运行时绑定（动态绑定）</h3><p>先看代码</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802234453457.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802234453457.png"></p>
 <p>导致这个结果的原因就是发生了&#x3D;&#x3D;<strong>多态</strong>&#x3D;&#x3D;</p>
 <p>这个过程也叫运行时绑定</p>
 <p>也可以叫动态绑定</p>
 <p>运行时绑定发生的**&#x3D;&#x3D;前提&#x3D;&#x3D;**是通过（父类引用）引用（子类对象），通过父类引用调用同名的方法.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220802235359614.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220802235359614.png"></p>
 <blockquote>
 <p>从底层原理来看，代码在&#x3D;&#x3D;<strong>编译</strong>&#x3D;&#x3D;的时候，确实是去调用的Animal的eat,但是最后&#x3D;&#x3D;<strong>运行</strong>&#x3D;&#x3D;还是变成了Cat的eat</p>
 <p>在运行的时候才确定调用的是谁</p>
@@ -1270,7 +1270,7 @@ do..whlie循环</li>
 <blockquote>
 <p>必须是同一个类中.</p>
 </blockquote>
-<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803005420419.png"></p>
+<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803005420419.png"></p>
 <ul>
 <li><p>向下转型非常不安全，很少会使用向下转型</p>
 <p>问：为什么不安全？</p>
@@ -1281,7 +1281,7 @@ do..whlie循环</li>
 <p>这个关键字可以判断A是不是B的一个实例.判断一下A引用的是不是B.</p>
 </li>
 </ul>
-<h3 id="在构造方法中调用重写方法"><a href="#在构造方法中调用重写方法" class="headerlink" title="在构造方法中调用重写方法"></a>在构造方法中调用重写方法</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803013445102.png"></p>
+<h3 id="在构造方法中调用重写方法"><a href="#在构造方法中调用重写方法" class="headerlink" title="在构造方法中调用重写方法"></a>在构造方法中调用重写方法</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803013445102.png"></p>
 <blockquote>
 <p>在构造方法中会发生动态绑定</p>
 </blockquote>
@@ -1299,8 +1299,8 @@ do..whlie循环</li>
 <li>降低了代码管理的复杂度</li>
 <li>可拓展能力强，使用多态的代码改动成本也较低</li>
 </ul>
-<h3 id="圈复杂度"><a href="#圈复杂度" class="headerlink" title="圈复杂度"></a>圈复杂度</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803185510407.png"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803185724405.png"></p>
+<h3 id="圈复杂度"><a href="#圈复杂度" class="headerlink" title="圈复杂度"></a>圈复杂度</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803185510407.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803185724405.png"></p>
 <h2 id="抽象类（abstract）"><a href="#抽象类（abstract）" class="headerlink" title="抽象类（abstract）"></a>抽象类（abstract）</h2><p>关键字 - abstract</p>
 <p>一个类被abstract修饰他就是抽象类</p>
 <p>抽象类里可以没有抽象方法.</p>
@@ -1335,21 +1335,21 @@ do..whlie循环</li>
 <p>而java只能是单继承。</p>
 <p>但是java可以使用多个接口，来达到多继承的效果.</p>
 <p>看代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803223055536.png"></p>
-<h3 id="接口的使用"><a href="#接口的使用" class="headerlink" title="接口的使用"></a>接口的使用</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220803223906071.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803223055536.png"></p>
+<h3 id="接口的使用"><a href="#接口的使用" class="headerlink" title="接口的使用"></a>接口的使用</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220803223906071.png"></p>
 <hr>
 <hr>
 <hr>
 <h5 id="关于Comparable-lt-gt"><a href="#关于Comparable-lt-gt" class="headerlink" title="关于Comparable&lt;&gt;"></a>关于Comparable&lt;&gt;</h5><p>先在类中调用这个接口.</p>
 <p>然后会报错，代码底下有红色波浪线</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220804003349761.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220804003349761.png"></p>
 <p>这个主要用在自定义类型的，按照其中的某个值对自定义类型进行排序.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220804002610520.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220804002610520.png"></p>
 <p>这个操作大体流程就是，将自定义类型的数组传入sort–》在自定义类型中继承接口Comparables&lt;自定义类型名&gt;–》重写compareTo(Student  o)方法.</p>
 <h3 id="extends拓展"><a href="#extends拓展" class="headerlink" title="extends拓展"></a>extends拓展</h3><p>一个类可以实现多个接口.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811214727958.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811214727958.png"></p>
 <p>如果一个接口extends了多个接口，就不叫继承了，叫拓展</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811214919878.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811214919878.png"></p>
 <h2 id="克隆Clone-Clonable接口和深拷贝"><a href="#克隆Clone-Clonable接口和深拷贝" class="headerlink" title="克隆Clone\Clonable接口和深拷贝"></a>克隆Clone\Clonable接口和深拷贝</h2><p>深拷贝：对数据进行拷贝，在修改拷贝的数据时，不影响原来的数据叫深拷贝.</p>
 <p>浅拷贝：对数据进行拷贝，在修改拷贝的数据时，会影响原来的数据叫浅拷贝.</p>
 <p>如果一个类实现了空接口（标记接口），就说明这个类是可以克隆（clone）的.</p>
@@ -1365,47 +1365,47 @@ do..whlie循环</li>
 <p><code>clone();</code>本身是浅拷贝，clone想直接拷贝一个类是不行的.</p>
 <p>一个类实现这个接口并重写clone方法就可以对这个类进行克隆.</p>
 <p>先创建一个类（人），这个类中只写了一个成员属性age.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201241750.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809201241750.png"></p>
 <p>接着在主函数<code>Person p1 = new Person();</code>new个新对象出来</p>
 <p>然后直接调用<code>clone();</code>会发现是没有clone选项的.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201346995.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809201346995.png"></p>
 <hr>
 <p>那要怎么进行克隆，要先让人这个类实现Clonable这个接口</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201626129.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809201626129.png"></p>
 <p>然后鼠标放到人这个类中，按ALT+INSERT,出现如下界面后点击.这一步就是重写Object类中的clone方法.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809201959595.png"></p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202009601.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809201959595.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202009601.png"></p>
 <p>然后在输入，就发现有clone了</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202104189.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202104189.png"></p>
 <p>但到现在还没结束.clone()下面还是有红色报错.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202229641.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202229641.png"></p>
 <p>这是因为重写的克隆的方法声明了（throws）一个异常.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202515084.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202515084.png"></p>
 <p>所以在用这个方法的时候需要处理这个异常.</p>
 <p>怎么做呢？鼠标点到clone上右键.找到小灯泡，点进去，有两个灯泡，都可以选，我选了第一个.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202752079.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202752079.png"></p>
 <p>选完后会自动生成</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809202855619.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809202855619.png"></p>
 <p>到现在是在报错，这是为什么呢？因为在上面重写的构造方法中返回值是Object,所以这里要强制类型装换一下</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203305124.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809203305124.png"></p>
 <p>拷贝完成.</p>
 <p>这种拷贝出的结果是<strong>深拷贝</strong></p>
 <hr>
 <p>分析一下代码大概的执行过程</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809225657107.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809225657107.png"></p>
 <p>这样就完成了深拷贝.</p>
 <hr>
 <hr>
 <p>现在新写一个类</p>
 <p>钱</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203508031.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809203508031.png"></p>
 <p>然后我在人(person)中new一个钱</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203808247.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809203808247.png"></p>
 <p>然后在主函数里执行如下代码</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809203834233.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809203834233.png"></p>
 <p>会发现，刚刚新加的m是浅拷贝.</p>
 <p>因为如果这样写的话，在内存中是这样的</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809204605058.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809204605058.png"></p>
 <p><strong>注：上面图中的m的数据是Money类中的m，不是Person类中的</strong></p>
 <p>造成了m浅拷贝.</p>
 <p>如果想让m也是深拷贝.</p>
@@ -1414,10 +1414,10 @@ do..whlie循环</li>
 <p>所以，首先让Money也实现个Cloneable接口，然后在Money中重写一下clone方法</p>
 <p><strong>为了方便区分，Money类中的<code>double m = 100;</code>改成<code>double money = 100;</code></strong></p>
 <p>修改后的代码如下：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809230821425.png"></p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809231127707.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809230821425.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809231127707.png"></p>
 <p>再来分析下代码的流程.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220809233713673.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220809233713673.png"></p>
 <h2 id="面试问题-3"><a href="#面试问题-3" class="headerlink" title="面试问题"></a>面试问题</h2><blockquote>
 <p>问：<code>public interface Cloneable &#123;......&#125;;</code>,为什么这个接口是空接口？</p>
 <p>答：1.空接口也把它叫做标记接口（只要一个类实现了这个接口，那么就标记这个类是可以进行克隆的）.2.想要clone(克隆)，需要重写clone(克隆)方法,这个克隆方法是Object的,（clone方法是在Object这个类中的）</p>
@@ -1457,7 +1457,7 @@ do..whlie循环</li>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>下面进行分析：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810154953720.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810154953720.png"></p>
 <hr>
 <p>例2：在看一个例子：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">&#123;</span>
@@ -1471,7 +1471,7 @@ do..whlie循环</li>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>分析代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810165329109.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810165329109.png"></p>
 <hr>
 <p>例3：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">&#123;</span>
@@ -1506,11 +1506,11 @@ do..whlie循环</li>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>分析代码：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810210515423.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810210515423.png"></p>
 <hr>
 <h3 id="字符串比较equals"><a href="#字符串比较equals" class="headerlink" title="字符串比较equals"></a>字符串比较equals</h3><p>字符串和字符串比较，使用等于好比较，比较的是引用.</p>
 <p>使用equals比较，比较的是字符串的内容.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810215449282.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810215449282.png"></p>
 <hr>
 <p>在Object类中有equals方法.</p>
 <p>但是Object类中的equals方法，比较的是引用相不相等.和等于号比较的一样。</p>
@@ -1526,7 +1526,7 @@ do..whlie循环</li>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>equals使用的注意点：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810222123553.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810222123553.png"></p>
 <h3 id="手动入池interen"><a href="#手动入池interen" class="headerlink" title="手动入池interen()"></a>手动入池interen()</h3><p>例：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1537,7 +1537,7 @@ do..whlie循环</li>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>分析：<code>intern();</code>会在当前常量池寻找输入的字符串是否存在，如果存在，就把常量池中字符串的地址赋值给当前引用类型变量，当前引用类型变量是str2.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220810231301186.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220810231301186.png"></p>
 <ul>
 <li>用Scanner来输入字符串的时候就不会这样.因为Scanner不会先在字符串常量池创建内容.</li>
 </ul>
@@ -1557,14 +1557,14 @@ do..whlie循环</li>
 
 <p>这样拼接字符串，每次拼接都会在字符串常量池中留下临时变量.</p>
 <p>大概表现为这样：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220812183542433.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220812183542433.png"></p>
 <p>这就是字符串不可变，修改字符串不会改变之前的，而是创建一个全新的字符串.</p>
 <h3 id="修改字符串"><a href="#修改字符串" class="headerlink" title="修改字符串"></a>修改字符串</h3><p>假设有个字符串<code>String str = &quot;Hello&quot;;</code></p>
 <p>现在我要把他修改成hello，那怎么修改呢？</p>
 <p>1.直接<code>str = &quot;hello&quot;;</code>,这种就是直接修改，str里存的地址是会变的.</p>
 <p>2.<code>str = &quot;h&quot;+str.substring(1)</code>这种修改方式，原理是从str的1号下标位置开始把字符串提取出来，在把h拼接上去.所以str中存的地址也是会变的</p>
 <p>大概表现为：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220812191258797.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220812191258797.png"></p>
 <p>以上两种方法都不是修改字符串本身，而是创建了新的字符串，再把新字符串的地址返回去而已.</p>
 <p>那我就是要在原来的字符串上改，能不能做到呢？</p>
 <p>能，利用反射</p>
@@ -1761,7 +1761,7 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 
 
 
-<h2 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811132033894.png"></p>
+<h2 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811132033894.png"></p>
 <hr>
 <p>1.对于书，可以将它做成一个类.</p>
 <ul>
@@ -1783,18 +1783,18 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 <p>设计一个类booklist来存放这些书</p>
 <hr>
 <p>从大的分类上讲：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811134744019.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811134744019.png"></p>
 <hr>
 <p>以上分析完后，可以开始写代码了.</p>
-<h3 id="搭建基本框架"><a href="#搭建基本框架" class="headerlink" title="搭建基本框架"></a>搭建基本框架</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811135300302.png"></p>
+<h3 id="搭建基本框架"><a href="#搭建基本框架" class="headerlink" title="搭建基本框架"></a>搭建基本框架</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811135300302.png"></p>
 <h4 id="书（包）"><a href="#书（包）" class="headerlink" title="书（包）"></a>书（包）</h4><h5 id="书（类）"><a href="#书（类）" class="headerlink" title="书（类）"></a>书（类）</h5><p>在书这个类中，定义一些基本的成员.比如书名啊，作者啊，价格之类的.并将这些属性设置为私有的（private）.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811152318153.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811152318153.png"></p>
 <p>然后给这些成员属性提供set和get方法.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811152337472.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811152337472.png"></p>
 <p>为了方便打印，在重写一个toString方法</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811152458736.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811152458736.png"></p>
 <p>因为后续会添加数据，所以在提供一个构造方法</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811152547238.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811152547238.png"></p>
 <p>Book(类就基本完成了)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">book</span><span class="token punctuation">;</span>
 
@@ -1876,7 +1876,7 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 
 
 <hr>
-<h5 id="BookList-类"><a href="#BookList-类" class="headerlink" title="BookList(类)"></a>BookList(类)</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811152817770.png"></p>
+<h5 id="BookList-类"><a href="#BookList-类" class="headerlink" title="BookList(类)"></a>BookList(类)</h5><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811152817770.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">book</span><span class="token punctuation">;</span>
 <span class="token comment">//相当于顺序表</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookList</span> <span class="token punctuation">&#123;</span>
@@ -1896,9 +1896,9 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 
 
 
-<h3 id="操作operation（包）"><a href="#操作operation（包）" class="headerlink" title="操作operation（包）"></a>操作operation（包）</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811154528319.png"></p>
-<h3 id="用户user-包"><a href="#用户user-包" class="headerlink" title="用户user(包)"></a>用户user(包)</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811163815492.png"></p>
-<h4 id="用户User（类）"><a href="#用户User（类）" class="headerlink" title="用户User（类）"></a>用户User（类）</h4><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811163615927.png"></p>
+<h3 id="操作operation（包）"><a href="#操作operation（包）" class="headerlink" title="操作operation（包）"></a>操作operation（包）</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811154528319.png"></p>
+<h3 id="用户user-包"><a href="#用户user-包" class="headerlink" title="用户user(包)"></a>用户user(包)</h3><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811163815492.png"></p>
+<h4 id="用户User（类）"><a href="#用户User（类）" class="headerlink" title="用户User（类）"></a>用户User（类）</h4><p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811163615927.png"></p>
 <h5 id="管理员Admin"><a href="#管理员Admin" class="headerlink" title="管理员Admin"></a>管理员Admin</h5><p>继承extends用户User(类),就可以调用User里的name.</p>
 <h5 id="普通用户NormalUser"><a href="#普通用户NormalUser" class="headerlink" title="普通用户NormalUser"></a>普通用户NormalUser</h5><p>继承extends用户User(类),就可以调用User里的name</p>
 <h3 id="主函数部分"><a href="#主函数部分" class="headerlink" title="主函数部分"></a>主函数部分</h3><p>先进行准备工作，new一个BookList,这一步是为了创建数据.</p>
@@ -1991,41 +1991,41 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 <h4 id="分析一下代码"><a href="#分析一下代码" class="headerlink" title="分析一下代码"></a>分析一下代码</h4><p>一些基本的打印和从键盘获取字符串和整形就不说了.</p>
 <p>主要是讲如何通过输入的整形判断出用户是管理员还是普通用户</p>
 <p>都知道adm和普通用户（NormalUser）都继承了User</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811175923080.png"></p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811175938340.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811175923080.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811175938340.png"></p>
 <p>那么我们就通过if语句俩new对象，1就new管理员，2就new普通用户.</p>
 <p>顺便把名字也传进去.传入的过程中，因为有继承关系所以就是：主函数调用login方法 –》login根据获取到的数子–》将名字传入对应的对象中.</p>
 <p>对象在调用构造方法，因为是继承（继承的话，子类要帮助父类先完成构造），所以name又被传到User中.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811181137574.png"></p>
-<p>然后从login返回给user接收<img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811180157658.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811181137574.png"></p>
+<p>然后从login返回给user接收<img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811180157658.png"></p>
 <p>选择完毕后就要打印菜单了</p>
 <p>但是注意了，在上面这么操作的过程中发生了向上转型.（ruturn的子类，用的是Use(父类进行接收)）</p>
 <p>向上转型的效果是：不能调用子类的属性和方法，只能调用父类的属性和方法</p>
 <p>那怎么办呢.这里就用到了多态的抽象方法</p>
 <p>在User类中定义一个抽象（abstract）方法menu()</p>
 <p>抽象方法的效果是：需要在子类中重写父类的抽象方法</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811182214383.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811182214383.png"></p>
 <p>然后，我需要选择这些选项中的某一项.</p>
 <p>第一种方法：我在main中用scanner获取输入的数字，在调用对应的方法.</p>
 <p>第二种方法：我可以直接在menu方法中获取用户输入的数字.通过return直接返回.在主函数中直接接收返回值就好了.</p>
 <blockquote>
 <p>在修改menu()时记得要修改void为int,也别忘了把User中的抽象方法也改成int.</p>
 </blockquote>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811184104521.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811184104521.png"></p>
 <h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><p>通过上面，知道是通过用户输入的数字来调用方法.具体怎么调用呢？</p>
 <p>首先知道在operation包中有多个类.</p>
 <p>仔细看会发现，这多个类中都是只有一个方法.且这多个类中的方法可以重名.我就统一都叫work方法</p>
 <p>那就可以考虑用一个接口.这样就会方便很多.什么意思呢？看图：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811193955491.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811193955491.png"></p>
 <p>开始操作，我先创建一个接口IOperation，在这个接口中有一个work方法.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811194709381.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811194709381.png"></p>
 <p>再让operation中的类都实现一下这个接口.</p>
 <p>这么做的好处是什么呢？</p>
 <p>这样做了之后，就只需要通过接口就可以去调用对应类中的方法.</p>
 <p>怎么说？看图：</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811195102560.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811195102560.png"></p>
 <p>那么实现了接口后怎么调用呢？</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811195411370.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811195411370.png"></p>
 <p>会发现new的对象不同，但是调用的时候都是用的iopertion进行调用.</p>
 <p>那我们就可以用一种方法.就是IOperation[]</p>
 <p>用数组装new的对象.通过下标访问.这样就方便了很多.</p>
@@ -2033,14 +2033,14 @@ str1<span class="token punctuation">.</span><span class="token function">split</
 <hr>
 <p>分析完了，开始写代码</p>
 <p>首先要在User中创建IOperation数组</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811211345878.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811211345878.png"></p>
 <p>然后在普通用户和adm的构造方法中初始化数组</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811211455904.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811211455904.png"></p>
 <p>然后在User中写一个方法用数组下标来访问对应的方法.</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811212849190.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811212849190.png"></p>
 <p>work()中的参数bookList是主函数刚开始创建的用来操作的书的数组.</p>
 <p>因为在选完用户后，是可以进行连续操作的，所以用while包起来</p>
-<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/image-20220811213502381.png"></p>
+<p><img src="/2022/07/17/java%E5%AD%A6%E4%B9%A0/java%E5%AD%A6%E4%B9%A0/image-20220811213502381.png"></p>
 <p>那么到现在为止，就差不多了.</p>
 <p>接下来只要将对应的方法全都实现.</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h5 id="主函数-1"><a href="#主函数-1" class="headerlink" title="主函数"></a>主函数</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">book<span class="token punctuation">.</span></span><span class="token class-name">BookList</span></span><span class="token punctuation">;</span>

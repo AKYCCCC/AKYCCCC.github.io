@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Cplusplus选择题01, AKYCCCC">
-    <meta name="description" content="选择题1">
+    <meta name="description" content="选择题11.下面C语言表达式中，值为6003的是？
+struct student &amp;#123;
+    int num, age;
+&amp;#125;;
+struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;6001,">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -479,7 +483,70 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="选择题1"><a href="#选择题1" class="headerlink" title="选择题1"></a>选择题1</h2>
+                <h2 id="选择题1"><a href="#选择题1" class="headerlink" title="选择题1"></a>选择题1</h2><p>1.下面C语言表达式中，值为6003的是？</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct student &#123;
+    int num, age;
+&#125;;
+struct student stu[3] &#x3D; &#123;&#123;6001, 20&#125;, &#123;6003, 21&#125;, &#123;6005, 19&#125;&#125;;
+struct student *p &#x3D; stu;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>A. ++(p-&gt;num)</p>
+<p>B. (p++)-&gt;num</p>
+<p>C. (*p++).num</p>
+<p>D.(*++p).num</p>
+<p><strong>答案：D</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>A. 此程序一般会被理解为++6001，这是错误理解.常量是不能++的，要理解为(p-&gt;num)是一个整体，代表结构体中的属性.</p>
+<ul>
+<li>箭头操作符优先级比++高</li>
+</ul>
+<p>B. <code>（p++）</code>被程序读到，此时p没有++，还是指向{6001,20}，然后<code>-&gt;</code>访问num,最后答案6001.输出完答案后p指向{6003,21}</p>
+<p>C. <code>*</code>的优先级和<code>++</code>相同，从左往右算<code>*p</code>,结果是p找到{6001,20}.因为后置++，所以p找到的还是{6001,20}，<code>-&gt;num</code>访问到6001</p>
+<ul>
+<li>运算符优先级相同，按照结合性计算。题目中是左结合。从左往右算.</li>
+<li>例如赋值运算符<code>=</code>,就是右结合.会从右往左算.</li>
+</ul>
+<p>D.优先级相同，从左往右算.先<code>*p</code>找到{6001,20}，运行前置++后，p找到{6003,21}.<code>.num</code> 后输出6003.答案是D</p>
+</blockquote>
+<h2 id="选择题2"><a href="#选择题2" class="headerlink" title="选择题2"></a>选择题2</h2><ol start="2">
+<li>以下程序输出的结果为？</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">using namespace std;
+void print(char **str)&#123;
+    ++str;
+    cout&lt;&lt;*str&lt;&lt;endl;
+&#125;
+int main() &#123;
+    static char *arr[]&#x3D;&#123;&quot;hello&quot;, &quot;world&quot;, &quot;c++&quot;&#125;;
+    char **ptr;
+    ptr&#x3D;arr;
+    print(ptr);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>A. hello</p>
+<p>B. world</p>
+<p>C. 字符串w的起始地址</p>
+<p>D. 字符e</p>
+<p><strong>答案：B</strong></p>
+<p><em>注：vs2022中此代码第七行报错，<code>const char*</code>类型的值不能用于初始化<code>char*</code>的类型</em></p>
+<p>解决方法：在7、8行，和函数参数中加上const</p>
+<p>解析</p>
+<blockquote>
+<p>创建了一个静态的字符指针的数组.</p>
+<p>创建一个二级指针ptr</p>
+<p>将数组赋值给ptr，此时ptr代表数组.一次跳过一个数组元素.</p>
+<p>传入函数</p>
+<p><code>++str;</code>：跳过一个数组元素.ptr指向数组第二个元素“world\0”</p>
+<p><code>*str</code>:解引用，找到数组中的第二个元素，数组的第二个元素是一个<code>char*</code>类型的指针.</p>
+<p><code>cout&lt;&lt;*str&lt;&lt;end;</code>通过指针打印出world.</p>
+<ul>
+<li>cout输出遇到“\0”结束</li>
+<li>注意区分“\0”和‘\0’的区别</li>
+</ul>
+</blockquote>
+
                 
             </div>
             <hr/>

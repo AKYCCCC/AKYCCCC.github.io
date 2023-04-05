@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="java封装, AKYCCCC">
-    <meta name="description" content="java封装">
+    <meta name="description" content="java封装封装一个类中有成员属性
+一个类中有成员方法
+使用private关键字修饰类中的成员属性.
+用户不能直接访问和操作类中的成员属性，需要通过提供的成员方法(get&amp;#x2F;set)来获取和设置
+使用public关键词修饰类中的成员">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -479,7 +483,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="java封装"><a href="#java封装" class="headerlink" title="java封装"></a>java封装</h1>
+                <h1 id="java封装"><a href="#java封装" class="headerlink" title="java封装"></a>java封装</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>一个类中有成员属性</p>
+<p>一个类中有成员方法</p>
+<p>使用private关键字修饰类中的成员属性.</p>
+<p>用户不能直接访问和操作类中的成员属性，需要通过提供的成员方法(get&#x2F;set)来获取和设置</p>
+<p>使用public关键词修饰类中的成员方法，如果需要,成员方法也可以用private修饰.</p>
+<p>被private修饰的方法或者属性，只能在本类中访问.</p>
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><p>类中出现同名的变量，同名的方法怎么办？</p>
+<p>使用this关键字</p>
+<p>在变量或方法前面加上<code>this.变量名或方法名</code>，就表示调用的是本类中的方法或变量.</p>
+<p>例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Test01</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//类中定义的成员属性age</span>
+	<span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  	<span class="token comment">//构造方法的参数age</span>
+    <span class="token keyword">public</span> <span class="token class-name">Test01</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token comment">//成员属性的age等于构造方法参数的age</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">//java中的对象使用完自动释放，无需像c++的析构函数</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果类的成员属性和方法中定义的局部变量重名，怎么调用？</p>
+<p>就近原则：谁离得近用</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Tesot01</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//成员属性</span>
+    <span class="token comment">//整形值默认是0</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token comment">//构造方法略</span>
+    
+    <span class="token comment">//成员方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">func01</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//定义一个和成员属性同名的age</span>
+        <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token comment">//没有写this，就会从当前行开始往上找。哪个age先找到，就用哪个</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出10</span>
+        
+        <span class="token comment">//加上this表示成员属性</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出0</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
                 
             </div>
             <hr/>

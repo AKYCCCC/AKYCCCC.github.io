@@ -4,12 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Cplusplus选择题01, AKYCCCC">
-    <meta name="description" content="单项选择题选择题11.下面C语言表达式中，值为6003的是？
-struct student &amp;#123;
-    int num, age;
-&amp;#125;;
-struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
+    <meta name="keywords" content="java集合ArrayList, AKYCCCC">
+    <meta name="description" content="Arraylist集合Arraylist底层使用了泛型实现
+底层数据结构是数组
+创建集合import java.util.ArrayList;
+
+
+
+//注意点1：数据类型必须是引用类型.
+//如果想存基本数据类型，将基本数据类型转换成对应">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +26,7 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
 
     
 
-    <title>Cplusplus选择题01 | AKYCCCC</title>
+    <title>java集合ArrayList | AKYCCCC</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +316,12 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Cplusplus选择题01</h1>
+                    <h1 class="description center-align post-title">java集合ArrayList</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +437,8 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/cPlusPlus%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">cPlusPlus学习</span>
+                            <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">java学习</span>
                             </a>
                         
                     </div>
@@ -446,8 +449,8 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/cPlusPlus/" class="post-category">
-                                cPlusPlus
+                            <a href="/categories/java/" class="post-category">
+                                java
                             </a>
                         
                     </div>
@@ -459,7 +462,7 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-21
+                    2023-04-08
                 </div>
                 
 
@@ -483,139 +486,49 @@ struct student stu[3] &amp;#x3D; &amp;#123;&amp;#123;">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="单项选择题"><a href="#单项选择题" class="headerlink" title="单项选择题"></a>单项选择题</h2><h3 id="选择题1"><a href="#选择题1" class="headerlink" title="选择题1"></a>选择题1</h3><p>1.下面C语言表达式中，值为6003的是？</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct student &#123;
-    int num, age;
-&#125;;
-struct student stu[3] &#x3D; &#123;&#123;6001, 20&#125;, &#123;6003, 21&#125;, &#123;6005, 19&#125;&#125;;
-struct student *p &#x3D; stu;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Arraylist集合"><a href="#Arraylist集合" class="headerlink" title="Arraylist集合"></a>Arraylist集合</h1><p>Arraylist底层使用了泛型实现</p>
+<p>底层数据结构是数组</p>
+<h2 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>A. ++(p-&gt;num)</p>
-<p>B. (p++)-&gt;num</p>
-<p>C. (*p++).num</p>
-<p>D.(*++p).num</p>
-<p><strong>答案：D</strong></p>
-<p>解析：</p>
-<blockquote>
-<p>A. 此程序一般会被理解为++6001，这是错误理解.常量是不能++的，要理解为(p-&gt;num)是一个整体，代表结构体中的属性.</p>
-<ul>
-<li>箭头操作符优先级比++高</li>
-</ul>
-<p>B. <code>（p++）</code>被程序读到，此时p没有++，还是指向{6001,20}，然后<code>-&gt;</code>访问num,最后答案6001.输出完答案后p指向{6003,21}</p>
-<p>C. <code>*</code>的优先级和<code>++</code>相同，从左往右算<code>*p</code>,结果是p找到{6001,20}.因为后置++，所以p找到的还是{6001,20}，<code>-&gt;num</code>访问到6001</p>
-<ul>
-<li>运算符优先级相同，按照结合性计算。题目中是左结合。从左往右算.</li>
-<li>例如赋值运算符<code>=</code>,就是右结合.会从右往左算.</li>
-</ul>
-<p>D.优先级相同，从左往右算.先<code>*p</code>找到{6001,20}，运行前置++后，p找到{6003,21}.<code>.num</code> 后输出6003.答案是D</p>
-</blockquote>
-<h3 id="选择题2"><a href="#选择题2" class="headerlink" title="选择题2"></a>选择题2</h3><p>2.以下程序输出的结果为？</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">using namespace std;
-void print(char **str)&#123;
-    ++str;
-    cout&lt;&lt;*str&lt;&lt;endl;
-&#125;
-int main() &#123;
-    static char *arr[]&#x3D;&#123;&quot;hello&quot;, &quot;world&quot;, &quot;c++&quot;&#125;;
-    char **ptr;
-    ptr&#x3D;arr;
-    print(ptr);
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>A. hello</p>
-<p>B. world</p>
-<p>C. 字符串w的起始地址</p>
-<p>D. 字符e</p>
-<p><strong>答案：B</strong></p>
-<p><em>注：vs2022中此代码第七行报错，<code>const char*</code>类型的值不能用于初始化<code>char*</code>的类型</em></p>
-<p>解决方法：在7、8行，和函数参数中加上const</p>
-<p>解析</p>
-<blockquote>
-<p>创建了一个静态的字符指针的数组.</p>
-<p>创建一个二级指针ptr</p>
-<p>将数组赋值给ptr，此时ptr代表数组.一次跳过一个数组元素.</p>
-<p>传入函数</p>
-<p><code>++str;</code>：跳过一个数组元素.ptr指向数组第二个元素“world\0”</p>
-<p><code>*str</code>:解引用，找到数组中的第二个元素，数组的第二个元素是一个<code>char*</code>类型的指针.</p>
-<p><code>cout&lt;&lt;*str&lt;&lt;end;</code>通过指针打印出world.</p>
-<ul>
-<li>cout输出遇到“\0”结束</li>
-<li>注意区分“\0”和‘\0’的区别</li>
-</ul>
-</blockquote>
-<h3 id="选择题3"><a href="#选择题3" class="headerlink" title="选择题3"></a>选择题3</h3><p>3.关于内联函数说法错误的是？</p>
-<p>A. 不是任何一个函数都可定义成内联函数</p>
-<p>B.内联函数的函数体内不能含有复杂的结构控制语句</p>
-<p>C.递归函数可以被用来作为内联函数</p>
-<p>D.内联函数一般适合于只有1~5行语句的小函数</p>
-<p><strong>答案：C</strong></p>
-<p>解析：</p>
-<blockquote>
-<p>A.内联函数需要满足内联函数的要求.所以A正确</p>
-<p>B.正确</p>
-<p>C.递归算复杂的语句，所以C错误</p>
-<p>D.正确</p>
-</blockquote>
-<p>补充：</p>
-<p>内联函数的关键词（inline）</p>
-<p>内联函数是一个函数.</p>
-<p>内联函数可以创建在类中.也可以和普通函数一样创建在.cpp文件中，可以被声明.</p>
-<p>内联函数创建的规则：</p>
-<ul>
-<li>内联函数体内不能有复杂的语句（递归、循环、switch、代码过长等）</li>
-<li>和普通函数一样，要定义在调用之前.（使用函数声明就可以定义在调用之后.）</li>
-<li>内联函数不能进行异常接口声明</li>
-</ul>
-<p>内联函数和宏的区别：</p>
-<ul>
-<li>内联函数和宏一样，会在用到的地方进行展开.不需要函数调用的开销.</li>
-<li>内联函数会进行类型检测，宏不会</li>
-<li>宏展开时会出现二义性，内联函数不会</li>
-<li>内联函数可以访问类成员属性，宏不行</li>
-</ul>
-<p>内联函数的优点：</p>
-<ul>
-<li>因为是直接展开，省去了调用函数的时间，所以效率高.</li>
-<li>进行类型检查，不会有二义性.</li>
-</ul>
-<p>内敛函数注意点：</p>
-<ul>
-<li>inline只是给编译器一个建议.并不是强制变成内联函数.（由编译器决定）</li>
-<li>函数过于复杂，就不会展开.而是变成普通函数.（由编译器决定）</li>
-</ul>
-<h3 id="选择题4"><a href="#选择题4" class="headerlink" title="选择题4"></a>选择题4</h3><p>4.在64位系统中，由如下类</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class C
-&#123;
-public:
-    char a;
-    static char b;
-    void *p;
-    static int *c;
-    virtual void func1();
-    virtual void func2();
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>那么sizeof（C）的数值是？</p>
-<p>A.9</p>
-<p>B.17</p>
-<p>C.32</p>
-<p>D.24</p>
-<p><strong>答案：D</strong></p>
-<p>解析：</p>
-<blockquote>
-<p>sizeof计算存在栈中的变量所占空间.</p>
-<p><code>char a</code>本身占一个字节，因为内存对齐，且64位操作系统，最后占8个字节</p>
-<p>static修饰的变量，创建在全局区中，不算在sizeof的计算范围里.</p>
-<p><code>void*p</code>是一个指针变量，在64位操作系统中占8字节</p>
-<p><code>virtual</code>虚函数关键词.只要类中出现一个虚函数.那么就会自动创建一个虚函数表，</p>
-<p>由一个<strong>虚函数表指针</strong>维护.所有出现的虚函数都会放在表中，由<strong>虚函数表指针</strong>进行访问.</p>
-<p><strong>虚函数表指针</strong>是一个指针.指针在64位系统中占8字节</p>
-<p>最后答案是24字节.</p>
-</blockquote>
-<h2 id="多项选择题"><a href="#多项选择题" class="headerlink" title="多项选择题"></a>多项选择题</h2><h2 id="判断题"><a href="#判断题" class="headerlink" title="判断题"></a>判断题</h2><h3 id="判断题1"><a href="#判断题1" class="headerlink" title="判断题1"></a>判断题1</h3><p>1.在C++语言中, %运算符要求运算数必须是整型。是否正确？</p>
-<p><strong>答案：正确</strong></p>
-<p>解析：无</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//注意点1：数据类型必须是引用类型.</span>
+<span class="token comment">//如果想存基本数据类型，将基本数据类型转换成对应的包装类.</span>
+<span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><p><code>public boolean add(E e)</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>插入成功返回true,失败返回false</li>
+</ul>
+<p><code>public void add(int index,E e)</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//在指定位置插入.</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"ccc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//不是覆盖数据，而是从指定位置开始，将后面元素往后挪，然后在插入</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印[aaa, ccc, bbb]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>插入失败则抛出异常</li>
+</ul>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//根据元素名删</span>
+list1<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//根据索引删</span>
+list1<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 
                 
             </div>
@@ -642,7 +555,7 @@ public:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://akycccc.github.io/2023/03/21/Cplusplus%E9%80%89%E6%8B%A9%E9%A2%9801/">https://akycccc.github.io/2023/03/21/Cplusplus%E9%80%89%E6%8B%A9%E9%A2%9801/</a>
+                    <a href="https://akycccc.github.io/2023/04/08/java%E9%9B%86%E5%90%88ArrayList/">https://akycccc.github.io/2023/04/08/java%E9%9B%86%E5%90%88ArrayList/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -680,8 +593,8 @@ public:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/cPlusPlus%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">cPlusPlus学习</span>
+                                <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">java学习</span>
                                 </a>
                             
                         </div>
@@ -733,13 +646,13 @@ public:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/21/hexo-matery-%E6%A8%B1%E8%8A%B1-%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+                <a href="/2023/04/10/java%E7%BB%A7%E6%89%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hexo-matery(樱花)主题代码块问题解决">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="java继承">
                         
-                        <span class="card-title">hexo-matery(樱花)主题代码块问题解决</span>
+                        <span class="card-title">java继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -750,19 +663,27 @@ public:
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
-                                    疑难解答
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">java学习</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -774,13 +695,13 @@ public:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/02/mysql%E5%90%AF%E5%8A%A8-%E7%BB%93%E6%9D%9F%E6%97%B6%E5%A4%B1%E8%B4%A5/">
+                <a href="/2023/04/06/javaString%E7%B1%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="mysql启动/结束时失败">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="javaString类">
                         
-                        <span class="card-title">mysql启动/结束时失败</span>
+                        <span class="card-title">javaString类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,19 +712,27 @@ public:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
-                                    疑难解答
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">java学习</span>
+                    </a>
+                    
                 </div>
                 
             </div>

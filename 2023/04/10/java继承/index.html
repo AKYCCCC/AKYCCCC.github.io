@@ -525,7 +525,65 @@
 <ul>
 <li>子类无法继承父类中被private、static、final修饰的成员方法.</li>
 </ul>
-<h2 id="继承的好处"><a href="#继承的好处" class="headerlink" title="继承的好处"></a>继承的好处</h2>
+<h2 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h2><p>重写注释：<code>@Override</code></p>
+<p>注释的功能是帮助检验重写的方法是否符合规范</p>
+<p>子类中可以重写父类的方法.</p>
+<p>重写父类的方法要满足一下条件</p>
+<ul>
+<li>1.子类中重写方法的访问权限必须大于等于父类的访问权限.</li>
+<li>2.子类中重写的方法名必须和父类中的方法名相同的</li>
+<li>3.子类中重写的方法返回值必须小于等于父类的返回值</li>
+<li>4.子类中重写的方法函数参数类型和数量必须和父类相同</li>
+<li>5.父类的私有方法和静态方法不能被重写</li>
+</ul>
+<p>重写注释一般放在重写的方法上，用来检验重写的方法是否符合要求.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">base01</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"base01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Base</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"Son"</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">base01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"sonbase01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">base01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重写过后，子类中的方法会覆盖父类中的方法.</p>
+<p>当base01函数被调用，就会使用子类中的方法体.</p>
+<p>不过还是可以在子类中通过<code>super.base01()</code>来调用父类中的<code>base01()</code></p>
+<h2 id="继承的构造顺序"><a href="#继承的构造顺序" class="headerlink" title="继承的构造顺序"></a>继承的构造顺序</h2><p>1.子类中的构造方法中默认第一行都是<code>super()</code>,不管写没写.</p>
+<p>2.如果想调用父类的有参构造，必须手动在子类的构造方法中写.</p>
+<p>3.子类中调用父类的带参构造，就不会再调用父类的无参构造</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"base()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">Base</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类的"</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Base</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Son</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"son()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">Son</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//手动调用父类的带参构造.</span>
+        <span class="token comment">//有了带参构造，就不会父类调用无参构造</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类的"</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="super和this"><a href="#super和this" class="headerlink" title="super和this"></a>super和this</h2><p>使用了super关键字，系统就会去父类中找对应的变量和方法，找不到报错</p>
+<p>使用了this关键字，系统先去本类中找，找不到就去父类中找，找不到报错</p>
+<p>直接调用，系统先去离他最近的地方找，找不到去本类中找，在找不到去父类中找.找不到报错.</p>
+
                 
             </div>
             <hr/>
@@ -638,18 +696,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/10/java%E7%BB%A7%E6%89%BF/">
+                <a href="/2023/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="java继承">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="数据结构题目">
                         
-                        <span class="card-title">java继承</span>
+                        <span class="card-title">数据结构题目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -659,27 +716,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">java学习</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE/">
+                        <span class="chip bg-color">数据结构题目</span>
                     </a>
                     
                 </div>

@@ -617,7 +617,7 @@ public:
 <p><code>int const * ptr</code>:const在<code>*</code>左边，<code>*ptr</code>不可修改，ptr可修改</p>
 <p><code>const int *const ptr</code>:ptr不可修改，<code>*ptr</code>不可修改</p>
 </blockquote>
-<h2 id="选择题6"><a href="#选择题6" class="headerlink" title="选择题6"></a>选择题6</h2><p>6.若TestClass为一个类，执行“TestClass a[4]，*p[5]；”语句时会自动调用该类构造函数的次数是 （）</p>
+<h3 id="选择题6"><a href="#选择题6" class="headerlink" title="选择题6"></a>选择题6</h3><p>6.若TestClass为一个类，执行“TestClass a[4]，*p[5]；”语句时会自动调用该类构造函数的次数是 （）</p>
 <p>A. 2            B. 5                   C. 4                     D. 9</p>
 <p><strong>答案：A</strong></p>
 <p>解析：</p>
@@ -626,9 +626,61 @@ public:
 <p><code>TestClass *p[5]</code>:定义了一个指针数组，数组元素是5个<code>TestClass*</code>类型.</p>
 <p>定义指针数组不会调用构造函数.</p>
 </blockquote>
+<h3 id="选择题7"><a href="#选择题7" class="headerlink" title="选择题7"></a>选择题7</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Func(char str_arg[100])&#123;
+    printf(&quot;%d\n&quot;, sizeof(str_arg));
+&#125;
+int main(void)&#123;
+    char str[] &#x3D; &quot;Hello&quot;;
+    printf(&quot;%d\n&quot;, sizeof(str));
+    printf(&quot;%d\n&quot;, strlen(str));
+    char*p &#x3D; str;
+    printf(&quot;%d\n&quot;, sizeof(p));
+    Func(str);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>32位系统下下面程序的输出结果为多少（）</p>
+<p>A. 5 5 4 4             B. 6 5 4 4          C. 6 5 6 4            D. 5 5 5 100</p>
+<p><strong>答案：B</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>sizeof计算的是所占空间大小，str中存放的是h,e,l,l,o,\0.所以sezeof(str)是6</p>
+<p>strlen计算的是字符串长度，strlen遇到\0停止，\0不算在长度中.所以strlen(str)是5</p>
+<p>p是一个指针，指针在32位操作系统重占4字节，所以是4</p>
+<p>函数传参，函数形参只是实参的一份拷贝，数组传参，数组名代表数组首元素地址，数组作为函数参数传递后退化为指针</p>
+<p>所以str_arg是一个指针.占4字节</p>
+</blockquote>
+<h3 id="选择题8"><a href="#选择题8" class="headerlink" title="选择题8"></a>选择题8</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#pragma pack(2)
+class A&#123;
+    int i;
+    union&#123;
+       char buff[13];
+       int i;
+    &#125;u;
+    void foo() &#123;  &#125;
+    typedef char* (*f)(void*);
+    enum&#123;red,green,blue&#125;color;
+&#125;a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在32位机器上，sizeof(a)的值是（）</p>
+<p>A. 20           B. 21           C. 22         D.24</p>
+<p><strong>答案：C</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>首先注意预处理命令<code>#pragma pack(2)</code>内存对齐数设置为2字节对齐！</p>
+<p><code>int i</code>：占4字节没问题</p>
+<p><code>union</code>：联合体，联合体中所有的内容共用同一块内存.联合体所占空间为最大成员内存对齐后的空间.</p>
+<p>最大成员是<code>char buff[13]</code>,原本占13字节，内存对齐后占14字节（2字节对齐）</p>
+<p><code>foo()</code>:c++中的成员函数不算在类的空间.所以是0</p>
+<p><code> typedef char* (*f)(void*)</code>:重命名，将<code>char*</code>重命名为<code>(*f)(void*)</code>不占空间</p>
+<p>enum定义了一个常量集合，里面没有“元素”，枚举类型是当做int来存储，所以枚举类型占4字节，32位64位都占4字节</p>
+<p>4（int）+14(union)+4(enum) &#x3D; 22</p>
+</blockquote>
 <h2 id="判断题"><a href="#判断题" class="headerlink" title="判断题"></a>判断题</h2><h3 id="判断题1"><a href="#判断题1" class="headerlink" title="判断题1"></a>判断题1</h3><p>1.在C++语言中, %运算符要求运算数必须是整型。是否正确？</p>
 <p><strong>答案：正确</strong></p>
 <p>解析：无</p>
+<h3 id="判断题2"><a href="#判断题2" class="headerlink" title="判断题2"></a>判断题2</h3><p>2.构造函数的名字必须与类名相同，其返回类型缺省为void类型。</p>
+<p><strong>答案：错误</strong></p>
+<p>解析：构造函数不能有返回值.</p>
 
                 
             </div>

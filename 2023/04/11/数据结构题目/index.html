@@ -494,52 +494,59 @@
 <li>确定性，算法中每一条指令的含义都必须明确，无二义性.</li>
 <li>可行性，算法是可行的，即算法中描述的操作都可以通过有限次的基本运算来实现.</li>
 </ol>
-<h2 id="数据结构选择题"><a href="#数据结构选择题" class="headerlink" title="数据结构选择题"></a>数据结构选择题</h2><ol>
+<h2 id="数据结构选择题"><a href="#数据结构选择题" class="headerlink" title="数据结构选择题"></a>数据结构选择题</h2><h3 id="选择题1"><a href="#选择题1" class="headerlink" title="选择题1"></a>选择题1</h3><ol>
 <li>算法指的是（）</li>
 </ol>
 <p>​       A. 计算机程序        B.解决问题的计算方法       C.排序算法        D.解决问题的有限运算序列</p>
 <p>​		<strong>答案：D</strong></p>
-<ol start="2">
+<h3 id="选择题2"><a href="#选择题2" class="headerlink" title="选择题2"></a>选择题2</h3><ol start="2">
 <li><p>若一个算法的时间复杂度用T(n)表示，其中n的含义是（）</p>
 <p>A. 问题规模   B.语句条数   C.循环层数   D.函数数量</p>
 <p><strong>答案:A</strong></p>
 <p>解析：时间复杂度是某个算法的时间耗费，他是该算法所求解问题规模n的函数.记作：T(n) &#x3D; O(f(n)).</p>
 </li>
+</ol>
+<h3 id="选择题3"><a href="#选择题3" class="headerlink" title="选择题3"></a>选择题3</h3><ol start="3">
 <li><p>在长度为n的顺序表的第i个位置插入一个元素，元素移动的次数为（）</p>
 <p>A. n-i+1         B. n-i           C. i           D. i-1</p>
 </li>
 </ol>
 <p>​		<strong>答案：A</strong></p>
-<ol start="4">
+<h3 id="选择题4"><a href="#选择题4" class="headerlink" title="选择题4"></a>选择题4</h3><ol start="4">
 <li><p>将长度为n的链表，链接在长度为m的单链表之后的算法的时间复杂度为（）</p>
 <p>A. O(1)       B. O(n)        C. O(m)        D. O(m+n)</p>
 <p><strong>答案：C</strong></p>
 <p>解析：先遍历到长度为m的单链表的尾节点.然后在连接.</p>
 </li>
+</ol>
+<h3 id="选择题5"><a href="#选择题5" class="headerlink" title="选择题5"></a>选择题5</h3><ol start="5">
 <li><p>在有n个节点的有序链表中插入一个新节点，并使链表仍然有序的时间复杂度是（）</p>
 <p>A. O(1)    B.  O(n)    C. O(nlogn)  D. O(n^2)</p>
 <p><strong>答案：B</strong></p>
 <p>解析：最坏的情况就是遍历到链表最后一个节点.</p>
 </li>
+</ol>
+<h3 id="选择题6"><a href="#选择题6" class="headerlink" title="选择题6"></a>选择题6</h3><ol start="6">
 <li><p>对于只在表的首、尾两端进行插入的线性表、宜采用的存储结构为（）</p>
 <p>A. 顺序表      B.用头指针表示的单循环链表      C. 用尾指针表示的单循环链表      D.单链表</p>
 <p><strong>答案：C</strong></p>
 <p>解析：尾部插入从尾指针开始，头部插入遍历尾指针的next.</p>
 </li>
-<li><p>在带头节点的双向循环链表中插入一个新节点，需要修改的指针域数量是（）</p>
-</li>
+</ol>
+<h3 id="选择题7"><a href="#选择题7" class="headerlink" title="选择题7"></a>选择题7</h3><ol start="7">
+<li>在带头节点的双向循环链表中插入一个新节点，需要修改的指针域数量是（）</li>
 </ol>
 <p>​		A. 2个   B.  3个   C. 4个   D.  6个</p>
 <p>​		<strong>答案：C</strong></p>
 <p>​		解析：前一个的next,后一个的prev,他自己的next和prev</p>
-<ol start="8">
+<h3 id="选择题8"><a href="#选择题8" class="headerlink" title="选择题8"></a>选择题8</h3><ol start="8">
 <li><p>与数据元素本身的形式、内容、相对位置、个数无关的是数据的（）</p>
 <p>A. 存储结构       B. 运算结构       C.存储实现     D. 逻辑结构</p>
 </li>
 </ol>
 <p>​		<strong>答案：D</strong></p>
 <p>​		解析：逻辑结构本身是人通过思维给数据定义的一种关系.和数据元素本身没关系.</p>
-<ol start="9">
+<h3 id="选择题9"><a href="#选择题9" class="headerlink" title="选择题9"></a>选择题9</h3><ol start="9">
 <li>算法分析的两个主要方面是（）</li>
 </ol>
 <p>​		A. 正确性和简单性</p>
@@ -547,7 +554,7 @@
 <p>​		C. 可读性和文档性</p>
 <p>​		D. 数据的复杂性和程序复杂性</p>
 <p>​		<strong>答案：B</strong></p>
-<ol start="10">
+<h3 id="选择题10"><a href="#选择题10" class="headerlink" title="选择题10"></a>选择题10</h3><ol start="10">
 <li>线性表若采用链式存储结构时，要求内容中可用存储单元的地址（）</li>
 </ol>
 <p>​		A. 必须是连续的</p>
@@ -555,13 +562,13 @@
 <p>​		C. 一定是不连续的</p>
 <p>​		D. 连续或不连续都可以</p>
 <p>​		<strong>答案:D</strong></p>
-<ol start="11">
+<h3 id="选择题11"><a href="#选择题11" class="headerlink" title="选择题11"></a>选择题11</h3><ol start="11">
 <li>顺序表中第一个元素的存储地址是105，每个元素的长度为3，则第六个元素的地址是（）</li>
 </ol>
 <p>​		A. 110         B. 108        C. 100        D.120</p>
 <p>​		<strong>答案：</strong></p>
 <p>​		解析：105是第一个，第六个就是105+（3*（6-1）） &#x3D; 120.</p>
-<ol start="12">
+<h3 id="选择题12"><a href="#选择题12" class="headerlink" title="选择题12"></a>选择题12</h3><ol start="12">
 <li>若让1,2,3,4,5 依次进栈，则出栈次序不可能的是（）</li>
 </ol>
 <p>​		A. 4,3,1,2,5</p>
@@ -570,19 +577,19 @@
 <p>​		D. 2,3,5,4,1</p>
 <p>​		<strong>答案：A</strong></p>
 <p>​		解析：根据栈的规则和选项中的顺序挨个试. </p>
-<ol start="13">
+<h3 id="选择题13"><a href="#选择题13" class="headerlink" title="选择题13"></a>选择题13</h3><ol start="13">
 <li>对于一个头指针为 head 的带头节点的单链表，判定改表为空表的条件是（）</li>
 </ol>
 <p>​		A. head &#x3D;&#x3D; NULL     B. head !&#x3D; NULL        C. head-&gt;next &#x3D;&#x3D; head        D. head-&gt;next &#x3D;&#x3D; NULL</p>
 <p>​		<strong>答案：D</strong></p>
 <p>​		解析：</p>
 <p><img src="/2023/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE/image-20230411085417849.png"></p>
-<ol start="14">
+<h3 id="选择题14"><a href="#选择题14" class="headerlink" title="选择题14"></a>选择题14</h3><ol start="14">
 <li>栈和队列的共同点是（）</li>
 </ol>
 <p>​		A. 都是先进后出          B. 都是后进先出        C. 没有共同点        D. 只允许在端点处插入和删除元素 </p>
 <p>​		<strong>答案：D</strong></p>
-<ol start="15">
+<h3 id="选择题15"><a href="#选择题15" class="headerlink" title="选择题15"></a>选择题15</h3><ol start="15">
 <li>串是一种特殊的线性表，其特殊性体现在（）</li>
 </ol>
 <p>​		A. 数据元素是一个字符       B. 可以顺序存储     C. 可以链式存储     D. 数据元素可以是多个字符 </p>
@@ -590,7 +597,7 @@
 <p>​		<strong>答案： A</strong></p>
 <p>​		解析：</p>
 <p>​		<img src="/2023/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE/image-20230411090228118.png"></p>
-<ol start="16">
+<h3 id="选择题16"><a href="#选择题16" class="headerlink" title="选择题16"></a>选择题16</h3><ol start="16">
 <li><p>设有数组 A[i,j] ,数组每个元素长度为2字节，i的,值为1~6，j的值为1~9</p>
 <p>数组从内存首地址L开始顺序存放，当用以列为主存放时，元素 A[5,7]的存储首地址为（）</p>
 <p>A. L+78      B. L+80      C. L+82     D. L+84</p>
@@ -604,7 +611,7 @@
 <p>​		n为元素长度</p>
 <p>​		注意点：题目要求的是元素A[5,7]的首地址，而非元素的地址.</p>
 <p>​		<img src="/2023/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE/image-20230411095925680.png"></p>
-<ol start="17">
+<h3 id="选择题17"><a href="#选择题17" class="headerlink" title="选择题17"></a>选择题17</h3><ol start="17">
 <li>一棵完全二叉树上有1001个节点，则叶子节点的个数是（）</li>
 </ol>
 <p>​		A. 250       B. 500       C.254       </p>

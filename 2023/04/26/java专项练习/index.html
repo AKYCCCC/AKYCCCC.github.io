@@ -533,7 +533,113 @@ B. FileOutputStream">
 <p>(2) i &#x3D; i+1</p>
 <p>最后在赋值</p>
 <p>(3) i &#x3D; tmp</p>
-<h2 id="java多项选择题"><a href="#java多项选择题" class="headerlink" title="java多项选择题"></a>java多项选择题</h2><h3 id="多选题1"><a href="#多选题1" class="headerlink" title="多选题1"></a>多选题1</h3><ol>
+<h3 id="选择题3"><a href="#选择题3" class="headerlink" title="选择题3"></a>选择题3</h3><ol start="3">
+<li>下列类定义中哪些是合法的抽象类的定义？（）</li>
+</ol>
+<p>A .abstract Animal{abstract void growl();}</p>
+<p>B. class abstract Animal{abstract void growl();}</p>
+<p>C. abstract class Animal{abstract void growl();}</p>
+<p>D. abstract class Animal{abstract void growl(){System.out.println( “growl”);};}</p>
+<p><strong>答案：C</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>抽象类定义的语法：<code>abstract class 类名&#123;&#125;</code></p>
+<p>所以AB错</p>
+<p>CD类定义是对的</p>
+<p>但抽象类的成员方法不能有方法体.所以D错</p>
+</blockquote>
+<h3 id="选择题4"><a href="#选择题4" class="headerlink" title="选择题4"></a>选择题4</h3><ol start="4">
+<li>关于如下程序的描述哪个是正确的？（ ）</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">static</span> <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>A. 编译将产生错误</p>
+<p>B. 编译时正确，但运行时将产生错误</p>
+<p>C. 正确，输出0</p>
+<p>D. 正确，输出 null</p>
+<p><strong>答案：C</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>创建了Person类，类中定义了一个叫main的静态成员方法</p>
+<p>同时创建了静态成员变量arr数组.</p>
+<p>静态方法中输出静态数组的第一个元素</p>
+<p>java数组元素默认初始值为0</p>
+</blockquote>
+<h3 id="选择题5"><a href="#选择题5" class="headerlink" title="选择题5"></a>选择题5</h3><ol start="5">
+<li>将下列哪个代码（A、B、C、D）放入程序中标注的【代码】处将导致编译错误？</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">float</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token number">3.0f</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    【代码】
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>A. public float getNum(){return 4.0f;}</p>
+<p>B. public void getNum(){}</p>
+<p>C. public void getNum(double d){}</p>
+<p>D. public double getNum(float d){return 4.0d;}</p>
+<p><strong>答案：B</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>方法<strong>重写</strong>的规则：</p>
+<p>1.重写方法的访问权限必须必原方法更大</p>
+<p>2.形参和原方法相同</p>
+<p>3.返回值类型必须相同</p>
+<p>4.重写方法抛出的异常，必须小于原方法的异常.</p>
+<p>5.不能是final</p>
+<p>6.不能被继承的方法，不能被重写.</p>
+<p>方法<strong>重载</strong>的规则：</p>
+<p>1.方法名想同</p>
+<p>2.形参列表必须不同</p>
+<p>3.返回值可以相同可以不同</p>
+<p>4.只有返回值不同不能作为重载的依据</p>
+<p>A：标准的重写，方法名相同，返回值相同，形参相同，访问权限相同.没有异常.</p>
+<p>B：方法名相同，形参相同，只有返回值不同，但是返回值不能作为重载或者重写的依据.直接pass掉，报错</p>
+<p>C：方法名相同，返回值不同，形参列表不同，是方法重载</p>
+<p>D：方法名相同，返回值不同，形参列表不同，是方法重载</p>
+</blockquote>
+<h3 id="选择题6"><a href="#选择题6" class="headerlink" title="选择题6"></a>选择题6</h3><ol start="6">
+<li>关于final说法正确的是？  ( )</li>
+</ol>
+<p>A. final类的方法肯定不能被同一个包的类访问</p>
+<p>B. final类的方法能否被同一个包的类访问不是由final决定</p>
+<p>C. final方法等同于private方法</p>
+<p>D. final对象本身的引用和值都不能改变</p>
+<p><strong>答案：B</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>A和B：类的方法的访问权限和访问权限修饰符有关，和final无关，所以B是对的</p>
+<p>C：private是访问权限修饰符，final就是final关键字.不等同</p>
+<p>D：final对象本身的引用不可以改变，引用里边的值可以改变</p>
+</blockquote>
+<p>补充：</p>
+<p>final修饰类，类就无法被继承</p>
+<p>final修饰方法：方法可以被重载和继承，但是不能被重写（不能被覆盖）</p>
+<p>final修饰基本数据类型：变量必须手动赋值，系统不会默认赋值，赋值以后不能被改变.</p>
+<p>final修饰引用数据类型：指向的引用不可以修改，引用指向的内存中的值可以被修改.</p>
+<h3 id="选择题7"><a href="#选择题7" class="headerlink" title="选择题7"></a>选择题7</h3><ol start="7">
+<li>以下哪一个不是赋值符号？</li>
+</ol>
+<p>A. <code>+=</code>                   B. <code>&lt;&lt;=</code>                   C. <code>&lt;&lt;&lt;=</code>                       D. <code>&gt;&gt;&gt;=</code></p>
+<p><strong>答案：C</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>A：标准的赋值符号 加等于</p>
+<p>B：<code>&lt;&lt;</code>表示有符号左移位操作符，然后赋值</p>
+<p>C：<code>&lt;&lt;&lt;</code>没有无符号左移位.所以错误.因为左移无符号移位没有意义.所以没有.</p>
+<p>D：<code>&gt;&gt;&gt;</code>表示无符号右移，<code>&gt;&gt;</code>表示有符号右移.然后赋值</p>
+</blockquote>
+<p>补充：</p>
+<p>因为左移是在后面补0<br>而右移是在前面边补1或0<br>有无符号是取决于数的前面的第一位是0还是1<br>所以右移会产生到底补1还是0的问题。<br>而左移始终是在右边补0，不会产生符号问题。<br>所以没有必要无符号左移&lt;&lt;&lt;。<br>无符号左移&lt;&lt;&lt;和左移&lt;&lt;是一样的概念</p>
+<h3 id="选择题8"><a href="#选择题8" class="headerlink" title="选择题8"></a>选择题8</h3><h2 id="java多项选择题"><a href="#java多项选择题" class="headerlink" title="java多项选择题"></a>java多项选择题</h2><h3 id="多选题1"><a href="#多选题1" class="headerlink" title="多选题1"></a>多选题1</h3><ol>
 <li>下面哪几个语句正确的声明一个整型的二维数组（）</li>
 </ol>
 <p>A. <code>int a[][]=new int[][]</code></p>
@@ -546,6 +652,38 @@ B. FileOutputStream">
 <p>A：java中创建二维数组必须指定行的数量</p>
 <p>B：行的数量不可以在前面指定<code>int[10][] arr</code>或<code>int arr[10][]</code>都不行</p>
 </blockquote>
+<h3 id="多选题2"><a href="#多选题2" class="headerlink" title="多选题2"></a>多选题2</h3><ol start="2">
+<li>以下哪种JAVA的变量表达式使得变量a和变量b具有相同的内存引用地址( )</li>
+</ol>
+<p>A. String a &#x3D; “hello”; String b &#x3D; “hello”;</p>
+<p>B. Integer a; Integer b &#x3D; a;</p>
+<p>C. int a &#x3D; 1; Integer b &#x3D; new Integer(1);</p>
+<p>D. int a &#x3D; 1; Integer b &#x3D; 1;</p>
+<p><strong>答案AB</strong></p>
+<p>解析：</p>
+<blockquote>
+<p>A:在java底层的堆中有字符串池，用双引号创建的字符串会放进字符串池中，</p>
+<p>​				当再次用双引号创建字符串，会先去字符串池中找。没有在创建新的.</p>
+<p>B：先创建一个引用类型a,在创建一个引用类型b,把a赋值给b,所以a和b具有想同的内存地址.</p>
+<p>C：创建一个基本数据类型a,数字1存在栈中，a是栈中的地址，在创建引用类型b,b存的是堆中的地址，所以不同</p>
+<p>D：创建a，a是栈中的地址，在创建引用类型b,数字1因为有“自动装箱”操做的存在，所以b存的是堆中的地址.</p>
+</blockquote>
+<p>补充：</p>
+<p>（1）int与Integer、new Integer()进行&#x3D;&#x3D;比较时，结果永远为true</p>
+<ul>
+<li>因为有int基本数据类型的存在，在和Integer类型比较时，Integer会自动拆箱，然后用值进行比较.</li>
+</ul>
+<p>（2）Integer与new Integer()进行&#x3D;&#x3D;比较时，结果永远为false</p>
+<ul>
+<li>在Integer中，有自己先开好的一块内存空间，里面存着-128~127,这块空间叫IntegerCache</li>
+</ul>
+<p>​				当<code>Integer a = 数</code>会先在这块空间里找有没有这个数，如果没有就new一个新的.</p>
+<p>​				所以不管什么情况,结果都是false</p>
+<p>（3）Integer与Integer进行&#x3D;&#x3D;比较时，看范围；在大于等于-128小于等于127的范围内为true，在此范围外为false。</p>
+<ul>
+<li>范围在-128-127，且创建的是同一个数，那么true.</li>
+<li>如果一个在一个不在，那么false</li>
+</ul>
 <h2 id="java判断题"><a href="#java判断题" class="headerlink" title="java判断题"></a>java判断题</h2>
                 
             </div>
@@ -659,18 +797,17 @@ B. FileOutputStream">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/26/java%E4%B8%93%E9%A1%B9%E7%BB%83%E4%B9%A0/">
+                <a href="/2023/05/19/java-IDEA-Tomcat%E9%83%A8%E7%BD%B2web%E9%A1%B9%E7%9B%AE%EF%BC%9A%E5%9C%A8doPost%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%8A%A5%E9%94%99/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="java专项练习">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="java+IDEA+Tomcat部署web项目：在doPost中创建对象报错">
                         
-                        <span class="card-title">java专项练习</span>
+                        <span class="card-title">java+IDEA+Tomcat部署web项目：在doPost中创建对象报错</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -680,29 +817,20 @@ B. FileOutputStream">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
+                                    疑难解答
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">java学习</span>
-                    </a>
-                    
                 </div>
                 
             </div>

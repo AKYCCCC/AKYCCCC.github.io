@@ -789,7 +789,67 @@ conn<span class="token punctuation">.</span><span class="token function">setAuto
 <p>这么操作之后，不用DAO中的方法用的连接就是同一个.</p>
 <p>注意点：如果有一个用到这个连接的DAO类关闭了连接，那么其他用到这个连接的DAO类中的连接也回呗关闭.</p>
 <p>所以，不要在DAO类中关闭连接，而是在Service类中统一关闭.</p>
-<p><strong>这个ArrayList集合就叫ThreadLocal容器.实现多个DAO类使用相同的Connection连接</strong></p>
+<p><strong>这个ArrayList集合就是容器.实现多个DAO类使用相同的Connection连接</strong></p>
+<p><strong>但是使用ArrayList容器，在并发编程中存在资源竞争问题.</strong></p>
+<ul>
+<li><p>多个并发线程使用的是同一个Connection连接，也就是ArrayList中的那个连接</p>
+</li>
+<li><p>我们要的是同一个事物中用的同一个Connection连接.</p>
+</li>
+<li><p>而不是多个线程中用的同一个.</p>
+</li>
+</ul>
+<p><strong>使用ThreadLocal容器，作为数据库链接对象(Connection)的容器，</strong></p>
+<p>ThreadLocal容器的底层有一个map容器</p>
+<p>map：键值对</p>
+<p>一个线程，对应一个Conneection连接.就解决了并发编程的资源竞争问题.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">DBHelper</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">ThreadLocal</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Connection</span><span class="token punctuation">></span></span> tl <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadLocal</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//注册驱动、获取Connection对象</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Connection</span> <span class="token function">getConection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//自动根据线程获取对应的Connection连接</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> tl<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//这里和ArrayList一样</span>
+                conn <span class="token operator">=</span> <span class="token class-name">DriverManager</span><span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>user<span class="token punctuation">,</span>password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                tl<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"数据库连接失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> conn<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>关闭ThreadLocal容器中的Connection</strong></p>
+<p>因为ThradeLocal中的Connection对象，是一个线程用一个对象.</p>
+<p>所以关闭之前，要用get方法获取到当前线程的Connection对象，然后在关闭</p>
+<p>连接关闭完成之后，调用remove(),将容器中的连接删除掉</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">DBHelper</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">closeThreadLocalConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">SQLException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//获取当前线程的Connection连接</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> tl<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//关闭连接</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>conn<span class="token punctuation">.</span><span class="token function">isClosed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//删除当前线程的链接.</span>
+        tl<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>相应的，在DAO类中掉用的close方法，就不要关Connection连接.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DBHelper</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>rs<span class="token punctuation">,</span>pStat<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">DBHelper</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>pStat<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>在Service类中调用<code>closeThreadLocalConnection()</code>关闭连接</p>
 
                 
             </div>

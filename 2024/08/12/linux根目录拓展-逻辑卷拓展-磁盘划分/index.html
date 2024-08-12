@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: MySQL, AKYCCCC">
-    <meta name="description" content="AKYCCCC">
+    <meta name="keywords" content="linux根目录拓展-逻辑卷拓展-磁盘划分, AKYCCCC">
+    <meta name="description" content="linux 磁盘操作1.根目录拓展拓展：根目录拓展必须的条件：linux在安装时，根目录要使用lvm模式进行安装.其实就是和逻辑卷拓展一模一样的流程（先给根目录所在的卷组添加空间，然后用lvextend进行拓展）
+如果使用的是 默认的标准分">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@
 
     
 
-    <title>分类: MySQL | AKYCCCC</title>
+    <title>linux根目录拓展-逻辑卷拓展-磁盘划分 | AKYCCCC</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -305,246 +306,543 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    subtitle
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "从现在开始，做一个合格的程序员",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">linux根目录拓展-逻辑卷拓展-磁盘划分</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
-
-<main class="content">
+<main class="post-container content">
 
     
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
-<div id="category-cloud" class="container chip-container">
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" title="疑难解答: 20">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">疑难解答
-                        <span class="tag-length">20</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/cPlusPlus/" title="cPlusPlus: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">cPlusPlus
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/C/" title="C: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">C
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/java/" title="java: 22">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #E8F8F5;">java
-                        <span class="tag-length">22</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/JDBC/" title="JDBC: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">JDBC
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Markdown/" title="Markdown: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">Markdown
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/MySQL/" title="MySQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #82E0AA;">MySQL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D7BDE2;">博客
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%B8%B8%E6%88%8F%E5%A8%B1%E4%B9%90/" title="游戏娱乐: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">游戏娱乐
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%96%87%E6%A1%A3/" title="文档: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #85C1E9;">文档
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8C471;">数据结构
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/linux/" title="linux: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9E79F;">linux
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/git/" title="git: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/06/17/MySQL%E5%AD%A6%E4%B9%A0/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL学习">
-                            
-                            <span class="card-title">MySQL学习</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                简介MySQL的重要性MySQL好多公司都要求会用.学习视频使用MySQL8.0.26版本进行讲解，搭配使用MySQL5.7版本讲解刚开始使用windows讲解操作，之后使用linux进行操作
-
-学习过程分为上篇和篇上篇使用windows操
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    <div class="card-action article-tags">
+                    <div class="article-tag">
                         
-                        <a href="/tags/MySQL%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">MySQL学习</span>
-                        </a>
+                            <a href="/tags/linux%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">linux学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
                         
                     </div>
                     
                 </div>
             </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-12
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="linux-磁盘操作"><a href="#linux-磁盘操作" class="headerlink" title="linux 磁盘操作"></a>linux 磁盘操作</h1><h2 id="1-根目录拓展"><a href="#1-根目录拓展" class="headerlink" title="1.根目录拓展"></a>1.根目录拓展</h2><p>拓展：根目录拓展<br>必须的条件：linux在安装时，根目录要使用lvm模式进行安装.<br>其实就是和逻辑卷拓展一模一样的流程（先给根目录所在的卷组添加空间，然后用lvextend进行拓展）</p>
+<p>如果使用的是 默认的标准分区 安装的系统，则无法使用逻辑卷拓展这种方式</p>
+<h2 id="2-逻辑卷拓展"><a href="#2-逻辑卷拓展" class="headerlink" title="2.逻辑卷拓展"></a>2.逻辑卷拓展</h2><p>LVM（Logical Volume Manager） 逻辑卷管理<br>pv  (physical Volume)  物理卷<br>vg  (Volume Group)  卷组<br>lv  (Logical Volume)  逻辑卷</p>
+<p>1.先pv,将新加入的磁盘转换成物理卷</p>
+<pre class="line-numbers language-none"><code class="language-none">pvcreate 【&#x2F;dev磁盘路径】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查看命令: <code>pvscan</code></p>
+<p>2.然后用vg将物理卷加入到某一个卷组中</p>
+<pre class="line-numbers language-none"><code class="language-none">vgcreate 【自定义卷组名或已有的卷组】   【上一步创建的物理卷路径】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>！！如果不执行上一步，直接执行这一步，会自动将新磁盘转换成物理卷并加入卷组</p>
+<p>查看命令: <code>vgs</code></p>
+<p>3.再用lv</p>
+<pre class="line-numbers language-none"><code class="language-none">lvcreate  【-L 参数1】  【-n 参数2】 【参数3】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>-L : 指定创建的逻辑卷的大小  例如  ：<br>                            -L +1G    -L +200M<br>                            -l  100%FREE       -l 50%FREE<br>-n: 自定义逻辑卷名，或者已有的		<br>参数3： 卷组的组名<br>逻辑卷基于卷组，卷组有空间，逻辑卷才能创建</p>
+</blockquote>
+<p>查看命令： <code>lvs</code></p>
+<p>!!以上三步创建完成的逻辑卷路径是:	  <code>/dev/卷组名/逻辑卷名</code></p>
+<p>4.对逻辑卷进行格式化-挂载</p>
+<pre class="line-numbers language-none"><code class="language-none">mkfs.ext4  逻辑卷路径
+mount 挂载<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>永久挂载：编辑&#x2F;dev&#x2F;fstab文件 在文件最后添加:</p>
+<pre class="line-numbers language-none"><code class="language-none">【要挂谁】    【挂载哪里】    【磁盘格式】  【特殊说明】  【优先级】 【优先级】
+&#x2F;dev&#x2F;sda1	&#x2F;mnt&#x2F;disk1     ext4       defaults     0         0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>999.刷新磁盘<br><code>partprobe 【磁盘路径】  </code></p>
+<p>5.删除操作<br>递归式的删除<br>先查看有没有挂载，有挂载就先umount</p>
+<p>然后:  <code>lvremove  【逻辑卷路径】</code><br>然后:  <code>vgremove 【卷组名】       【物理卷路径】  有时一个卷组有多个物理卷，所以有第二个参数</code><br>然后:  <code>pvremove 【物理卷路径】</code></p>
+<p>6.逻辑卷拓展<br>必须满足的要求：逻辑卷(lv) 所在的 卷组(vg) 有空间才能拓展</p>
+<p>情况1：lv所在的vg有剩余空间<br>1.1 有空间直接拓展<br>        <code>lvextend -L 【指定空间大小+xxxM/G 或 100%FREE】 【/dev下的逻辑卷路径】</code><br>                    -L +1G    -L +200M<br>                    -l  100%FREE       -l 50%FREE<br>1.2拓展完成以后刷新一下<br>        <code>resize2fs 【/dev下刚才拓展的逻辑卷路径】</code></p>
+<p>情况2：lv所在的vg已经没有空间了<br>2.1 先给vg添加空间<br>        <code>vgextend 【卷组名】  【新加的物理卷】</code><br>2.2 重复情况1的操作</p>
+<h2 id="3-磁盘分区"><a href="#3-磁盘分区" class="headerlink" title="3.磁盘分区"></a>3.磁盘分区</h2><p>磁盘添加</p>
+<p>0.查看新硬盘情况<br><code>lsblk  </code><br><code>df	-hT</code><br><code>fdisk -l </code><br>以上三个命令都可以查看磁盘情况</p>
+<blockquote>
+<p>1.创建分区<br>fdisk  【&#x2F;dev下的磁盘路径】  	！！fdisk的内容都暂时保存在内存中，也就是说在使用w命令之前，随便你怎么搞，一点都不会影响到系统！！<br>fdisk中按p可以查看磁盘情况	</p>
+<p>fdisk 进行分区 	m 帮助<br>            n 新建一个分区<br>                    先问你是主分区还是拓展分区（p &amp; e）<br>                    然后问你新建磁盘分区的名字，从1-4中选<br>                    接着给磁盘分配空间，起始扇区直接回车，用默认的，结束扇区可以自己指定 例如<code>+2G</code>	<br>            w 写入磁盘	</p>
+</blockquote>
+<blockquote>
+<p>2.分区格式化<br>创建完分区以后对文件进行格式化<br>mkfs.ext4  【分区路径】<br>mkfs会清除所有数据</p>
+</blockquote>
+<blockquote>
+<p>3.挂载<br>mount 【要挂谁】  【挂在哪里】 	磁盘是 &#x2F;dev里       一般挂在&#x2F;mnt里<br>mount挂在重启会消失<br>永久挂载：编辑&#x2F;dev&#x2F;fstab文件 在文件最后添加   </p>
+<p>【要挂谁】   【挂载哪里】  【磁盘格式】  【特殊说明】  【优先级】 【优先级】<br>&#x2F;dev&#x2F;sda1      &#x2F;mnt&#x2F;disk1        ext4               defaults              0                      0</p>
+</blockquote>
+<p>999.刷新磁盘<br><code>partprobe 【磁盘路径】 </code> </p>
+<p>立刻挂载&#x2F;etc&#x2F;fstab中的磁盘<br><code>mount -a  </code></p>
+<p>删除分区<br>1.用umount把挂载的磁盘取消挂载<br><code>umount  【挂的谁/dev】    【挂在哪里/mnt】</code></p>
+<ol start="2">
+<li>fdisk 【&#x2F;dev下的磁盘路径】<br>  d 删除磁盘  （从后往前删）<br>删除完成.</li>
+</ol>
+<p>拓展分区（逻辑分区）<br>fdisk  【&#x2F;dev下的磁盘路径】<br>        n之后选e创建拓展分区（逻辑分区）<br>逻辑分区不能直接存数据，要使用 创建分区 的步骤进行分区-格式化-挂载</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AKYCCCC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://akycccc.github.io/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/">https://akycccc.github.io/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AKYCCCC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/linux%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">linux学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
         </div>
-    </article>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="linux根目录拓展-逻辑卷拓展-磁盘划分">
+                        
+                        <span class="card-title">linux根目录拓展-逻辑卷拓展-磁盘划分</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">linux学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/20/%E7%94%B5%E8%84%91%E7%9D%A1%E7%9C%A0%E5%90%8E%EF%BC%8C%E9%A3%8E%E6%89%87%E4%B8%80%E7%9B%B4%E8%BD%AC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="电脑睡眠后，风扇一直转">
+                        
+                        <span class="card-title">电脑睡眠后，风扇一直转</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
+                                    疑难解答
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 

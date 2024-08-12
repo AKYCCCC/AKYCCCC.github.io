@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>linux根目录拓展-逻辑卷拓展-磁盘划分</title>
+      <link href="/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/"/>
+      <url>/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="linux-磁盘操作"><a href="#linux-磁盘操作" class="headerlink" title="linux 磁盘操作"></a>linux 磁盘操作</h1><h2 id="1-根目录拓展"><a href="#1-根目录拓展" class="headerlink" title="1.根目录拓展"></a>1.根目录拓展</h2><p>拓展：根目录拓展<br>必须的条件：linux在安装时，根目录要使用lvm模式进行安装.<br>其实就是和逻辑卷拓展一模一样的流程（先给根目录所在的卷组添加空间，然后用lvextend进行拓展）</p><p>如果使用的是 默认的标准分区 安装的系统，则无法使用逻辑卷拓展这种方式</p><h2 id="2-逻辑卷拓展"><a href="#2-逻辑卷拓展" class="headerlink" title="2.逻辑卷拓展"></a>2.逻辑卷拓展</h2><p>LVM（Logical Volume Manager） 逻辑卷管理<br>pv  (physical Volume)  物理卷<br>vg  (Volume Group)  卷组<br>lv  (Logical Volume)  逻辑卷</p><p>1.先pv,将新加入的磁盘转换成物理卷</p><pre class="line-numbers language-none"><code class="language-none">pvcreate 【&#x2F;dev磁盘路径】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>查看命令: <code>pvscan</code></p><p>2.然后用vg将物理卷加入到某一个卷组中</p><pre class="line-numbers language-none"><code class="language-none">vgcreate 【自定义卷组名或已有的卷组】   【上一步创建的物理卷路径】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>！！如果不执行上一步，直接执行这一步，会自动将新磁盘转换成物理卷并加入卷组</p><p>查看命令: <code>vgs</code></p><p>3.再用lv</p><pre class="line-numbers language-none"><code class="language-none">lvcreate  【-L 参数1】  【-n 参数2】 【参数3】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><p>-L : 指定创建的逻辑卷的大小  例如  ：<br>                            -L +1G    -L +200M<br>                            -l  100%FREE       -l 50%FREE<br>-n: 自定义逻辑卷名，或者已有的<br>参数3： 卷组的组名<br>逻辑卷基于卷组，卷组有空间，逻辑卷才能创建</p></blockquote><p>查看命令： <code>lvs</code></p><p>!!以上三步创建完成的逻辑卷路径是:  <code>/dev/卷组名/逻辑卷名</code></p><p>4.对逻辑卷进行格式化-挂载</p><pre class="line-numbers language-none"><code class="language-none">mkfs.ext4  逻辑卷路径mount 挂载<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>永久挂载：编辑&#x2F;dev&#x2F;fstab文件 在文件最后添加:</p><pre class="line-numbers language-none"><code class="language-none">【要挂谁】    【挂载哪里】    【磁盘格式】  【特殊说明】  【优先级】 【优先级】&#x2F;dev&#x2F;sda1&#x2F;mnt&#x2F;disk1     ext4       defaults     0         0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>999.刷新磁盘<br><code>partprobe 【磁盘路径】  </code></p><p>5.删除操作<br>递归式的删除<br>先查看有没有挂载，有挂载就先umount</p><p>然后:  <code>lvremove  【逻辑卷路径】</code><br>然后:  <code>vgremove 【卷组名】       【物理卷路径】  有时一个卷组有多个物理卷，所以有第二个参数</code><br>然后:  <code>pvremove 【物理卷路径】</code></p><p>6.逻辑卷拓展<br>必须满足的要求：逻辑卷(lv) 所在的 卷组(vg) 有空间才能拓展</p><p>情况1：lv所在的vg有剩余空间<br>1.1 有空间直接拓展<br>        <code>lvextend -L 【指定空间大小+xxxM/G 或 100%FREE】 【/dev下的逻辑卷路径】</code><br>                    -L +1G    -L +200M<br>                    -l  100%FREE       -l 50%FREE<br>1.2拓展完成以后刷新一下<br>        <code>resize2fs 【/dev下刚才拓展的逻辑卷路径】</code></p><p>情况2：lv所在的vg已经没有空间了<br>2.1 先给vg添加空间<br>        <code>vgextend 【卷组名】  【新加的物理卷】</code><br>2.2 重复情况1的操作</p><h2 id="3-磁盘分区"><a href="#3-磁盘分区" class="headerlink" title="3.磁盘分区"></a>3.磁盘分区</h2><p>磁盘添加</p><p>0.查看新硬盘情况<br><code>lsblk  </code><br><code>df-hT</code><br><code>fdisk -l </code><br>以上三个命令都可以查看磁盘情况</p><blockquote><p>1.创建分区<br>fdisk  【&#x2F;dev下的磁盘路径】  ！！fdisk的内容都暂时保存在内存中，也就是说在使用w命令之前，随便你怎么搞，一点都不会影响到系统！！<br>fdisk中按p可以查看磁盘情况</p><p>fdisk 进行分区 m 帮助<br>            n 新建一个分区<br>                    先问你是主分区还是拓展分区（p &amp; e）<br>                    然后问你新建磁盘分区的名字，从1-4中选<br>                    接着给磁盘分配空间，起始扇区直接回车，用默认的，结束扇区可以自己指定 例如<code>+2G</code><br>            w 写入磁盘</p></blockquote><blockquote><p>2.分区格式化<br>创建完分区以后对文件进行格式化<br>mkfs.ext4  【分区路径】<br>mkfs会清除所有数据</p></blockquote><blockquote><p>3.挂载<br>mount 【要挂谁】  【挂在哪里】 磁盘是 &#x2F;dev里       一般挂在&#x2F;mnt里<br>mount挂在重启会消失<br>永久挂载：编辑&#x2F;dev&#x2F;fstab文件 在文件最后添加   </p><p>【要挂谁】   【挂载哪里】  【磁盘格式】  【特殊说明】  【优先级】 【优先级】<br>&#x2F;dev&#x2F;sda1      &#x2F;mnt&#x2F;disk1        ext4               defaults              0                      0</p></blockquote><p>999.刷新磁盘<br><code>partprobe 【磁盘路径】 </code> </p><p>立刻挂载&#x2F;etc&#x2F;fstab中的磁盘<br><code>mount -a  </code></p><p>删除分区<br>1.用umount把挂载的磁盘取消挂载<br><code>umount  【挂的谁/dev】    【挂在哪里/mnt】</code></p><ol start="2"><li>fdisk 【&#x2F;dev下的磁盘路径】<br>  d 删除磁盘  （从后往前删）<br>删除完成.</li></ol><p>拓展分区（逻辑分区）<br>fdisk  【&#x2F;dev下的磁盘路径】<br>        n之后选e创建拓展分区（逻辑分区）<br>逻辑分区不能直接存数据，要使用 创建分区 的步骤进行分区-格式化-挂载</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>电脑睡眠后，风扇一直转</title>
       <link href="/2024/02/20/%E7%94%B5%E8%84%91%E7%9D%A1%E7%9C%A0%E5%90%8E%EF%BC%8C%E9%A3%8E%E6%89%87%E4%B8%80%E7%9B%B4%E8%BD%AC/"/>
       <url>/2024/02/20/%E7%94%B5%E8%84%91%E7%9D%A1%E7%9C%A0%E5%90%8E%EF%BC%8C%E9%A3%8E%E6%89%87%E4%B8%80%E7%9B%B4%E8%BD%AC/</url>
@@ -27,7 +52,7 @@
       <link href="/2024/01/01/git%E5%88%9D%E5%AD%A6/"/>
       <url>/2024/01/01/git%E5%88%9D%E5%AD%A6/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>git是一个管理代码的工具.</p><p>国内的gitee和国外的github没什么差别.开源软件的种类可能不如github.</p><p>对于初学者，gitee访问快、免费、功能上也完全满足.</p><h1 id="git的用处"><a href="#git的用处" class="headerlink" title="git的用处"></a>git的用处</h1><ol><li><p>版本控制</p></li><li><p>集中式版本控制</p></li><li><p>分布式版本控制</p></li><li><p>多人协作开发</p></li><li><p>保存和管理文件</p></li><li><p>文件对比</p></li></ol><h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><p>当有人修改文件并提交保存以后，会生成一个新版本的文件，旧版本文件会继续保存在原位.</p><p>如果新的文件出现问题，可以回退到之前的版本</p><p>git中有文件比对功能，来区别不同版本的文件.</p><h2 id="集中式版本控制"><a href="#集中式版本控制" class="headerlink" title="集中式版本控制"></a>集中式版本控制</h2><p>每个人可以在本地修改文件，修改完成后提交到统一的服务器进行管理.</p><p>提交时会记录下提交人的信息，还有文件的版本信息等</p><h2 id="多人协作开发"><a href="#多人协作开发" class="headerlink" title="多人协作开发"></a>多人协作开发</h2><p>不同的人，通过同一台服务器来拉取文件.</p><p>修改完成后，提交到同一台服务器中进行管理.</p><p>可以创建分支， 每个人负责分支中的内容，完成后进行合并.</p><h2 id="分布式版本控制"><a href="#分布式版本控制" class="headerlink" title="分布式版本控制"></a>分布式版本控制</h2><p>除了主服务器里的仓库，在本地也建了一个仓库.</p><p>本地仓库中的内容和主服务器里的一模一样.</p><p>当我们对文件进行操作时，是从本地的仓库进行拉取文件.</p><p>这么做的好处是，就算主服务器坏了，本地还在。本地坏了，服务器的还在.</p><p>坏处就是，文件大了，占本地空间.</p><h2 id="保存和管理文件"><a href="#保存和管理文件" class="headerlink" title="保存和管理文件"></a>保存和管理文件</h2><p>可以提交文件到专用的仓库服务器进行托管</p><p>也可以在本地创建仓库，本地操作.</p><p>文件误删，丢失，可以恢复.</p><p>误操作可以回滚.</p><h2 id="文件对比"><a href="#文件对比" class="headerlink" title="文件对比"></a>文件对比</h2><p>会自动看文件有没有被修改.</p><p>会自动看文件内容有没有发生变化</p><p>如果不同分支中有同名文件，但是文件内容不同，在合并时会让你自己进行选择.</p><p>图片、压缩包什么的文件是无法比对的.</p><h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul><li>创建</li><li>删除</li><li>修改</li><li>查找</li><li>提交</li><li>分支</li><li>合并</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>git是一个管理代码的工具.</p><p>国内的gitee和国外的github没什么差别.开源软件的种类可能不如github.</p><p>对于初学者，gitee访问快、免费、功能上也完全满足.</p><h1 id="git的用处"><a href="#git的用处" class="headerlink" title="git的用处"></a>git的用处</h1><ol><li><p>版本控制</p></li><li><p>集中式版本控制</p></li><li><p>分布式版本控制</p></li><li><p>多人协作开发</p></li><li><p>保存和管理文件</p></li><li><p>文件对比</p></li></ol><h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul><li>创建</li><li>删除</li><li>修改</li><li>查找</li><li>提交</li><li>分支</li><li>合并</li></ul>]]></content>
       
       
       <categories>

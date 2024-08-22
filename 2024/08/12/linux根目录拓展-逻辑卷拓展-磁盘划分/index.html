@@ -514,7 +514,19 @@ mount 挂载<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 
 <p>999.刷新磁盘<br><code>partprobe 【磁盘路径】  </code></p>
 <p>5.删除操作<br>递归式的删除<br>先查看有没有挂载，有挂载就先umount</p>
-<p>然后:  <code>lvremove  【逻辑卷路径】</code><br>然后:  <code>vgremove 【卷组名】       【物理卷路径】  有时一个卷组有多个物理卷，所以有第二个参数</code><br>然后:  <code>pvremove 【物理卷路径】</code></p>
+<p>然后:  <code>lvremove  【逻辑卷路径】</code></p>
+<ul>
+<li><code>lvremove</code>命令删除一个逻辑卷时，只是从卷组中移除了该逻辑卷的定义和元数据，但并没有实际删除存储在物理磁盘上的数据。</li>
+</ul>
+<p>然后:<code>vgreduce 【卷组名】 【卷组中的逻辑卷路径】</code></p>
+<ul>
+<li><code>vgreduce</code>命令来移除卷组中的逻辑卷。<code>vgreduce</code>命令会逐个删除逻辑卷，并确保它们不再属于卷组。</li>
+</ul>
+<p>然后:  <code>vgremove 【卷组名】       【物理卷路径】  有时一个卷组有多个物理卷，所以有第二个参数</code></p>
+<ul>
+<li><code>vgremove</code>删除一个卷组，它不会自动处理卷组中的何逻辑卷。如果卷组中还有逻辑卷存在，那么这些逻辑卷将无法被正确地删除，因为它们仍然属于该卷组的一部分。</li>
+</ul>
+<p>然后:  <code>pvremove 【物理卷路径】</code></p>
 <p>6.逻辑卷拓展<br>必须满足的要求：逻辑卷(lv) 所在的 卷组(vg) 有空间才能拓展</p>
 <p>情况1：lv所在的vg有剩余空间<br>1.1 有空间直接拓展<br>        <code>lvextend -L 【指定空间大小+xxxM/G 或 100%FREE】 【/dev下的逻辑卷路径】</code><br>                    -L +1G    -L +200M<br>                    -l  100%FREE       -l 50%FREE<br>1.2拓展完成以后刷新一下<br>        <code>resize2fs 【/dev下刚才拓展的逻辑卷路径】</code></p>
 <p>情况2：lv所在的vg已经没有空间了<br>2.1 先给vg添加空间<br>        <code>vgextend 【卷组名】  【新加的物理卷】</code><br>2.2 重复情况1的操作</p>
@@ -651,18 +663,17 @@ mount 挂载<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/08/12/linux%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%8B%93%E5%B1%95-%E9%80%BB%E8%BE%91%E5%8D%B7%E6%8B%93%E5%B1%95-%E7%A3%81%E7%9B%98%E5%88%92%E5%88%86/">
+                <a href="/2024/08/22/ubuntu24-04%E8%BF%9B%E5%85%A5kvm%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E5%8D%A1%E4%BD%8F%E4%B8%8D%E5%8A%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="linux根目录拓展-逻辑卷拓展-磁盘划分">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="ubuntu24.04进入kvm虚拟机时卡住不动">
                         
-                        <span class="card-title">linux根目录拓展-逻辑卷拓展-磁盘划分</span>
+                        <span class="card-title">ubuntu24.04进入kvm虚拟机时卡住不动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -672,29 +683,20 @@ mount 挂载<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94/" class="post-category">
+                                    疑难解答
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/linux%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">linux学习</span>
-                    </a>
-                    
                 </div>
                 
             </div>

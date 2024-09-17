@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>centos7-所有yum源突然无法使用</title>
+      <link href="/2024/09/18/centos7-%E6%89%80%E6%9C%89yum%E6%BA%90%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"/>
+      <url>/2024/09/18/centos7-%E6%89%80%E6%9C%89yum%E6%BA%90%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="centos7-所有yum源突然无法使用"><a href="#centos7-所有yum源突然无法使用" class="headerlink" title="centos7-所有yum源突然无法使用"></a>centos7-所有yum源突然无法使用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>1.已经确定不是网络问题（ping的通）</p><p>2.yum源完全正确配置</p><p>3.就在刚刚还能完全正常使用</p><p>回过头就发现<strong>所有</strong>的yum源无法使用(yum list也没反应)</p><h2 id="问题产生的原因"><a href="#问题产生的原因" class="headerlink" title="问题产生的原因"></a>问题产生的原因</h2><p>我的原因：</p><p>在我使用一个yum源时，这个yum源自己配置了新的yum源</p><p>然而这个新的yum源是无法连接或使用的</p><p>最后导致了所有的yum源都无法使用</p><p>最终归纳：一个无法使用的yum源文件，导致所有正常的yum源无法使用</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>删除无法使用的yum源</p><p>问：如何找到是哪个yum源无法使用？</p><p>答：使用yum时，可能会报出对应的yum源中的某些关键字。</p><p>如果找不到关键字，我目前也就只会一个一个排查了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 疑难解答 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ubuntu24.04进入kvm虚拟机时卡住不动</title>
       <link href="/2024/08/22/ubuntu24-04%E8%BF%9B%E5%85%A5kvm%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E5%8D%A1%E4%BD%8F%E4%B8%8D%E5%8A%A8/"/>
       <url>/2024/08/22/ubuntu24-04%E8%BF%9B%E5%85%A5kvm%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E5%8D%A1%E4%BD%8F%E4%B8%8D%E5%8A%A8/</url>
